@@ -30,27 +30,45 @@ class LogInViewController: UIViewController {
     
     
     func configureUI() {
-        emailTextField.layer.borderWidth = 2
-        emailTextField.layer.borderColor = UIColor(named: "MainColor")?.cgColor
-        emailTextField.layer.cornerRadius = 20
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
+        emailTextField.layer.cornerRadius = 15
         emailTextField.placeholder = "이메일"
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.clearButtonMode = .always
         
-        passwordTextField.layer.borderWidth = 2
-        passwordTextField.layer.borderColor = UIColor(named: "MainColor")?.cgColor
-        passwordTextField.layer.cornerRadius = 20
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
+        passwordTextField.layer.cornerRadius = 15
         passwordTextField.placeholder = "패스워드"
+        passwordTextField.keyboardType = .emailAddress
+        passwordTextField.clearButtonMode = .always
         
+        logInButton.layer.borderWidth = 1
         logInButton.backgroundColor = UIColor(named: "MainColor")
-        logInButton.layer.cornerRadius = 20
+        logInButton.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
+        logInButton.layer.cornerRadius = 15
+        logInButton.setTitle("로그인하기", for: .normal)
+        logInButton.setTitleColor(.black, for: .normal)
+        
+        signUpButton.setTitleColor(.black, for: .normal)
+        signUpButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
         
         
     }
+    
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         // tap bar 첫번째 화면으로 이동
     }
     
+    
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         // 회원가입 화면으로 이동
+        guard let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "signUpVC") as? SignUpViewController else { return }
+        self.present(signUpVC, animated: true, completion: nil)
+        
     }
+    
+ 
 }
