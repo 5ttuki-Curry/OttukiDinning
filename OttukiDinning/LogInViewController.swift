@@ -30,14 +30,17 @@ class LogInViewController: UIViewController {
     
     
     func configureUI() {
+        emailTextField.layer.borderWidth = 2
+        emailTextField.layer.borderColor = UIColor(named: "MainColor")?.cgColor
         emailTextField.layer.cornerRadius = 20
         emailTextField.placeholder = "이메일"
-        emailTextField.borderStyle = .roundedRect
         
+        passwordTextField.layer.borderWidth = 2
+        passwordTextField.layer.borderColor = UIColor(named: "MainColor")?.cgColor
         passwordTextField.layer.cornerRadius = 20
         passwordTextField.placeholder = "패스워드"
         
-        logInButton.backgroundColor = 
+        logInButton.backgroundColor = UIColor(named: "MainColor")
         logInButton.layer.cornerRadius = 20
         
         

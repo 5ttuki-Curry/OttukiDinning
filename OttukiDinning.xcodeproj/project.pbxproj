@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C842E6C2BD6429900E45442 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C842E6B2BD6429900E45442 /* main.storyboard */; };
+		9C842E6C2BD6429900E45442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C842E6B2BD6429900E45442 /* Main.storyboard */; };
 		9C842E722BD6439300E45442 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C842E712BD6439300E45442 /* LogInViewController.swift */; };
 		FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB52BD6349B001A046A /* AppDelegate.swift */; };
 		FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */; };
@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C842E6B2BD6429900E45442 /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		9C842E6B2BD6429900E45442 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9C842E712BD6439300E45442 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FF8F7CB22BD6349B001A046A /* OttukiDinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OttukiDinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CB52BD6349B001A046A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
 				FF8F7CC62BD6349C001A046A /* Info.plist */,
 				FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */,
-				9C842E6B2BD6429900E45442 /* main.storyboard */,
+				9C842E6B2BD6429900E45442 /* Main.storyboard */,
 				9C842E712BD6439300E45442 /* LogInViewController.swift */,
 			);
 			path = OttukiDinning;
@@ -235,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
-				9C842E6C2BD6429900E45442 /* main.storyboard in Resources */,
+				9C842E6C2BD6429900E45442 /* Main.storyboard in Resources */,
 				FF8F7CC52BD6349C001A046A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
