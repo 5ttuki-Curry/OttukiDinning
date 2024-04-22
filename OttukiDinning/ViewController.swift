@@ -14,7 +14,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         // 주석 추가
     }
-
+    
+    func MainView() {
+        
+    }
 
 }
 
