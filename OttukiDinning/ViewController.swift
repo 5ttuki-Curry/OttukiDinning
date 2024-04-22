@@ -13,6 +13,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // 주석 추가
+        // branch 연결 테스트용 주석
+        
     }
     
     func MainView() {
