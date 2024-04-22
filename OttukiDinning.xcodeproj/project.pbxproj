@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB52BD6349B001A046A /* AppDelegate.swift */; };
+		FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */; };
+		FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB92BD6349B001A046A /* ViewController.swift */; };
+		FF8F7CBD2BD6349B001A046A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CBC2BD6349B001A046A /* Base */; };
+		FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */; };
+		FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CC12BD6349C001A046A /* Assets.xcassets */; };
+		FF8F7CC52BD6349C001A046A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CC42BD6349C001A046A /* Base */; };
+		FF8F7CD02BD6349C001A046A /* OttukiDinningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CCF2BD6349C001A046A /* OttukiDinningTests.swift */; };
+		FF8F7CDA2BD6349C001A046A /* OttukiDinningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CD92BD6349C001A046A /* OttukiDinningUITests.swift */; };
+		FF8F7CDC2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF8F7CCC2BD6349C001A046A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF8F7CAA2BD6349B001A046A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF8F7CB12BD6349B001A046A;
+			remoteInfo = OttukiDinning;
+		};
+		FF8F7CD62BD6349C001A046A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF8F7CAA2BD6349B001A046A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF8F7CB12BD6349B001A046A;
+			remoteInfo = OttukiDinning;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FF8F7CB22BD6349B001A046A /* OttukiDinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OttukiDinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8F7CB52BD6349B001A046A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FF8F7CB92BD6349B001A046A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF8F7CBC2BD6349B001A046A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF8F7CBF2BD6349B001A046A /* OttukiDinning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OttukiDinning.xcdatamodel; sourceTree = "<group>"; };
+		FF8F7CC12BD6349C001A046A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF8F7CC42BD6349C001A046A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF8F7CC62BD6349C001A046A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF8F7CCB2BD6349C001A046A /* OttukiDinningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttukiDinningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8F7CCF2BD6349C001A046A /* OttukiDinningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttukiDinningTests.swift; sourceTree = "<group>"; };
+		FF8F7CD52BD6349C001A046A /* OttukiDinningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttukiDinningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8F7CD92BD6349C001A046A /* OttukiDinningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttukiDinningUITests.swift; sourceTree = "<group>"; };
+		FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttukiDinningUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF8F7CAF2BD6349B001A046A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8F7CC82BD6349C001A046A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8F7CD22BD6349C001A046A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF8F7CA92BD6349B001A046A = {
+			isa = PBXGroup;
+			children = (
+				FF8F7CB42BD6349B001A046A /* OttukiDinning */,
+				FF8F7CCE2BD6349C001A046A /* OttukiDinningTests */,
+				FF8F7CD82BD6349C001A046A /* OttukiDinningUITests */,
+				FF8F7CB32BD6349B001A046A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF8F7CB32BD6349B001A046A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F7CB22BD6349B001A046A /* OttukiDinning.app */,
+				FF8F7CCB2BD6349C001A046A /* OttukiDinningTests.xctest */,
+				FF8F7CD52BD6349C001A046A /* OttukiDinningUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF8F7CB42BD6349B001A046A /* OttukiDinning */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F7CB52BD6349B001A046A /* AppDelegate.swift */,
+				FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */,
+				FF8F7CB92BD6349B001A046A /* ViewController.swift */,
+				FF8F7CBB2BD6349B001A046A /* Main.storyboard */,
+				FF8F7CC12BD6349C001A046A /* Assets.xcassets */,
+				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
+				FF8F7CC62BD6349C001A046A /* Info.plist */,
+				FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */,
+			);
+			path = OttukiDinning;
+			sourceTree = "<group>";
+		};
+		FF8F7CCE2BD6349C001A046A /* OttukiDinningTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F7CCF2BD6349C001A046A /* OttukiDinningTests.swift */,
+			);
+			path = OttukiDinningTests;
+			sourceTree = "<group>";
+		};
+		FF8F7CD82BD6349C001A046A /* OttukiDinningUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F7CD92BD6349C001A046A /* OttukiDinningUITests.swift */,
+				FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */,
+			);
+			path = OttukiDinningUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF8F7CB12BD6349B001A046A /* OttukiDinning */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF8F7CDF2BD6349C001A046A /* Build configuration list for PBXNativeTarget "OttukiDinning" */;
+			buildPhases = (
+				FF8F7CAE2BD6349B001A046A /* Sources */,
+				FF8F7CAF2BD6349B001A046A /* Frameworks */,
+				FF8F7CB02BD6349B001A046A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OttukiDinning;
+			productName = OttukiDinning;
+			productReference = FF8F7CB22BD6349B001A046A /* OttukiDinning.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF8F7CCA2BD6349C001A046A /* OttukiDinningTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF8F7CE22BD6349C001A046A /* Build configuration list for PBXNativeTarget "OttukiDinningTests" */;
+			buildPhases = (
+				FF8F7CC72BD6349C001A046A /* Sources */,
+				FF8F7CC82BD6349C001A046A /* Frameworks */,
+				FF8F7CC92BD6349C001A046A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF8F7CCD2BD6349C001A046A /* PBXTargetDependency */,
+			);
+			name = OttukiDinningTests;
+			productName = OttukiDinningTests;
+			productReference = FF8F7CCB2BD6349C001A046A /* OttukiDinningTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FF8F7CD42BD6349C001A046A /* OttukiDinningUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF8F7CE52BD6349C001A046A /* Build configuration list for PBXNativeTarget "OttukiDinningUITests" */;
+			buildPhases = (
+				FF8F7CD12BD6349C001A046A /* Sources */,
+				FF8F7CD22BD6349C001A046A /* Frameworks */,
+				FF8F7CD32BD6349C001A046A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF8F7CD72BD6349C001A046A /* PBXTargetDependency */,
+			);
+			name = OttukiDinningUITests;
+			productName = OttukiDinningUITests;
+			productReference = FF8F7CD52BD6349C001A046A /* OttukiDinningUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF8F7CAA2BD6349B001A046A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					FF8F7CB12BD6349B001A046A = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					FF8F7CCA2BD6349C001A046A = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = FF8F7CB12BD6349B001A046A;
+					};
+					FF8F7CD42BD6349C001A046A = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = FF8F7CB12BD6349B001A046A;
+					};
+				};
+			};
+			buildConfigurationList = FF8F7CAD2BD6349B001A046A /* Build configuration list for PBXProject "OttukiDinning" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF8F7CA92BD6349B001A046A;
+			productRefGroup = FF8F7CB32BD6349B001A046A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF8F7CB12BD6349B001A046A /* OttukiDinning */,
+				FF8F7CCA2BD6349C001A046A /* OttukiDinningTests */,
+				FF8F7CD42BD6349C001A046A /* OttukiDinningUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF8F7CB02BD6349B001A046A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
+				FF8F7CC52BD6349C001A046A /* Base in Resources */,
+				FF8F7CBD2BD6349B001A046A /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8F7CC92BD6349C001A046A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8F7CD32BD6349C001A046A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF8F7CAE2BD6349B001A046A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */,
+				FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */,
+				FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */,
+				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8F7CC72BD6349C001A046A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8F7CD02BD6349C001A046A /* OttukiDinningTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8F7CD12BD6349C001A046A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8F7CDC2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift in Sources */,
+				FF8F7CDA2BD6349C001A046A /* OttukiDinningUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF8F7CCD2BD6349C001A046A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF8F7CB12BD6349B001A046A /* OttukiDinning */;
+			targetProxy = FF8F7CCC2BD6349C001A046A /* PBXContainerItemProxy */;
+		};
+		FF8F7CD72BD6349C001A046A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF8F7CB12BD6349B001A046A /* OttukiDinning */;
+			targetProxy = FF8F7CD62BD6349C001A046A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF8F7CBB2BD6349B001A046A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF8F7CBC2BD6349B001A046A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF8F7CC42BD6349C001A046A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF8F7CDD2BD6349C001A046A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF8F7CDE2BD6349C001A046A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF8F7CE02BD6349C001A046A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5259JUBP8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OttukiDinning/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinning;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF8F7CE12BD6349C001A046A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5259JUBP8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OttukiDinning/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinning;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FF8F7CE32BD6349C001A046A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5259JUBP8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinningTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OttukiDinning.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OttukiDinning";
+			};
+			name = Debug;
+		};
+		FF8F7CE42BD6349C001A046A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5259JUBP8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinningTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OttukiDinning.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OttukiDinning";
+			};
+			name = Release;
+		};
+		FF8F7CE62BD6349C001A046A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5259JUBP8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinningUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OttukiDinning;
+			};
+			name = Debug;
+		};
+		FF8F7CE72BD6349C001A046A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5259JUBP8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinningUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OttukiDinning;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF8F7CAD2BD6349B001A046A /* Build configuration list for PBXProject "OttukiDinning" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF8F7CDD2BD6349C001A046A /* Debug */,
+				FF8F7CDE2BD6349C001A046A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF8F7CDF2BD6349C001A046A /* Build configuration list for PBXNativeTarget "OttukiDinning" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF8F7CE02BD6349C001A046A /* Debug */,
+				FF8F7CE12BD6349C001A046A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF8F7CE22BD6349C001A046A /* Build configuration list for PBXNativeTarget "OttukiDinningTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF8F7CE32BD6349C001A046A /* Debug */,
+				FF8F7CE42BD6349C001A046A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF8F7CE52BD6349C001A046A /* Build configuration list for PBXNativeTarget "OttukiDinningUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF8F7CE62BD6349C001A046A /* Debug */,
+				FF8F7CE72BD6349C001A046A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF8F7CBF2BD6349B001A046A /* OttukiDinning.xcdatamodel */,
+			);
+			currentVersion = FF8F7CBF2BD6349B001A046A /* OttukiDinning.xcdatamodel */;
+			path = OttukiDinning.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FF8F7CAA2BD6349B001A046A /* Project object */;
+}
