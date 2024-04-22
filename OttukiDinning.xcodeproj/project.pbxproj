@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C842E6C2BD6429900E45442 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C842E6B2BD6429900E45442 /* main.storyboard */; };
+		9C842E722BD6439300E45442 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C842E712BD6439300E45442 /* LogInViewController.swift */; };
 		FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB52BD6349B001A046A /* AppDelegate.swift */; };
 		FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */; };
-		FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB92BD6349B001A046A /* ViewController.swift */; };
-		FF8F7CBD2BD6349B001A046A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CBC2BD6349B001A046A /* Base */; };
 		FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */; };
 		FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CC12BD6349C001A046A /* Assets.xcassets */; };
 		FF8F7CC52BD6349C001A046A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CC42BD6349C001A046A /* Base */; };
@@ -37,11 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C842E6B2BD6429900E45442 /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		9C842E712BD6439300E45442 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FF8F7CB22BD6349B001A046A /* OttukiDinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OttukiDinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CB52BD6349B001A046A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF8F7CB92BD6349B001A046A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FF8F7CBC2BD6349B001A046A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF8F7CBF2BD6349B001A046A /* OttukiDinning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OttukiDinning.xcdatamodel; sourceTree = "<group>"; };
 		FF8F7CC12BD6349C001A046A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8F7CC42BD6349C001A046A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,12 +103,12 @@
 			children = (
 				FF8F7CB52BD6349B001A046A /* AppDelegate.swift */,
 				FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */,
-				FF8F7CB92BD6349B001A046A /* ViewController.swift */,
-				FF8F7CBB2BD6349B001A046A /* Main.storyboard */,
 				FF8F7CC12BD6349C001A046A /* Assets.xcassets */,
 				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
 				FF8F7CC62BD6349C001A046A /* Info.plist */,
 				FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */,
+				9C842E6B2BD6429900E45442 /* main.storyboard */,
+				9C842E712BD6439300E45442 /* LogInViewController.swift */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -235,8 +235,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
+				9C842E6C2BD6429900E45442 /* main.storyboard in Resources */,
 				FF8F7CC52BD6349C001A046A /* Base in Resources */,
-				FF8F7CBD2BD6349B001A046A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */,
+				9C842E722BD6439300E45442 /* LogInViewController.swift in Sources */,
 				FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */,
 				FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */,
 				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
@@ -301,14 +301,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FF8F7CBB2BD6349B001A046A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF8F7CBC2BD6349B001A046A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -462,9 +454,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -491,9 +486,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
