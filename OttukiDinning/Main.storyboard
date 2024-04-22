@@ -41,8 +41,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5Bm-hc-P6V"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="logInButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rec-nq-Xqf"/>
                                 </connections>
@@ -94,8 +95,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zFj-BI-Gug"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -120,7 +122,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="KVk-Na-6My" id="d1o-uN-ZYY"/>
+                        <outlet property="idTextField" destination="KVk-Na-6My" id="MVK-K9-bu4"/>
                         <outlet property="logInButton" destination="NlJ-hO-v22" id="uwW-bO-VeT"/>
                         <outlet property="passwordTextField" destination="nTS-2L-Kt9" id="P0Q-Vt-jUL"/>
                         <outlet property="signUpButton" destination="1gx-dw-oTO" id="2VW-8l-X1t"/>
@@ -171,8 +173,8 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVy-Fu-aJD">
                                         <rect key="frame" x="0.0" y="165" width="313" height="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -181,8 +183,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Zx9-DO-1Xr"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-K2-UFj">
                                 <rect key="frame" x="41" y="549" width="313" height="3"/>
@@ -219,6 +222,12 @@
                             <constraint firstItem="CWh-K2-UFj" firstAttribute="top" secondItem="zuO-xS-ooV" secondAttribute="bottom" constant="45" id="zWk-lt-l8c"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkPasswordTextField" destination="6r9-Z7-h4z" id="1Pm-v2-GDD"/>
+                        <outlet property="emailTextField" destination="gd6-KM-hBR" id="crl-Zd-Ybm"/>
+                        <outlet property="makeAccountButton" destination="BVy-Fu-aJD" id="qyc-ZQ-zxA"/>
+                        <outlet property="setPasswordTextField" destination="D8n-MP-F2j" id="NT6-tX-rjO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1C-XN-Otb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

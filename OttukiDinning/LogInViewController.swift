@@ -10,8 +10,7 @@ import UIKit
 class LogInViewController: UIViewController {
 
     
-    
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -30,12 +29,12 @@ class LogInViewController: UIViewController {
     
     
     func configureUI() {
-        emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
-        emailTextField.layer.cornerRadius = 15
-        emailTextField.placeholder = "이메일"
-        emailTextField.keyboardType = .emailAddress
-        emailTextField.clearButtonMode = .always
+        idTextField.layer.borderWidth = 1
+        idTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
+        idTextField.layer.cornerRadius = 15
+        idTextField.placeholder = "이메일"
+        idTextField.keyboardType = .emailAddress
+        idTextField.clearButtonMode = .always
         
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -45,9 +44,9 @@ class LogInViewController: UIViewController {
         passwordTextField.clearButtonMode = .always
         
         logInButton.layer.borderWidth = 1
-        logInButton.backgroundColor = UIColor(named: "MainColor")
         logInButton.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         logInButton.layer.cornerRadius = 15
+        logInButton.backgroundColor = UIColor(named: "MainColor")
         logInButton.setTitle("로그인하기", for: .normal)
         logInButton.setTitleColor(.black, for: .normal)
         
