@@ -20,7 +20,6 @@ class SignUpViewController: UIViewController {
     // 카카오로 시작 버튼 구현 여부는 추후 결정
     
     let defaults = UserDefaults.standard
-    var valueCount = 0
     
     
     override func viewDidLoad() {
@@ -31,6 +30,12 @@ class SignUpViewController: UIViewController {
         checkPasswordTextField.delegate = self
         
         configureUI()
+        
+        // 텍스트입력할 때마다 감지
+        self.emailTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        self.setPasswordTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        self.checkPasswordTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        self.makeAccountButton.addTarget(self, action: #selector(self.changeEnabledButton), for: .editingDidEnd)
     }
     
     
@@ -38,6 +43,7 @@ class SignUpViewController: UIViewController {
         emailTextField.layer.borderWidth = 1
         emailTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         emailTextField.layer.cornerRadius = 15
+        emailTextField.addLeftPadding()
         emailTextField.placeholder = " 이메일 주소를 입력하세요"
         emailTextField.keyboardType = .emailAddress
         emailTextField.returnKeyType = .next
@@ -46,6 +52,7 @@ class SignUpViewController: UIViewController {
         setPasswordTextField.layer.borderWidth = 1
         setPasswordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         setPasswordTextField.layer.cornerRadius = 15
+        setPasswordTextField.addLeftPadding()
         setPasswordTextField.placeholder = " 패스워드를 입력하세요"
         setPasswordTextField.keyboardType = .emailAddress
         setPasswordTextField.returnKeyType = .next
@@ -56,6 +63,7 @@ class SignUpViewController: UIViewController {
         checkPasswordTextField.layer.borderWidth = 1
         checkPasswordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         checkPasswordTextField.layer.cornerRadius = 15
+        checkPasswordTextField.addLeftPadding()
         checkPasswordTextField.placeholder = " 패스워드를 한 번 더 입력하세요"
         checkPasswordTextField.keyboardType = .emailAddress
         checkPasswordTextField.returnKeyType = .done
@@ -74,17 +82,79 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func makcAccountButtonTapped(_ sender: UIButton) {
-        if valueCount == 3 {
-            valueCount = 0
+        
+        if makeAccountButton.isEnabled {
             // 데이터(이메일, 패스워드) 저장하기
             defaults.set(emailTextField.text, forKey: "id")
             defaults.set(setPasswordTextField.text, forKey: "password")
             
             // 로그인 화면으로 돌아가기
             self.dismiss(animated: true, completion: nil)
+        } 
+    }
+
+    
+    //두 텍스트필드 문자가 같은 지 확인하기
+    func isSameBothTextField(_ first: UITextField,_ second: UITextField) -> Bool {
+        
+        if first.text == second.text {
+            return true
+        } else {
+            return false
         }
     }
+    
+    
+    //텍스트 필드 입력값 변하면 유효성 검사
+    @objc func TFdidChanged(_ sender: UITextField) {
+        
+        print("텍스트 변경 감지")
+        
+        if sender == emailTextField {
+            guard let tf = emailTextField.text else { return }
+            
+            if checkEmail(str: tf) {
+                emailLabel.text = "올바른 형식의 이메일입니다."
+            } else {
+                emailLabel.text = "이메일 주소를 정확히 입력해 주세요."
+            }
+        } else if sender == setPasswordTextField {
+            guard let tf = setPasswordTextField.text else { return }
+            
+            if checkPassword(str: tf) {
+                setPwLabel.text = "안전한 비밀번호입니다."
+            } else {
+                setPwLabel.text = "비밀번호를 정확히 입력해 주세요."
+            }
+        } else if sender == checkPasswordTextField {
+            
+            if isSameBothTextField(setPasswordTextField, checkPasswordTextField) {
+                checkPwLabel.text = "처음 입력한 비밀번호와 일치합니다."
+            } else {
+                checkPwLabel.text = "처음 입력한 비밀번호와 다릅니다."
+            }
+        }
+    }
+    
+    
+    @objc func changeEnabledButton() {
+        if !(self.emailTextField.text?.isEmpty ?? true)
+            && !(self.setPasswordTextField.text?.isEmpty ?? true)
+            && isSameBothTextField(setPasswordTextField, checkPasswordTextField) {
+            makeAccountButton.isEnabled = true
+        } else {
+            makeAccountButton.isEnabled = false
+        }
+        
+    }
+    
+    
+
+    
+    
 }
+
+
 
 
 extension SignUpViewController: UITextFieldDelegate {
@@ -110,40 +180,40 @@ extension SignUpViewController: UITextFieldDelegate {
     
     
     // 입력값 조건과 맞는지 확인하기
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if textField == emailTextField {
-            guard let tf = emailTextField.text else { return false }
-            
-            if checkEmail(str: tf) {
-                emailLabel.text = "올바른 형식의 이메일입니다."
-                valueCount += 1
-            } else {
-                emailLabel.text = "이메일 주소를 정확히 입력해 주세요."
-            }
-        } else if textField == setPasswordTextField {
-            guard let tf = setPasswordTextField.text else { return false }
-            
-            if checkPassword(str: tf) {
-                setPwLabel.text = "안전한 비밀번호입니다."
-                valueCount += 1
-            } else {
-                setPwLabel.text = "비밀번호를 정확히 입력해 주세요."
-            }
-        } else if textField == checkPasswordTextField {
-            guard let tf = setPasswordTextField.text else { return false }
-            print(tf, checkPasswordTextField.text)
-            print(string)
-            print(textField.text)
-            if checkPasswordTextField.text! + string == tf {
-                checkPwLabel.text = "처음 입력한 비밀번호와 일치합니다."
-                valueCount += 1
-            } else {
-                checkPwLabel.text = "처음 입력한 비밀번호와 다릅니다."
-            }
-        }
-        return true
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        
+//        if textField == emailTextField {
+//            guard let tf = emailTextField.text else { return false }
+//            
+//            if checkEmail(str: tf) {
+//                emailLabel.text = "올바른 형식의 이메일입니다."
+//                valueCount += 1
+//            } else {
+//                emailLabel.text = "이메일 주소를 정확히 입력해 주세요."
+//            }
+//        } else if textField == setPasswordTextField {
+//            guard let tf = setPasswordTextField.text else { return false }
+//            
+//            if checkPassword(str: tf) {
+//                setPwLabel.text = "안전한 비밀번호입니다."
+//                valueCount += 1
+//            } else {
+//                setPwLabel.text = "비밀번호를 정확히 입력해 주세요."
+//            }
+//        } else if textField == checkPasswordTextField {
+//            guard let tf = setPasswordTextField.text else { return false }
+//            print(tf, checkPasswordTextField.text)
+//            print(string)
+//            print(textField.text)
+//            if checkPasswordTextField.text! + string == tf {
+//                checkPwLabel.text = "처음 입력한 비밀번호와 일치합니다."
+//                valueCount += 1
+//            } else {
+//                checkPwLabel.text = "처음 입력한 비밀번호와 다릅니다."
+//            }
+//        }
+//        return true
+//    }
     
    
     func checkEmail(str: String) -> Bool {
@@ -156,5 +226,8 @@ extension SignUpViewController: UITextFieldDelegate {
         let pwRegex = "[A-Z0-9a-z._%+-]{4,12}"
         return NSPredicate(format: "SELF MATCHES %@", pwRegex).evaluate(with: str)
     }
-    
 }
+
+
+
+

@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var signUpButton: UIButton!
     
-    // 카카오로 시작 버튼은 스토리보드에 만들어만 둠, 추가 구현할 지 추후 결정
+    // 카카오로 시작 버튼은 스토리보드에 만들어만 둠, 구현할 지 추후 결정
     
     let defaults = UserDefaults.standard
     
@@ -99,9 +99,6 @@ class LogInViewController: UIViewController {
             return value
         } else { return "" }
     }
-    
-    
-   
 
 }
 
@@ -126,3 +123,13 @@ extension LogInViewController: UITextFieldDelegate {
     }
 }
 
+
+extension UITextField {
+    
+    // 텍스트필드 왼쪽에 padding 주기
+    func addLeftPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
+    }
+}
