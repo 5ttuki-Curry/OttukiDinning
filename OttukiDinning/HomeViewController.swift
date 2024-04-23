@@ -15,7 +15,7 @@ class HomeViewController: UICollectionViewController {
     var myInfoImage = UIImage(named: "MyInfo")
     var profileImage = UIImage(named: "Profile")
     
-    let profileButton = UIButton()
+    let topMyInfoButton = UIButton()
     let topSearchButton = UIButton()
     let homeButton = UIButton()
     let searchButton = UIButton()
@@ -48,23 +48,23 @@ class HomeViewController: UICollectionViewController {
     
     private func setTopUIButton() {
         
-        view.addSubview(profileButton)
+        view.addSubview(topMyInfoButton)
         view.addSubview(topSearchButton)
         
-        profileButton.setImage(profileImage, for: .normal)
+        topMyInfoButton.setImage(profileImage, for: .normal)
         topSearchButton.setImage(searchImage, for: .normal)
         
-        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        topMyInfoButton.translatesAutoresizingMaskIntoConstraints = false
         topSearchButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            profileButton.heightAnchor.constraint(equalToConstant: 45),
-            profileButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            profileButton.widthAnchor.constraint(equalToConstant: 45),
-            profileButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            topMyInfoButton.heightAnchor.constraint(equalToConstant: 45),
+            topMyInfoButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            topMyInfoButton.widthAnchor.constraint(equalToConstant: 45),
+            topMyInfoButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             topSearchButton.heightAnchor.constraint(equalToConstant: 45),
             topSearchButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topSearchButton.widthAnchor.constraint(equalToConstant: 45),
-            topSearchButton.trailingAnchor.constraint(equalTo: profileButton.leadingAnchor, constant: -10)
+            topSearchButton.trailingAnchor.constraint(equalTo: topMyInfoButton.leadingAnchor, constant: -10)
         ])
     }
     
@@ -119,8 +119,11 @@ class HomeViewController: UICollectionViewController {
             cell.titleLabel.text = "Error"
         }
         
+        cell.delegate = self
+        
         return cell
     }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -132,5 +135,16 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let height = collectionView.frame.height / 3
         
         return CGSize(width: width, height: height)
+    }
+}
+
+extension HomeViewController: HomeCollectionViewCellDelegate {
+    func didSelectItemAt(_ cell: HomeCollectionViewCell, indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
+        
+        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController {
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
 }

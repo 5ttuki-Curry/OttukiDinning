@@ -21,6 +21,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         collectionView.register(UINib(nibName: "HorizontalViewCell", bundle: nil), forCellWithReuseIdentifier: "HorizontalViewCell")
         return collectionView
     }()
+    weak var delegate: HomeCollectionViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,6 +55,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
 }
 
 extension HomeCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return 4
         }
@@ -72,5 +74,9 @@ extension HomeCollectionViewCell: UICollectionViewDelegate, UICollectionViewData
         cell.restaurantLabel.text = "강남구"
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectItemAt(self, indexPath: indexPath)
     }
 }

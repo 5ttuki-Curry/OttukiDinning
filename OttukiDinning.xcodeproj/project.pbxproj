@@ -25,6 +25,9 @@
 		FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */; };
 		FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */; };
 		FF8F7D0E2BD7AEBB001A046A /* HorizontalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */; };
+		FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */; };
+		FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D112BD7D073001A046A /* DetailViewController.swift */; };
+		FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewCell.swift; sourceTree = "<group>"; };
 		FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalViewCell.xib; sourceTree = "<group>"; };
+		FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		FF8F7D112BD7D073001A046A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,9 @@
 				FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */,
 				FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */,
 				FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */,
+				FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */,
+				FF8F7D112BD7D073001A046A /* DetailViewController.swift */,
+				FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -271,6 +280,7 @@
 			files = (
 				FF8F7D012BD67D77001A046A /* HomeCollectionViewCell.xib in Resources */,
 				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
+				FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */,
 				FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */,
 				FF8F7CC52BD6349C001A046A /* Base in Resources */,
 				FF8F7CF52BD658A9001A046A /* HomeView.storyboard in Resources */,
@@ -306,6 +316,8 @@
 				FF8F7CFB2BD65960001A046A /* NetworkManager.swift in Sources */,
 				FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */,
 				FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */,
+				FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */,
+				FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */,
 				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
 				FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */,
 			);
