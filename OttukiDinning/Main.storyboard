@@ -175,6 +175,9 @@
                                         <rect key="frame" x="0.0" y="165" width="313" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="makcAccountButtonTapped:" destination="kc7-he-beq" eventType="touchUpInside" id="U4O-3n-e1j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
