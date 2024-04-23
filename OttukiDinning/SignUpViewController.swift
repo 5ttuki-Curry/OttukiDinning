@@ -10,14 +10,17 @@ import UIKit
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var setPasswordTextField: UITextField!
+    @IBOutlet weak var setPwLabel: UILabel!
     @IBOutlet weak var checkPasswordTextField: UITextField!
-    @IBOutlet weak var alertLabel: UILabel!
+    @IBOutlet weak var checkPwLabel: UILabel!
     @IBOutlet weak var makeAccountButton: UIButton!
     
     // 카카오로 시작 버튼 구현 여부는 추후 결정
     
     let defaults = UserDefaults.standard
+    var valueCount = 0
     
     
     override func viewDidLoad() {
@@ -60,8 +63,6 @@ class SignUpViewController: UIViewController {
         checkPasswordTextField.isSecureTextEntry = true
         checkPasswordTextField.textContentType = .oneTimeCode
         
-        alertLabel.text = ""
-        
         makeAccountButton.layer.borderWidth = 1
         makeAccountButton.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         makeAccountButton.layer.cornerRadius = 15
@@ -73,14 +74,16 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func makcAccountButtonTapped(_ sender: UIButton) {
-        // 데이터(이메일, 패스워드) 저장하기
-        defaults.set(emailTextField.text, forKey: "id")
-        defaults.set(setPasswordTextField.text, forKey: "password")
-        
-        // 로그인 화면으로 돌아가기
-        self.dismiss(animated: true, completion: nil)
+        if valueCount == 3 {
+            valueCount = 0
+            // 데이터(이메일, 패스워드) 저장하기
+            defaults.set(emailTextField.text, forKey: "id")
+            defaults.set(setPasswordTextField.text, forKey: "password")
+            
+            // 로그인 화면으로 돌아가기
+            self.dismiss(animated: true, completion: nil)
+        }
     }
-    
 }
 
 
@@ -100,18 +103,58 @@ extension SignUpViewController: UITextFieldDelegate {
         } else if textField == setPasswordTextField {
             checkPasswordTextField.becomeFirstResponder()
         } else if textField == checkPasswordTextField {
-            guard let tf = setPasswordTextField.text else { return false }
-            
-            if textField.text != tf {                           // 처음 입력한 비밀번호와 맞는지 확인 후 넘어가기
-                alertLabel.text = "처음 입력한 비밀번호와 다릅니다."
-            } else {
-                alertLabel.text = "처음 입력한 비밀번호와 일치합니다."
-                textField.resignFirstResponder()
-            }
-            
+            textField.resignFirstResponder()
         }
         return true
     }
     
+    
+    // 입력값 조건과 맞는지 확인하기
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == emailTextField {
+            guard let tf = emailTextField.text else { return false }
+            
+            if checkEmail(str: tf) {
+                emailLabel.text = "올바른 형식의 이메일입니다."
+                valueCount += 1
+            } else {
+                emailLabel.text = "이메일 주소를 정확히 입력해 주세요."
+            }
+        } else if textField == setPasswordTextField {
+            guard let tf = setPasswordTextField.text else { return false }
+            
+            if checkPassword(str: tf) {
+                setPwLabel.text = "안전한 비밀번호입니다."
+                valueCount += 1
+            } else {
+                setPwLabel.text = "비밀번호를 정확히 입력해 주세요."
+            }
+        } else if textField == checkPasswordTextField {
+            guard let tf = setPasswordTextField.text else { return false }
+            print(tf, checkPasswordTextField.text)
+            print(string)
+            print(textField.text)
+            if checkPasswordTextField.text! + string == tf {
+                checkPwLabel.text = "처음 입력한 비밀번호와 일치합니다."
+                valueCount += 1
+            } else {
+                checkPwLabel.text = "처음 입력한 비밀번호와 다릅니다."
+            }
+        }
+        return true
+    }
+    
+   
+    func checkEmail(str: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+        return  NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: str)
+    }
+    
+    
+    func checkPassword(str: String) -> Bool {
+        let pwRegex = "[A-Z0-9a-z._%+-]{4,12}"
+        return NSPredicate(format: "SELF MATCHES %@", pwRegex).evaluate(with: str)
+    }
     
 }
