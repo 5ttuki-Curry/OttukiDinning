@@ -38,7 +38,7 @@ class LogInViewController: UIViewController {
         idTextField.layer.borderWidth = 1
         idTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         idTextField.layer.cornerRadius = 15
-        idTextField.placeholder = "이메일"
+        idTextField.placeholder = " 이메일"
         idTextField.keyboardType = .emailAddress
         idTextField.returnKeyType = .next
         idTextField.clearButtonMode = .always
@@ -47,11 +47,12 @@ class LogInViewController: UIViewController {
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         passwordTextField.layer.cornerRadius = 15
-        passwordTextField.placeholder = "패스워드"
+        passwordTextField.placeholder = " 패스워드"
         passwordTextField.keyboardType = .emailAddress
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .always
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.textContentType = .oneTimeCode
         passwordTextField.text = readLoginInfo(forKey: "password")
         
         logInButton.layer.borderWidth = 1
@@ -75,7 +76,7 @@ class LogInViewController: UIViewController {
             print("다음화면 이동")
         } else {
             // 틀리면 alert창 띄워 경고
-            let alert = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "올바르게 입력해 주세요.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "다시 입력해 주세요.", preferredStyle: .alert)
             let back = UIAlertAction(title: "돌아가기", style: .cancel, handler: nil)
             alert.addAction(back)
             
