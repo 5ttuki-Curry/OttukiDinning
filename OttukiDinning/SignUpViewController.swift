@@ -21,6 +21,10 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailTextField.delegate = self
+        setPasswordTextField.delegate = self
+        checkPasswordTextField.delegate = self
+        
         configureUI()
         
     }
@@ -37,16 +41,20 @@ class SignUpViewController: UIViewController {
         setPasswordTextField.layer.borderWidth = 1
         setPasswordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         setPasswordTextField.layer.cornerRadius = 15
-        emailTextField.keyboardType = .emailAddress
-        emailTextField.returnKeyType = .next
         setPasswordTextField.placeholder = "패스워드를 입력하세요"
+        setPasswordTextField.keyboardType = .emailAddress
+        setPasswordTextField.returnKeyType = .next
+        setPasswordTextField.clearButtonMode = .always
+        setPasswordTextField.isSecureTextEntry = true
         
         checkPasswordTextField.layer.borderWidth = 1
         checkPasswordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         checkPasswordTextField.layer.cornerRadius = 15
+        checkPasswordTextField.placeholder = "패스워드를 한 번 더 입력하세요"
         checkPasswordTextField.keyboardType = .emailAddress
         checkPasswordTextField.returnKeyType = .done
-        checkPasswordTextField.placeholder = "패스워드를 한 번 더 입력하세요"
+        checkPasswordTextField.clearButtonMode = .always
+        checkPasswordTextField.isSecureTextEntry = true
         
         makeAccountButton.layer.borderWidth = 1
         makeAccountButton.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -66,5 +74,10 @@ class SignUpViewController: UIViewController {
         // 로그인 화면으로 돌아가기
         self.dismiss(animated: true, completion: nil)
     }
+    
+}
+
+
+extension SignUpViewController: UITextFieldDelegate {
     
 }
