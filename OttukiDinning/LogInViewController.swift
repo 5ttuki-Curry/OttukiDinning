@@ -75,7 +75,11 @@ class LogInViewController: UIViewController {
             print("다음화면 이동")
         } else {
             // 틀리면 alert창 띄워 경고
-            _ = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "올바르게 입력해 주세요.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "올바르게 입력해 주세요.", preferredStyle: .alert)
+            let back = UIAlertAction(title: "돌아가기", style: .cancel, handler: nil)
+            alert.addAction(back)
+            
+            self.present(alert, animated: true, completion: nil)
         }
         
     }
