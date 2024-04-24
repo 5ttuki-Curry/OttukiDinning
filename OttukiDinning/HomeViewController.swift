@@ -85,8 +85,8 @@ class HomeViewController: UICollectionViewController {
         
         bottomUIStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bottomUIStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomUIStackView.heightAnchor.constraint(equalToConstant: 40),
+            bottomUIStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
