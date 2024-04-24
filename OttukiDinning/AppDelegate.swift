@@ -7,28 +7,17 @@
 
 import UIKit
 import CoreData
-import KakaoSDKCommon
-import KakaoSDKAuth
-
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        KakaoSDK.initSDK(appKey: "0ea147e9518babf18570a130fc003319")
+        // Override point for customization after application launch.
         return true
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if (AuthApi.isKakaoTalkLoginUrl(url)) {
-            return AuthController.handleOpenUrl(url: url)
-        }
-        return false
-    }
-    
-    
+
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
