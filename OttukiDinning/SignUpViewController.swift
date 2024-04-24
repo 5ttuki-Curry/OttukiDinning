@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController {
     // 카카오로 시작 버튼 구현 여부는 추후 결정
     
     let defaults = UserDefaults.standard
+
     
     
     override func viewDidLoad() {
@@ -58,6 +59,8 @@ class SignUpViewController: UIViewController {
         setPasswordTextField.clearButtonMode = .always
         setPasswordTextField.isSecureTextEntry = true
         setPasswordTextField.textContentType = .oneTimeCode
+        
+        setPwLabel.text = "숫자, 대소문자, _, %, +, -, 6~12자 이내로 작성 가능"
         
         checkPasswordTextField.layer.borderWidth = 1
         checkPasswordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -98,7 +101,7 @@ class SignUpViewController: UIViewController {
     
     // 비밀번호 형식 확인
     func checkPassword(str: String) -> Bool {
-        let pwRegex = "[A-Z0-9a-z._%+-]{4,12}"
+        let pwRegex = "[A-Z0-9a-z._%+-]{6,12}"
         return NSPredicate(format: "SELF MATCHES %@", pwRegex).evaluate(with: str)
     }
 

@@ -90,14 +90,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNz-py-ngP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNz-py-ngP">
                                 <rect key="frame" x="40" y="574" width="313" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zFj-BI-Gug"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="kakaoLoginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WiB-23-4KF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -123,6 +124,7 @@
                     </view>
                     <connections>
                         <outlet property="idTextField" destination="KVk-Na-6My" id="MVK-K9-bu4"/>
+                        <outlet property="kakaoLogInButton" destination="SNz-py-ngP" id="E7C-8V-QmR"/>
                         <outlet property="logInButton" destination="NlJ-hO-v22" id="uwW-bO-VeT"/>
                         <outlet property="passwordTextField" destination="nTS-2L-Kt9" id="P0Q-Vt-jUL"/>
                         <outlet property="signUpButton" destination="1gx-dw-oTO" id="2VW-8l-X1t"/>
@@ -166,7 +168,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="2Kr-Lt-NKS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -183,7 +185,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="oIU-G6-tgH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -200,7 +202,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="zWH-jQ-y4u"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

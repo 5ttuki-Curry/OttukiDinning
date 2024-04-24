@@ -10,6 +10,9 @@
 		9C842E6C2BD6429900E45442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C842E6B2BD6429900E45442 /* Main.storyboard */; };
 		9C842E722BD6439300E45442 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C842E712BD6439300E45442 /* LogInViewController.swift */; };
 		9C842E742BD65CE100E45442 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C842E732BD65CE100E45442 /* SignUpViewController.swift */; };
+		9C842E7C2BD8BBB900E45442 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C842E7B2BD8BBB900E45442 /* KakaoSDKAuth */; };
+		9C842E7E2BD8BBB900E45442 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9C842E7D2BD8BBB900E45442 /* KakaoSDKCommon */; };
+		9C842E802BD8BBB900E45442 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 9C842E7F2BD8BBB900E45442 /* KakaoSDKUser */; };
 		FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB52BD6349B001A046A /* AppDelegate.swift */; };
 		FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */; };
 		FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */; };
@@ -60,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C842E7E2BD8BBB900E45442 /* KakaoSDKCommon in Frameworks */,
+				9C842E7C2BD8BBB900E45442 /* KakaoSDKAuth in Frameworks */,
+				9C842E802BD8BBB900E45442 /* KakaoSDKUser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +155,11 @@
 			dependencies = (
 			);
 			name = OttukiDinning;
+			packageProductDependencies = (
+				9C842E7B2BD8BBB900E45442 /* KakaoSDKAuth */,
+				9C842E7D2BD8BBB900E45442 /* KakaoSDKCommon */,
+				9C842E7F2BD8BBB900E45442 /* KakaoSDKUser */,
+			);
 			productName = OttukiDinning;
 			productReference = FF8F7CB22BD6349B001A046A /* OttukiDinning.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +232,9 @@
 				Base,
 			);
 			mainGroup = FF8F7CA92BD6349B001A046A;
+			packageReferences = (
+				9C842E7A2BD8BBB900E45442 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = FF8F7CB32BD6349B001A046A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -615,6 +629,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C842E7A2BD8BBB900E45442 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C842E7B2BD8BBB900E45442 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C842E7A2BD8BBB900E45442 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		9C842E7D2BD8BBB900E45442 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C842E7A2BD8BBB900E45442 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		9C842E7F2BD8BBB900E45442 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C842E7A2BD8BBB900E45442 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */ = {

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import KakaoSDKCommon
+import KakaoSDKUser
+import KakaoSDKAuth
 
 class LogInViewController: UIViewController {
 
@@ -14,8 +17,8 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var kakaoLogInButton: UIButton!
     
-    // 카카오로 시작 버튼은 스토리보드에 만들어만 둠, 구현할 지 추후 결정
     
     let defaults = UserDefaults.standard
     
@@ -60,6 +63,10 @@ class LogInViewController: UIViewController {
         
         signUpButton.setTitleColor(.black, for: .normal)
         signUpButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        
+        kakaoLogInButton.layer.cornerRadius = 12
+        kakaoLogInButton.setImage(UIImage(named: "KakaoLogIn"), for: .normal)
+        kakaoLogInButton.backgroundColor = UIColor(named: "ShadowColor")
     }
     
     
@@ -86,6 +93,23 @@ class LogInViewController: UIViewController {
     }
     
     
+    @IBAction func kakaoLoginButtonTapped(_ sender: UIButton) {
+        // 카카오톡 설치 여부 확인
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+                    
+                    _ = oauthToken
+                }
+            }
+        }
+    }
+    
+    
     func readLoginInfo(forKey: String) -> String {
         if let value = defaults.string(forKey: forKey) {
             return value
@@ -101,7 +125,7 @@ extension LogInViewController: UITextFieldDelegate {
     //빈 화면 터치하면 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }    
+    }
     
     // 엔터 누르면 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
