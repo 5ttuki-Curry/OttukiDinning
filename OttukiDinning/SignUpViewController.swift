@@ -48,6 +48,8 @@ class SignUpViewController: UIViewController {
         emailTextField.keyboardType = .emailAddress
         emailTextField.returnKeyType = .next
         emailTextField.clearButtonMode = .always
+        emailTextField.autocorrectionType = .no
+        emailTextField.spellCheckingType = .no
         
         setPasswordTextField.layer.borderWidth = 1
         setPasswordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -57,6 +59,8 @@ class SignUpViewController: UIViewController {
         setPasswordTextField.keyboardType = .emailAddress
         setPasswordTextField.returnKeyType = .next
         setPasswordTextField.clearButtonMode = .always
+        setPasswordTextField.autocorrectionType = .no
+        setPasswordTextField.spellCheckingType = .no
         setPasswordTextField.isSecureTextEntry = true
         setPasswordTextField.textContentType = .oneTimeCode
         
@@ -70,6 +74,8 @@ class SignUpViewController: UIViewController {
         checkPasswordTextField.keyboardType = .emailAddress
         checkPasswordTextField.returnKeyType = .done
         checkPasswordTextField.clearButtonMode = .always
+        checkPasswordTextField.autocorrectionType = .no
+        checkPasswordTextField.spellCheckingType = .no
         checkPasswordTextField.isSecureTextEntry = true
         checkPasswordTextField.textContentType = .oneTimeCode
         

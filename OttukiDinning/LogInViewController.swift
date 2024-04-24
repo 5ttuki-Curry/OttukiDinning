@@ -37,19 +37,25 @@ class LogInViewController: UIViewController {
         idTextField.layer.borderWidth = 1
         idTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         idTextField.layer.cornerRadius = 15
+        idTextField.addLeftPadding()
         idTextField.placeholder = "이메일"
         idTextField.keyboardType = .emailAddress
         idTextField.returnKeyType = .next
         idTextField.clearButtonMode = .always
+        idTextField.autocorrectionType = .no
+        idTextField.spellCheckingType = .no
         idTextField.text = readLoginInfo(forKey: "id")
         
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         passwordTextField.layer.cornerRadius = 15
+        passwordTextField.addLeftPadding()
         passwordTextField.placeholder = "패스워드"
         passwordTextField.keyboardType = .emailAddress
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .always
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.spellCheckingType = .no
         passwordTextField.isSecureTextEntry = true
         passwordTextField.textContentType = .oneTimeCode
         passwordTextField.text = readLoginInfo(forKey: "password")
