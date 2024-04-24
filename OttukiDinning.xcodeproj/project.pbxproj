@@ -17,6 +17,17 @@
 		FF8F7CD02BD6349C001A046A /* OttukiDinningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CCF2BD6349C001A046A /* OttukiDinningTests.swift */; };
 		FF8F7CDA2BD6349C001A046A /* OttukiDinningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CD92BD6349C001A046A /* OttukiDinningUITests.swift */; };
 		FF8F7CDC2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */; };
+		FF8F7CF32BD65892001A046A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CF22BD65892001A046A /* HomeViewController.swift */; };
+		FF8F7CF52BD658A9001A046A /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CF42BD658A9001A046A /* HomeView.storyboard */; };
+		FF8F7CFB2BD65960001A046A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CFA2BD65960001A046A /* NetworkManager.swift */; };
+		FF8F7CFE2BD65976001A046A /* RestaurantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CFC2BD65976001A046A /* RestaurantData.swift */; };
+		FF8F7D012BD67D77001A046A /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */; };
+		FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */; };
+		FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */; };
+		FF8F7D0E2BD7AEBB001A046A /* HorizontalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */; };
+		FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */; };
+		FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D112BD7D073001A046A /* DetailViewController.swift */; };
+		FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +62,17 @@
 		FF8F7CD52BD6349C001A046A /* OttukiDinningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttukiDinningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CD92BD6349C001A046A /* OttukiDinningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttukiDinningUITests.swift; sourceTree = "<group>"; };
 		FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttukiDinningUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF8F7CF22BD65892001A046A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FF8F7CF42BD658A9001A046A /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
+		FF8F7CFA2BD65960001A046A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FF8F7CFC2BD65976001A046A /* RestaurantData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantData.swift; sourceTree = "<group>"; };
+		FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewCell.swift; sourceTree = "<group>"; };
+		FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalViewCell.xib; sourceTree = "<group>"; };
+		FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		FF8F7D112BD7D073001A046A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +123,10 @@
 		FF8F7CB42BD6349B001A046A /* OttukiDinning */ = {
 			isa = PBXGroup;
 			children = (
+				FF8F7CFD2BD65976001A046A /* Models */,
+				FF8F7CFA2BD65960001A046A /* NetworkManager.swift */,
+				FF8F7CF42BD658A9001A046A /* HomeView.storyboard */,
+				FF8F7CF22BD65892001A046A /* HomeViewController.swift */,
 				FF8F7CB52BD6349B001A046A /* AppDelegate.swift */,
 				FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */,
 				FF8F7CB92BD6349B001A046A /* ViewController.swift */,
@@ -109,6 +135,13 @@
 				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
 				FF8F7CC62BD6349C001A046A /* Info.plist */,
 				FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */,
+				FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */,
+				FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */,
+				FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */,
+				FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */,
+				FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */,
+				FF8F7D112BD7D073001A046A /* DetailViewController.swift */,
+				FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -128,6 +161,14 @@
 				FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */,
 			);
 			path = OttukiDinningUITests;
+			sourceTree = "<group>";
+		};
+		FF8F7CFD2BD65976001A046A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F7CFC2BD65976001A046A /* RestaurantData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +259,9 @@
 				Base,
 			);
 			mainGroup = FF8F7CA92BD6349B001A046A;
+			packageReferences = (
+				FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
+			);
 			productRefGroup = FF8F7CB32BD6349B001A046A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -234,8 +278,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8F7D012BD67D77001A046A /* HomeCollectionViewCell.xib in Resources */,
 				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
+				FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */,
+				FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */,
 				FF8F7CC52BD6349C001A046A /* Base in Resources */,
+				FF8F7CF52BD658A9001A046A /* HomeView.storyboard in Resources */,
 				FF8F7CBD2BD6349B001A046A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,10 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8F7CF32BD65892001A046A /* HomeViewController.swift in Sources */,
+				FF8F7D0E2BD7AEBB001A046A /* HorizontalViewCell.swift in Sources */,
 				FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */,
+				FF8F7CFE2BD65976001A046A /* RestaurantData.swift in Sources */,
+				FF8F7CFB2BD65960001A046A /* NetworkManager.swift in Sources */,
 				FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */,
 				FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */,
+				FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */,
+				FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */,
 				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
+				FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +668,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */ = {
