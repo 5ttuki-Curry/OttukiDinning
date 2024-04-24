@@ -20,7 +20,8 @@ class SignUpViewController: UIViewController {
     // 카카오로 시작 버튼 구현 여부는 추후 결정
     
     let defaults = UserDefaults.standard
-
+    
+    let loginVC = LogInViewController()
     
     
     override func viewDidLoad() {
@@ -90,13 +91,29 @@ class SignUpViewController: UIViewController {
     }
     
     
+//    func clearLogInTF() {
+//        let id = loginVC.readLoginInfo(forKey: "id")
+//        let pw = loginVC.readLoginInfo(forKey: "password")
+//        
+//        if !id.isEmpty {
+//            loginVC.idTextField.text = ""
+//        }
+//        if !pw.isEmpty {
+//            loginVC.passwordTextField.text = ""
+//        }
+//    }
+    
+    
     @IBAction func makcAccountButtonTapped(_ sender: UIButton) {
         // 데이터(이메일, 패스워드) 저장하기
         defaults.set(emailTextField.text, forKey: "id")
         defaults.set(setPasswordTextField.text, forKey: "password")
+                
+        // clearLogInTF()
         
         // 로그인 화면으로 돌아가기
         self.dismiss(animated: true, completion: nil)
+        view.snapshotView(afterScreenUpdates: true)
     }
 
     // 이메일 형식 확인

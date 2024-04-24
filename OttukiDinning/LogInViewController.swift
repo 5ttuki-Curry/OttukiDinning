@@ -30,6 +30,7 @@ class LogInViewController: UIViewController {
         passwordTextField.delegate = self
         
         configureUI()
+        easyLogIn()
     }
     
     
@@ -44,7 +45,7 @@ class LogInViewController: UIViewController {
         idTextField.clearButtonMode = .always
         idTextField.autocorrectionType = .no
         idTextField.spellCheckingType = .no
-        idTextField.text = readLoginInfo(forKey: "id")
+        
         
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -58,7 +59,7 @@ class LogInViewController: UIViewController {
         passwordTextField.spellCheckingType = .no
         passwordTextField.isSecureTextEntry = true
         passwordTextField.textContentType = .oneTimeCode
-        passwordTextField.text = readLoginInfo(forKey: "password")
+        
         
         logInButton.layer.borderWidth = 1
         logInButton.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -73,6 +74,19 @@ class LogInViewController: UIViewController {
         kakaoLogInButton.layer.cornerRadius = 12
         kakaoLogInButton.setImage(UIImage(named: "KakaoLogIn"), for: .normal)
         kakaoLogInButton.backgroundColor = UIColor(named: "ShadowColor")
+    }
+    
+    
+    func easyLogIn() {
+        let id = readLoginInfo(forKey: "id")
+        let pw = readLoginInfo(forKey: "password")
+        
+        if !id.isEmpty {
+            idTextField.text = id
+        }
+        if !pw.isEmpty {
+            passwordTextField.text = pw
+        }
     }
     
     
