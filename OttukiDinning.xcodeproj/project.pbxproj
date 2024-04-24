@@ -28,6 +28,9 @@
 		FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */; };
 		FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D112BD7D073001A046A /* DetailViewController.swift */; };
 		FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */; };
+		FF8F7D192BD8E163001A046A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D182BD8E163001A046A /* Alamofire */; };
+		FF8F7D1B2BD8E163001A046A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D1A2BD8E163001A046A /* AlamofireDynamic */; };
+		FF8F7D1D2BD8E16F001A046A /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D1C2BD8E16F001A046A /* KakaoMapsSDK-SPM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8F7D192BD8E163001A046A /* Alamofire in Frameworks */,
+				FF8F7D1B2BD8E163001A046A /* AlamofireDynamic in Frameworks */,
+				FF8F7D1D2BD8E16F001A046A /* KakaoMapsSDK-SPM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +193,11 @@
 			dependencies = (
 			);
 			name = OttukiDinning;
+			packageProductDependencies = (
+				FF8F7D182BD8E163001A046A /* Alamofire */,
+				FF8F7D1A2BD8E163001A046A /* AlamofireDynamic */,
+				FF8F7D1C2BD8E16F001A046A /* KakaoMapsSDK-SPM */,
+			);
 			productName = OttukiDinning;
 			productReference = FF8F7CB22BD6349B001A046A /* OttukiDinning.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +272,7 @@
 			mainGroup = FF8F7CA92BD6349B001A046A;
 			packageReferences = (
 				FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
+				FF8F7D172BD8DC43001A046A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = FF8F7CB32BD6349B001A046A /* Products */;
 			projectDirPath = "";
@@ -678,7 +690,33 @@
 				minimumVersion = 2.10.4;
 			};
 		};
+		FF8F7D172BD8DC43001A046A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF8F7D182BD8E163001A046A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF8F7D172BD8DC43001A046A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		FF8F7D1A2BD8E163001A046A /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF8F7D172BD8DC43001A046A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+		FF8F7D1C2BD8E16F001A046A /* KakaoMapsSDK-SPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */;
+			productName = "KakaoMapsSDK-SPM";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */ = {

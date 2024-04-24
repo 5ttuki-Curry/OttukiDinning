@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UICollectionViewController {
     
+    let networkManager = NetworkManager()
+    var restaurantData: [RestaurantData] = []
+    
     var bottomUIStackView = UIStackView()
     var homeImage = UIImage(named: "Home")
     var searchImage = UIImage(named: "Search")
@@ -27,6 +30,19 @@ class HomeViewController: UICollectionViewController {
         self.setTopUIButton()
         self.setCollectionView()
         view.backgroundColor = .white
+        self.executeNetworkManager()
+    }
+    
+    func executeNetworkManager() {
+        networkManager.searchRestaurantList(keyword: "서울 맛집") { [weak self] result in
+            switch result {
+            case .success(let restaurantList):
+                self?.restaurantData = restaurantList
+                self?.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func setCollectionView() {

@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct KakaoAPIResponse: Decodable {
+    let documents: [RestaurantData]
+}
+
 struct RestaurantData: Decodable {
     let id: String
     let placeName: String    // 장소명, 업체명
