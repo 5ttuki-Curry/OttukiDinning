@@ -11,11 +11,8 @@ class LogInViewController: UIViewController {
 
     
     @IBOutlet weak var idTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var logInButton: UIButton!
-    
     @IBOutlet weak var signUpButton: UIButton!
     
     // 카카오로 시작 버튼은 스토리보드에 만들어만 둠, 구현할 지 추후 결정
@@ -30,7 +27,6 @@ class LogInViewController: UIViewController {
         passwordTextField.delegate = self
         
         configureUI()
-        
     }
     
     
@@ -38,7 +34,7 @@ class LogInViewController: UIViewController {
         idTextField.layer.borderWidth = 1
         idTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         idTextField.layer.cornerRadius = 15
-        idTextField.placeholder = " 이메일"
+        idTextField.placeholder = "이메일"
         idTextField.keyboardType = .emailAddress
         idTextField.returnKeyType = .next
         idTextField.clearButtonMode = .always
@@ -47,7 +43,7 @@ class LogInViewController: UIViewController {
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         passwordTextField.layer.cornerRadius = 15
-        passwordTextField.placeholder = " 패스워드"
+        passwordTextField.placeholder = "패스워드"
         passwordTextField.keyboardType = .emailAddress
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .always
@@ -64,8 +60,6 @@ class LogInViewController: UIViewController {
         
         signUpButton.setTitleColor(.black, for: .normal)
         signUpButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
-        
-        
     }
     
     
@@ -78,11 +72,10 @@ class LogInViewController: UIViewController {
             // 틀리면 alert창 띄워 경고
             let alert = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "다시 입력해 주세요.", preferredStyle: .alert)
             let back = UIAlertAction(title: "돌아가기", style: .cancel, handler: nil)
-            alert.addAction(back)
             
+            alert.addAction(back)
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     
@@ -90,7 +83,6 @@ class LogInViewController: UIViewController {
         // 회원가입 화면으로 이동
         guard let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "signUpVC") as? SignUpViewController else { return }
         self.present(signUpVC, animated: true, completion: nil)
-        
     }
     
     
@@ -103,13 +95,13 @@ class LogInViewController: UIViewController {
 }
 
 
+
 extension LogInViewController: UITextFieldDelegate {
     
     //빈 화면 터치하면 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
+    }    
     
     // 엔터 누르면 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -118,10 +110,10 @@ extension LogInViewController: UITextFieldDelegate {
         } else if textField == passwordTextField {
             textField.resignFirstResponder()
         }
-        
         return true
     }
 }
+
 
 
 extension UITextField {
