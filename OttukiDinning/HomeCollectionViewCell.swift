@@ -9,12 +9,6 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
-    let networkManager = NetworkManager()
-    static var defaultRestaurantData: [RestaurantData]?
-    static var seoulRestaurantData: [[RestaurantData]] = []
-    let seoulLivingArea: [String] = ["강동구 맛집", "강서구 맛집", "강북구 맛집", "강남구 맛집"]
-    
-    var cellNumber = 0
     let titleLabel = UILabel()
     lazy var horizontalCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,37 +25,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.executeNetworkManager("서울 맛집")
-        self.setRestaurantData()
         self.setHomeCollectionViewCell()
-        
-    }
-    
-    func executeNetworkManager(_ keyword: String) {
-        networkManager.searchRestaurantList(keyword: keyword) { [weak self] result in
-            switch result {
-            case .success(let restaurantList):
-                HomeCollectionViewCell.defaultRestaurantData = restaurantList
-                self?.horizontalCollectionView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func setRestaurantData() {
-        for keyword in seoulLivingArea {
-            networkManager.searchRestaurantList(keyword: keyword) { [weak self] result in
-                switch result {
-                case .success(let restaurantList):
-                    HomeCollectionViewCell.seoulRestaurantData.append(restaurantList)
-                    self?.horizontalCollectionView.reloadData()
-                    print(restaurantList.count)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
     }
     
     private func setHomeCollectionViewCell() {
@@ -93,9 +57,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
 extension HomeCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 4
-    }
+            return 4
+        }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -108,26 +71,7 @@ extension HomeCollectionViewCell: UICollectionViewDelegate, UICollectionViewData
         cell.backgroundColor = .white
         cell.layer.borderColor = UIColor(red: 1.0, green: 0.898, blue: 0, alpha: 1.0).cgColor
         cell.layer.borderWidth = 2.0
-        
-        switch cellNumber {
-        case 0:
-            cell.restaurantLabel.text = seoulLivingArea[indexPath.row]
-        case 1:
-            if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
-                cell.restaurantLabel.text = restaurantData[indexPath.row].placeName
-            } else {
-                cell.restaurantLabel.text = "None"
-            }
-        case 2:
-            if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
-                cell.restaurantLabel.text = restaurantData[(restaurantData.count - 1) - indexPath.row].placeName
-            } else {
-                cell.restaurantLabel.text = "None"
-            }
-        default:
-            cell.restaurantLabel.text = "None"
-        }
-        
+        cell.restaurantLabel.text = "강남구"
         
         return cell
     }
