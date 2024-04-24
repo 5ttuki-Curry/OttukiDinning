@@ -19,7 +19,6 @@ class NetworkManager {
         AF.request(url, method: .get, parameters: parameters, headers: headers).validate().responseDecodable(of: KakaoAPIResponse.self) { response in
             switch response.result {
             case .success(let responseData):
-                print("Restaurant List : \(responseData.documents)")
                 completion(.success(responseData.documents))
             case .failure(let error):
                 print("Error: 데이터 받아오기 실패, \(error.localizedDescription)")

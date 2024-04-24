@@ -9,6 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var detailRestaurantData: RestaurantData?
+    
     var bottomUIStackView = UIStackView()
     var middleUIStackView = UIStackView()
     var labelStackView = UIStackView()
@@ -36,7 +38,7 @@ class DetailViewController: UIViewController {
         self.setBottomUIStackView()
         self.setTopUIButton()
         self.setMiddleUIStackView()
-
+        
     }
     
     private func setTopUIButton() {
@@ -80,11 +82,11 @@ class DetailViewController: UIViewController {
         urlLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
         reservationButton.setImage(reservationImage, for: .normal)
         
-        restaurantLabel.text = "5뚝이 카레집"
-        categoryLabel.text = "일식"
-        addressLabel.text = "서울시 오뚝이구 카레대로 5길"
-        phoneLabel.text = "02-0000-0000"
-        urlLabel.text = "https://github.com/5ttuki-Curry/OttukiDinning/"
+        restaurantLabel.text = self.detailRestaurantData?.placeName
+        categoryLabel.text = self.detailRestaurantData?.categoryName
+        addressLabel.text = self.detailRestaurantData?.roadAddressName
+        phoneLabel.text = self.detailRestaurantData?.phone
+        urlLabel.text = self.detailRestaurantData?.placeUrl
         
         middleUIStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
