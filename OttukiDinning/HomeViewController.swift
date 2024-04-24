@@ -111,10 +111,13 @@ class HomeViewController: UICollectionViewController {
         switch indexPath.row {
         case 0:
             cell.titleLabel.text = "지역별 랜덤 추천 메뉴"
+            cell.cellNumber = 0
         case 1:
-            cell.titleLabel.text = "RISING PLACE"
-        case 2:
             cell.titleLabel.text = "HOT PLACE"
+            cell.cellNumber = 1
+        case 2:
+            cell.titleLabel.text = "RISING PLACE"
+            cell.cellNumber = 2
         default:
             cell.titleLabel.text = "Error"
         }
@@ -144,6 +147,23 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
         let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
         
         if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController {
+            
+            switch cell.cellNumber {
+            case 0:
+                let restaurantData = HomeCollectionViewCell.seoulRestaurantData[indexPath.row][Int.random(in: 0...4)]
+                detailViewController.detailRestaurantData = restaurantData
+            case 1:
+                if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
+                    detailViewController.detailRestaurantData = restaurantData[indexPath.row]
+                }
+            case 2:
+                if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
+                    detailViewController.detailRestaurantData = restaurantData[(restaurantData.count - 1) - indexPath.row]
+                }
+            default:
+                return
+            }
+            
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
