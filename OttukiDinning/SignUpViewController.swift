@@ -33,6 +33,7 @@ class SignUpViewController: UIViewController {
         configureUI()
         
         // 텍스트입력할 때마다 감지
+        self.nicknameTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
         self.emailTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
         self.setPasswordTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
         self.checkPasswordTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
@@ -114,7 +115,7 @@ class SignUpViewController: UIViewController {
         view.snapshotView(afterScreenUpdates: true)
     }
     
-    
+    // 닉네임 형식 확인
     func checkNickname(str: String) -> Bool {
         let nicknameRegex = "[A-Z0-9a-z]{4,14}"
         return  NSPredicate(format: "SELF MATCHES %@", nicknameRegex).evaluate(with: str)
