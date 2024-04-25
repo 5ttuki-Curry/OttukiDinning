@@ -135,7 +135,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         // 화면의 너비
         let width = collectionView.frame.width
         // 화면의 높이를 3으로 나누어 각 섹션의 높이를 설정
-        let height = collectionView.frame.height / 3
+        let height = collectionView.frame.height / 2.6
         
         return CGSize(width: width, height: height)
     }

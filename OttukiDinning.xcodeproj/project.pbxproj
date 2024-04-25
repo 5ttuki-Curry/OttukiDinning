@@ -32,6 +32,10 @@
 		FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D222BD953F2001A046A /* SignUpViewController.swift */; };
 		FF8F7D262BD95546001A046A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D252BD95546001A046A /* Alamofire */; };
 		FF8F7D292BD9556B001A046A /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D282BD9556B001A046A /* KakaoSDK */; };
+		FF8F7D2F2BDA04E9001A046A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D2E2BDA04E9001A046A /* Kingfisher */; };
+		FF8F7D322BDA6282001A046A /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D312BDA6282001A046A /* SVGKit */; };
+		FF8F7D342BDA6282001A046A /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D332BDA6282001A046A /* SVGKitSwift */; };
+		FF8F7D362BDA6ECE001A046A /* SVGProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D352BDA6ECE001A046A /* SVGProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,7 @@
 		FF8F7D1E2BD953CB001A046A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FF8F7D202BD953EA001A046A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FF8F7D222BD953F2001A046A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FF8F7D352BDA6ECE001A046A /* SVGProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +91,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8F7D2F2BDA04E9001A046A /* Kingfisher in Frameworks */,
 				FF8F7D262BD95546001A046A /* Alamofire in Frameworks */,
+				FF8F7D342BDA6282001A046A /* SVGKitSwift in Frameworks */,
+				FF8F7D322BDA6282001A046A /* SVGKit in Frameworks */,
 				FF8F7D292BD9556B001A046A /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8F7CFC2BD65976001A046A /* RestaurantData.swift */,
+				FF8F7D352BDA6ECE001A046A /* SVGProcessor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +209,9 @@
 			packageProductDependencies = (
 				FF8F7D252BD95546001A046A /* Alamofire */,
 				FF8F7D282BD9556B001A046A /* KakaoSDK */,
+				FF8F7D2E2BDA04E9001A046A /* Kingfisher */,
+				FF8F7D312BDA6282001A046A /* SVGKit */,
+				FF8F7D332BDA6282001A046A /* SVGKitSwift */,
 			);
 			productName = OttukiDinning;
 			productReference = FF8F7CB22BD6349B001A046A /* OttukiDinning.app */;
@@ -277,6 +289,8 @@
 				FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
 				FF8F7D242BD95546001A046A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FF8F7D272BD9556B001A046A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				FF8F7D2D2BDA04E9001A046A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FF8F7D302BDA6282001A046A /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			productRefGroup = FF8F7CB32BD6349B001A046A /* Products */;
 			projectDirPath = "";
@@ -326,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8F7CF32BD65892001A046A /* HomeViewController.swift in Sources */,
+				FF8F7D362BDA6ECE001A046A /* SVGProcessor.swift in Sources */,
 				FF8F7D0E2BD7AEBB001A046A /* HorizontalViewCell.swift in Sources */,
 				FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */,
 				FF8F7CFE2BD65976001A046A /* RestaurantData.swift in Sources */,
@@ -704,6 +719,22 @@
 				version = 2.22.1;
 			};
 		};
+		FF8F7D2D2BDA04E9001A046A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = exactVersion;
+				version = 7.11.0;
+			};
+		};
+		FF8F7D302BDA6282001A046A /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -716,6 +747,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF8F7D272BD9556B001A046A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
+		};
+		FF8F7D2E2BDA04E9001A046A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF8F7D2D2BDA04E9001A046A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		FF8F7D312BDA6282001A046A /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF8F7D302BDA6282001A046A /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		FF8F7D332BDA6282001A046A /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF8F7D302BDA6282001A046A /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -115,6 +115,7 @@ extension HomeCollectionViewCell: UICollectionViewDelegate, UICollectionViewData
         case 1:
             if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
                 cell.restaurantLabel.text = restaurantData[indexPath.row].placeName
+                cell.cachingImage(number: String(indexPath.row))
             } else {
                 cell.restaurantLabel.text = "None"
             }

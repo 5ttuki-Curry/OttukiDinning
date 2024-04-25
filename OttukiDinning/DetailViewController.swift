@@ -74,12 +74,17 @@ class DetailViewController: UIViewController {
         labelStackView.addArrangedSubview(urlLabel)
         labelStackView.addArrangedSubview(reservationButton)
         
+        let spacerView = UIView()
+        spacerView.backgroundColor = .clear
+        spacerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        labelStackView.insertArrangedSubview(spacerView, at: 5)
+        
         restaurantLabel.textColor = UIColor(red: 1.0, green: 0.2627, blue: 0.2627, alpha: 1.0)
         restaurantLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
-        categoryLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        addressLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
-        phoneLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
-        urlLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
+        categoryLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        phoneLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        urlLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         reservationButton.setImage(reservationImage, for: .normal)
         
         restaurantLabel.text = self.detailRestaurantData?.placeName
