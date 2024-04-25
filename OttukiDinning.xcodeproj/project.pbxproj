@@ -10,6 +10,8 @@
 		9CB740402BD9F200009C1525 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB7403F2BD9F200009C1525 /* KakaoSDKAuth */; };
 		9CB740422BD9F200009C1525 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740412BD9F200009C1525 /* KakaoSDKCommon */; };
 		9CB740442BD9F200009C1525 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740432BD9F200009C1525 /* KakaoSDKUser */; };
+		9CB740472BDA26FE009C1525 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB740452BDA26FE009C1525 /* MyPageViewController.swift */; };
+		9CB740512BDA4B9A009C1525 /* MyPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */; };
 		FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB52BD6349B001A046A /* AppDelegate.swift */; };
 		FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */; };
 		FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB92BD6349B001A046A /* ViewController.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9CB740452BDA26FE009C1525 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageView.storyboard; sourceTree = "<group>"; };
 		FF8F7CB22BD6349B001A046A /* OttukiDinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OttukiDinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CB52BD6349B001A046A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */,
 				FF8F7D112BD7D073001A046A /* DetailViewController.swift */,
 				FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */,
+				9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */,
+				9CB740452BDA26FE009C1525 /* MyPageViewController.swift */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 			files = (
 				FF8F7D012BD67D77001A046A /* HomeCollectionViewCell.xib in Resources */,
 				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
+				9CB740512BDA4B9A009C1525 /* MyPageView.storyboard in Resources */,
 				FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */,
 				FF8F7D1F2BD953CB001A046A /* Main.storyboard in Resources */,
 				FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */,
@@ -336,6 +343,7 @@
 				FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */,
 				FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */,
 				FF8F7D212BD953EA001A046A /* LogInViewController.swift in Sources */,
+				9CB740472BDA26FE009C1525 /* MyPageViewController.swift in Sources */,
 				FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */,
 				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
 				FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */,
