@@ -18,7 +18,6 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var kakaoLogInButton: UIButton!
     
-    
     let defaults = UserDefaults.standard
     
     
