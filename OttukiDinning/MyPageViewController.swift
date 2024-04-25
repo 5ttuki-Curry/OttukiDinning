@@ -129,7 +129,7 @@ extension UISegmentedControl{
     }
 }
 
-
+//세그먼트 컨트롤 배경 흰색 설정
 extension UIImage{
 
     class func getColoredRectImageWith(color: CGColor, andSize size: CGSize) -> UIImage{
