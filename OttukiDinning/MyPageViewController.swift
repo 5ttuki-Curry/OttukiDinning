@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPageViewController: UIViewController {
+class MyPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -17,6 +17,9 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     
     let defaults = UserDefaults.standard
+    
+    var isStatusMode = true
+    var isHistoryMode = true
     
     
     override func viewDidLoad() {
@@ -37,13 +40,14 @@ class MyPageViewController: UIViewController {
         reservationControl.selectedSegmentIndex = 0
         reservationControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23, weight: .semibold)], for: .normal)
         reservationControl.addUnderlineForSelectedSegment()    // 언더라인 생성
-        
     }
     
     
     func setTableView() {
-        tableview.register(UINib(nibName: "BookingStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingStatusCell")
-        tableview.register(UINib(nibName: "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingHistoryCell")
+        tableview.dataSource = self
+        tableview.delegate = self
+        tableview.register(UINib(nibName: isStatusMode ? "BookingStatusTableViewCell" : "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: isStatusMode ? "BookingStatusTableViewCell" : "BookingHistoryTableViewCell")
+        self.tableview.reloadData()
     }
 
    
@@ -53,10 +57,14 @@ class MyPageViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             // 예약 현황 보여주기
-            print("예약 현황")
+            isStatusMode = true
+            isHistoryMode = false
+            tableview.reloadData()
         case 1:
             // 예약 내역 보여주기
-            print("예약 내역")
+            isStatusMode = false
+            isHistoryMode = true
+            tableview.reloadData()
         default:
             break
         }
@@ -70,25 +78,26 @@ class MyPageViewController: UIViewController {
         } else { return "" }
     }
 
-}
-
-
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1  /// 에러 방지 목적으로 임시 값 넣었습니다!!
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: indexPath)
-                as? BookingHistoryTableViewCell else { return UITableViewCell() }
-        
-        cell.layer.cornerRadius = 5
-        cell.layer.borderWidth = 5
-        cell.layer.borderColor = UIColor(named: "shadowColor")?.cgColor
-        
-        return cell
+        if isStatusMode {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingStatusCell", for: indexPath)
+                    as? BookingStatusTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: indexPath)
+                    as? BookingHistoryTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        }
     }
+
 }
 
 

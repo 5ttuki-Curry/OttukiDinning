@@ -17,7 +17,6 @@ class BookingHistoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        configureCell()
     }
 
     
@@ -33,6 +32,10 @@ class BookingHistoryTableViewCell: UITableViewCell {
         bookingDateLabel.textColor = UIColor(named: "SubTextColor")
         
         personCountLabel.font = .boldSystemFont(ofSize: 23)
-    }
+        
+        contentView.layer.cornerRadius = 5
+        contentView.layer.borderWidth = 5
+        contentView.layer.borderColor = UIColor(named: "shadowColor")?.cgColor
+        }
     
 }
