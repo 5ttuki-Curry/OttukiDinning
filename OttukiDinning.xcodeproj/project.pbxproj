@@ -12,6 +12,10 @@
 		9CB740442BD9F200009C1525 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740432BD9F200009C1525 /* KakaoSDKUser */; };
 		9CB740472BDA26FE009C1525 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB740452BDA26FE009C1525 /* MyPageViewController.swift */; };
 		9CB740512BDA4B9A009C1525 /* MyPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */; };
+		9CB740582BDA5970009C1525 /* BookingHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB740562BDA5970009C1525 /* BookingHistoryTableViewCell.swift */; };
+		9CB740592BDA5970009C1525 /* BookingHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB740572BDA5970009C1525 /* BookingHistoryTableViewCell.xib */; };
+		9CB7405C2BDA59D3009C1525 /* BookingStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7405A2BDA59D3009C1525 /* BookingStatusTableViewCell.swift */; };
+		9CB7405D2BDA59D3009C1525 /* BookingStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB7405B2BDA59D3009C1525 /* BookingStatusTableViewCell.xib */; };
 		FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB52BD6349B001A046A /* AppDelegate.swift */; };
 		FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */; };
 		FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB92BD6349B001A046A /* ViewController.swift */; };
@@ -57,6 +61,10 @@
 /* Begin PBXFileReference section */
 		9CB740452BDA26FE009C1525 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageView.storyboard; sourceTree = "<group>"; };
+		9CB740562BDA5970009C1525 /* BookingHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		9CB740572BDA5970009C1525 /* BookingHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		9CB7405A2BDA59D3009C1525 /* BookingStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingStatusTableViewCell.swift; sourceTree = "<group>"; };
+		9CB7405B2BDA59D3009C1525 /* BookingStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingStatusTableViewCell.xib; sourceTree = "<group>"; };
 		FF8F7CB22BD6349B001A046A /* OttukiDinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OttukiDinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CB52BD6349B001A046A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +168,10 @@
 				FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */,
 				9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */,
 				9CB740452BDA26FE009C1525 /* MyPageViewController.swift */,
+				9CB7405A2BDA59D3009C1525 /* BookingStatusTableViewCell.swift */,
+				9CB7405B2BDA59D3009C1525 /* BookingStatusTableViewCell.xib */,
+				9CB740562BDA5970009C1525 /* BookingHistoryTableViewCell.swift */,
+				9CB740572BDA5970009C1525 /* BookingHistoryTableViewCell.xib */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -302,10 +314,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB740592BDA5970009C1525 /* BookingHistoryTableViewCell.xib in Resources */,
 				FF8F7D012BD67D77001A046A /* HomeCollectionViewCell.xib in Resources */,
 				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
 				9CB740512BDA4B9A009C1525 /* MyPageView.storyboard in Resources */,
 				FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */,
+				9CB7405D2BDA59D3009C1525 /* BookingStatusTableViewCell.xib in Resources */,
 				FF8F7D1F2BD953CB001A046A /* Main.storyboard in Resources */,
 				FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */,
 				FF8F7CC52BD6349C001A046A /* Base in Resources */,
@@ -340,6 +354,7 @@
 				FF8F7CFE2BD65976001A046A /* RestaurantData.swift in Sources */,
 				FF8F7CFB2BD65960001A046A /* NetworkManager.swift in Sources */,
 				FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */,
+				9CB7405C2BDA59D3009C1525 /* BookingStatusTableViewCell.swift in Sources */,
 				FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */,
 				FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */,
 				FF8F7D212BD953EA001A046A /* LogInViewController.swift in Sources */,
@@ -347,6 +362,7 @@
 				FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */,
 				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
 				FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */,
+				9CB740582BDA5970009C1525 /* BookingHistoryTableViewCell.swift in Sources */,
 				FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

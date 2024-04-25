@@ -14,14 +14,16 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     // 비밀번호 찾기 버튼은 추후 구현 여부 결정
     @IBOutlet weak var reservationControl: UISegmentedControl!
-
+    @IBOutlet weak var tableview: UITableView!
+    
     let defaults = UserDefaults.standard
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.configureUI()
+        configureUI()
+        setTableView()
     }
     
     
@@ -34,12 +36,19 @@ class MyPageViewController: UIViewController {
         
         reservationControl.selectedSegmentIndex = 0
         reservationControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23, weight: .semibold)], for: .normal)
-        reservationControl.addUnderlineForSelectedSegment()
+        reservationControl.addUnderlineForSelectedSegment()    // 언더라인 생성
+        
+    }
+    
+    
+    func setTableView() {
+        tableview.register(UINib(nibName: "BookingStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingStatusCell")
+        tableview.register(UINib(nibName: "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingHistoryCell")
     }
 
    
     @IBAction func controlSelected(_ sender: UISegmentedControl) {
-        reservationControl.changeUnderlinePosition()
+        reservationControl.changeUnderlinePosition()         // 언더라인 입력값 따라 바꾸기
         
         switch sender.selectedSegmentIndex {
         case 0:
@@ -65,6 +74,25 @@ class MyPageViewController: UIViewController {
 
 
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1  /// 에러 방지 목적으로 임시 값 넣었습니다!!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: indexPath)
+                as? BookingHistoryTableViewCell else { return UITableViewCell() }
+        
+        cell.layer.cornerRadius = 5
+        cell.layer.borderWidth = 5
+        cell.layer.borderColor = UIColor(named: "shadowColor")?.cgColor
+        
+        return cell
+    }
+}
+
+
+// 세그먼트컨트롤 배경 흰색, 테두리 삭제, 언더라인 생성, 언더라인 이동
 extension UISegmentedControl{
 
     func removeBorder(){
@@ -102,7 +130,6 @@ extension UISegmentedControl{
 }
 
 
-
 extension UIImage{
 
     class func getColoredRectImageWith(color: CGColor, andSize size: CGSize) -> UIImage{
@@ -117,7 +144,3 @@ extension UIImage{
     }
 }
 
-
-#Preview {
-  MyPageViewController()
-}
