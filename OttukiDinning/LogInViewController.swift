@@ -11,7 +11,6 @@ import KakaoSDKUser
 import KakaoSDKAuth
 
 class LogInViewController: UIViewController {
-
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -59,7 +58,6 @@ class LogInViewController: UIViewController {
         passwordTextField.spellCheckingType = .no
         passwordTextField.isSecureTextEntry = true
         passwordTextField.textContentType = .oneTimeCode
-        
         
         logInButton.layer.borderWidth = 1
         logInButton.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -110,6 +108,7 @@ class LogInViewController: UIViewController {
     
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        eraseLogInTF()
         // 회원가입 화면으로 이동
         guard let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "signUpVC") as? SignUpViewController else { return }
         self.present(signUpVC, animated: true, completion: nil)
@@ -137,6 +136,16 @@ class LogInViewController: UIViewController {
         if let value = defaults.string(forKey: forKey) {
             return value
         } else { return "" }
+    }
+    
+    
+    func eraseLogInTF() {
+        if idTextField.text != nil {
+            idTextField.text = ""
+        }
+        if passwordTextField.text != nil {
+            passwordTextField.text = ""
+        }
     }
 
 }

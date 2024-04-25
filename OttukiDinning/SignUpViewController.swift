@@ -21,8 +21,6 @@ class SignUpViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    //let loginVC = LogInViewController()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,23 +89,10 @@ class SignUpViewController: UIViewController {
     }
     
     
-//    func clearLogInTF() {
-//        if loginVC.idTextField.text != nil {
-//            loginVC.idTextField.text = ""
-//        }
-//        if loginVC.passwordTextField.text != nil {
-//            loginVC.passwordTextField.text = ""
-//        }
-//        
-//    }
-    
-    
     @IBAction func makcAccountButtonTapped(_ sender: UIButton) {
         // 데이터(이메일, 패스워드) 저장하기
         defaults.set(emailTextField.text, forKey: "id")
         defaults.set(setPasswordTextField.text, forKey: "password")
-                
-        //clearLogInTF()
         
         // 로그인 화면으로 돌아가기
         self.dismiss(animated: true, completion: nil)
