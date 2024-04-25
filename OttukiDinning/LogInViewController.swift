@@ -11,14 +11,12 @@ import KakaoSDKUser
 import KakaoSDKAuth
 
 class LogInViewController: UIViewController {
-
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var kakaoLogInButton: UIButton!
-    
     
     let defaults = UserDefaults.standard
     
@@ -60,7 +58,6 @@ class LogInViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true
         passwordTextField.textContentType = .oneTimeCode
         
-        
         logInButton.layer.borderWidth = 1
         logInButton.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         logInButton.layer.cornerRadius = 15
@@ -94,7 +91,10 @@ class LogInViewController: UIViewController {
         // id, pw 맞는지 확인
         if idTextField.text == readLoginInfo(forKey: "id"), passwordTextField.text == readLoginInfo(forKey: "password") {
             //  맞으면 다음 화면으로 이동
-            print("다음화면 이동")
+            let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
+            guard let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeView") as? HomeViewController else { return }
+            homeVC.modalPresentationStyle = .fullScreen
+            self.present(homeVC, animated: true, completion: nil)
         } else {
             // 틀리면 alert창 띄워 경고
             let alert = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "다시 입력해 주세요.", preferredStyle: .alert)
@@ -107,6 +107,7 @@ class LogInViewController: UIViewController {
     
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        eraseLogInTF()
         // 회원가입 화면으로 이동
         guard let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "signUpVC") as? SignUpViewController else { return }
         self.present(signUpVC, animated: true, completion: nil)
@@ -134,6 +135,16 @@ class LogInViewController: UIViewController {
         if let value = defaults.string(forKey: forKey) {
             return value
         } else { return "" }
+    }
+    
+    
+    func eraseLogInTF() {
+        if idTextField.text != nil {
+            idTextField.text = ""
+        }
+        if passwordTextField.text != nil {
+            passwordTextField.text = ""
+        }
     }
 
 }
