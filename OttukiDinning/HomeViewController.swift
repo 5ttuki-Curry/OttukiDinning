@@ -152,13 +152,16 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
             case 0:
                 let restaurantData = HomeCollectionViewCell.seoulRestaurantData[indexPath.row][Int.random(in: 0...4)]
                 detailViewController.detailRestaurantData = restaurantData
+                detailViewController.setRestaurantImageView(placeName: restaurantData.placeName)
             case 1:
                 if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
                     detailViewController.detailRestaurantData = restaurantData[indexPath.row]
+                    detailViewController.setRestaurantImageView(placeName: restaurantData[indexPath.row].placeName)
                 }
             case 2:
                 if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
                     detailViewController.detailRestaurantData = restaurantData[(restaurantData.count - 1) - indexPath.row]
+                    detailViewController.setRestaurantImageView(placeName: restaurantData[(restaurantData.count - 1) - indexPath.row].placeName)
                 }
             default:
                 return

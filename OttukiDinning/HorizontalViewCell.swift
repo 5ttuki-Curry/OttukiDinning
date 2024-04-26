@@ -21,8 +21,23 @@ class HorizontalViewCell: UICollectionViewCell {
     }
     
     func setRestaurantImageView(placeName: String) {
-        restaurantImageView = networkManager.cachingImage(placeName: placeName)
-        restaurantImageView.contentMode = .scaleAspectFill
+        let urlString = "https://raw.githubusercontent.com/5ttuki-Curry/ImageStorage/main/\(placeName).png"
+        
+        if let url = URL(string: urlString) {
+            restaurantImageView.kf.setImage(
+                with: url,
+                placeholder: nil,
+                completionHandler: { result in
+                    switch result {
+                    case .success(let value):
+                        print("이미지 로드 성공: \(value.source.url?.absoluteString ?? "")")
+                    case .failure(let error):
+                        print("이미지 로드 실패: \(error.localizedDescription)")
+                        self.restaurantImageView.image = UIImage(named: "NoImage")
+                    }
+                }
+            )
+        }
     }
     
     private func setHorizontalViewCell() {
@@ -33,6 +48,10 @@ class HorizontalViewCell: UICollectionViewCell {
         horizontalStackView.isLayoutMarginsRelativeArrangement = true
         
         horizontalStackView.addArrangedSubview(restaurantImageView)
+        restaurantImageView.contentMode = .scaleToFill
+        restaurantImageView.widthAnchor.constraint(equalTo: restaurantImageView.heightAnchor, multiplier: 1.0).isActive = true
+        restaurantImageView.layer.cornerRadius = 12
+        restaurantImageView.clipsToBounds = true
         horizontalStackView.addArrangedSubview(restaurantLabel)
         restaurantLabel.textAlignment = .center
         
