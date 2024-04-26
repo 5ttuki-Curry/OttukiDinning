@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuB-is-Wwd">
-                        <rect key="frame" x="20" y="49.666666666666664" width="200" height="23.999999999999993"/>
+                        <rect key="frame" x="20" y="49.666666666666664" width="200" height="24.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -45,6 +45,7 @@
                     <constraint firstItem="Ioy-XE-CLS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="96k-by-Z3Q"/>
                     <constraint firstItem="Ioy-XE-CLS" firstAttribute="centerY" secondItem="hOK-oX-OAy" secondAttribute="bottom" id="BZu-MZ-RBv"/>
                     <constraint firstItem="hOK-oX-OAy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ioy-XE-CLS" secondAttribute="leading" constant="-20" id="CV3-Vh-17o"/>
+                    <constraint firstAttribute="bottom" secondItem="ZuB-is-Wwd" secondAttribute="bottom" constant="15" id="Ual-mT-Giu"/>
                     <constraint firstItem="ZuB-is-Wwd" firstAttribute="leading" secondItem="hOK-oX-OAy" secondAttribute="leading" id="ZHB-4d-wVi"/>
                     <constraint firstItem="hOK-oX-OAy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="cEN-zO-YEU"/>
                     <constraint firstItem="ZuB-is-Wwd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ioy-XE-CLS" secondAttribute="leading" constant="-20" id="e7R-lR-AFN"/>

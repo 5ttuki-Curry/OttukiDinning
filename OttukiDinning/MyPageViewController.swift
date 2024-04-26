@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 class MyPageViewController: UIViewController {
 
     
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
-    // 비밀번호 찾기 버튼은 추후 구현 여부 결정
     @IBOutlet weak var reservationControl: UISegmentedControl!
     @IBOutlet weak var tableview: UITableView!
+    
+    var bottomUIStackView = UIStackView()
+    let homeButton = UIButton()
+    let searchButton = UIButton()
+    let myInfoButton = UIButton()
     
     let defaults = UserDefaults.standard
     
@@ -26,12 +31,21 @@ class MyPageViewController: UIViewController {
     
     
     
+    var persistentContainer: NSPersistentContainer? {
+            (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+        }
+    var array:[Reserve] = [] //코어데이터에서 가져온 전체!
+    var array1:[Reserve] = [] //예약 현황 배열
+    var array2:[Reserve] = [] //예약 내역 배열
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureUI()
         setTableView()
+        setBottomUIStackView()
+        setArrays()
     }
     
     
@@ -54,13 +68,95 @@ class MyPageViewController: UIViewController {
         tableview.delegate = self
         tableview.register(UINib(nibName: "BookingStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingStatusCell")
         tableview.register(UINib(nibName: "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingHistoryCell")
-        tableview.rowHeight = UITableView.automaticDimension
-        tableview.estimatedRowHeight = UITableView.automaticDimension
+    }
+    
+    
+    private func setBottomUIStackView() {
+        view.addSubview(bottomUIStackView)
+        bottomUIStackView.axis = .horizontal
+        bottomUIStackView.distribution = .equalSpacing
+        bottomUIStackView.isLayoutMarginsRelativeArrangement = true
+        bottomUIStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 39, bottom: 0, trailing: 39)
+        
+        homeButton.setImage(UIImage(named: "HomeEmpty"), for: .normal)
+        searchButton.setImage(UIImage(named: "Search"), for: .normal)
+        myInfoButton.setImage(UIImage(named: "MyInfo"), for: .normal)
+        
+        bottomUIStackView.addArrangedSubview(homeButton)
+        bottomUIStackView.addArrangedSubview(searchButton)
+        bottomUIStackView.addArrangedSubview(myInfoButton)
+        
+        bottomUIStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bottomUIStackView.heightAnchor.constraint(equalToConstant: 40),
+            bottomUIStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        
+        homeButton.addTarget(self, action: #selector(self.homeButtonTapped), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(self.searchButtonTapped), for: .touchUpInside)
+        myInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
+    }
+    
+    
+    func setArrays() {
+        let calendar = Calendar.current
+        let present = Date()
+        print(present)
+        
+        guard let context = self.persistentContainer?.viewContext else { return }
+        
+        let request = Reserve.fetchRequest()
+        guard let reserveList = try? context.fetch(request) else { return }
+        
+        array = reserveList
+        self.array1 = array.filter{
+            calendar.compare(present, to: $0.reserveDate!, toGranularity: .day) == .orderedAscending
+        }.sorted{
+            $0.reserveDate! < $1.reserveDate!
+        }
+        self.array2 = array.filter{
+            calendar.compare(present, to: $0.reserveDate!, toGranularity: .day) == .orderedDescending
+        }.sorted{
+            $0.reserveDate! < $1.reserveDate!
+        }
+        
+    }
+    
+    
+    @objc func homeButtonTapped() {
+        let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
+        guard let nextVC = storyboard.instantiateViewController(identifier: "HomeView") as? HomeViewController else {
+            return
+        }
+        LogInViewController.navigationController = UINavigationController(rootViewController: nextVC)
+        LogInViewController.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.present(LogInViewController.navigationController, animated: true)
+    }
+    
+    
+    @objc func searchButtonTapped() {
+        let storyboard = UIStoryboard(name: "Sion", bundle: nil)
+        guard let nextVC = storyboard.instantiateViewController(identifier: "SionViewController") as? SionViewController else {
+            return
+        }
+        LogInViewController.navigationController = UINavigationController(rootViewController: nextVC)
+        LogInViewController.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.present(LogInViewController.navigationController, animated: true)
+    }
+    
+    
+    @objc func myInfoButtonTapped() {
+        let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
+        guard let mypageVC = storyboard.instantiateViewController(withIdentifier: "MyPageView") as? MyPageViewController else { return }
+        mypageVC.modalPresentationStyle = .fullScreen
+        self.present(mypageVC, animated: false, completion: nil)
     }
 
    
     @IBAction func controlSelected(_ sender: UISegmentedControl) {
-        reservationControl.changeUnderlinePosition()
+        reservationControl.changeUnderlinePosition()     // 언더라인 위치 이동
         
         switch sender.selectedSegmentIndex {
         case 0:
@@ -78,7 +174,7 @@ class MyPageViewController: UIViewController {
         }
     }
     
-    
+    // userdefaults 데이터 읽어오기
     func readLoginInfo(forKey: String) -> String {
         if let value = defaults.string(forKey: forKey) {
             return value
@@ -88,23 +184,20 @@ class MyPageViewController: UIViewController {
 }
 
 
-extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    //데이터 가지고 그려보기
-    
+
+
+extension MyPageViewController: UITableViewDataSource, UITableViewDelegate, ButtonTappedDelegate {
+
     //테이블에 원하는 갯수를 조건 맞춰주기
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(array1)
         print(array2)
-        if isStatusMode{
+
+        if isStatusMode {
             return array1.count
-        }
-        else{
+        } else {
             return array2.count
         }
-        
-        
-        return 1  /// 에러 방지 목적으로 넣은 임시값!!
     }
     
     
@@ -116,12 +209,14 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell.configureCell()
             let status = array1[indexPath.row]//엔티티 접근
-            
+
             //애트리뷰트
-            cell.placeNameLabel.text = status.reserveRestaurantName //식당이름
-            cell.personNameLabel.text = status.reserveName//예약자 명
-            cell.bookingDateLabel.text = status.reserveDate //예약 날짜
-            cell.personCountLabel.text = status.reservePeople //예약 인원
+            cell.placeNameLabel.text = status.reserveRestaurantName             //식당이름
+            cell.personNameLabel.text = status.reserveName              //예약자 명
+            cell.bookingDateLabel.text = "\(String(describing: status.reserveDate!))"        //예약 날짜
+            cell.personCountLabel.text = String(status.reservePeople) + " 명"  //예약 인원
+            cell.delegate = self
+
             return cell
         } else {
             //내역
@@ -130,20 +225,29 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell.configureCell()
             let status = array2[indexPath.row]//엔티티 접근
-            
-            
-            //준영님 예약 내역에는 예약자 명이 빠져있나요?
+
             //애트리뷰트
             cell.placeNameLabel.text = status.reserveRestaurantName //식당이름
-            cell.bookingDateLabel.text = status.reserveDate //예약 날짜
-            cell.personCountLabel.text = status.reservePeople //예약 인원
+            cell.bookingDateLabel.text = "\(String(describing: status.reserveDate!))" //예약 날짜
+            cell.personCountLabel.text = String(status.reservePeople) + " 명" //예약 인원
             
             return cell
         }
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.estimatedRowHeight
+    }
+    
+    
+    func cellButtonTapped() {
+        print("cancel")
+        // 배열 삭제하기
+        // 코어데이터 삭제하기
+        // 셀 삭제하기
+        //guard let cell = tableview.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: IndexPath)
+
     }
     
 }
@@ -200,6 +304,7 @@ extension UIImage{
         return rectangleImage!
     }
 }
+
 
 //1. 코어데이터에서 모든거 다 가져오기 -> array viewdidload
 //현황 array1= 예약 내역 < array2 = 예약 현황

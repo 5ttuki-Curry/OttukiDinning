@@ -144,16 +144,14 @@ class DetailPageController: UIViewController {
        
        newReserve.reserveDate = datePicker.date
        newReserve.reserveName = nameTextField.text
-       newReserve.reservePeople = String(peopleCounter.value)
+       newReserve.reservePeople = Int32(peopleCounter.value)
        newReserve.reserveRestaurantName = reservationRestaurantName
        try? context.save()
        
-       //코어 데이터에 저장 잘 되었는지 확인 필요할 때 쓰기
-       /*
        let request = Reserve.fetchRequest()
        let reserves = try? context.fetch(request)
        print(newReserve)
-       */
+
        
         // 예약 로직 처리
         // 예약 정보 확인을 위한 간단한 alert 표시
