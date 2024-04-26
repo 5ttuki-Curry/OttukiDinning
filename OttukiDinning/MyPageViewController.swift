@@ -20,6 +20,11 @@ class MyPageViewController: UIViewController {
     
     var isStatusMode = true
     var isHistoryMode = true
+    var array:[Reserve] = [] //코어데이터에서 가져온 전체!
+    var array1:[Reserve] = [] //예약 현황 배열
+    var array2:[Reserve] = [] //예약 내역 배열
+    
+    
     
     
     override func viewDidLoad() {
@@ -85,24 +90,53 @@ class MyPageViewController: UIViewController {
 
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     
+    //데이터 가지고 그려보기
+    
+    //테이블에 원하는 갯수를 조건 맞춰주기
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(array1)
+        print(array2)
+        if isStatusMode{
+            return array1.count
+        }
+        else{
+            return array2.count
+        }
+        
+        
         return 1  /// 에러 방지 목적으로 넣은 임시값!!
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isStatusMode {
+            //현황
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingStatusCell", for: indexPath)
                     as? BookingStatusTableViewCell else { return UITableViewCell() }
             
             cell.configureCell()
+            let status = array1[indexPath.row]//엔티티 접근
             
+            //애트리뷰트
+            cell.placeNameLabel.text = status.reserveRestaurantName //식당이름
+            cell.personNameLabel.text = status.reserveName//예약자 명
+            cell.bookingDateLabel.text = status.reserveDate //예약 날짜
+            cell.personCountLabel.text = status.reservePeople //예약 인원
             return cell
         } else {
+            //내역
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: indexPath)
                     as? BookingHistoryTableViewCell else { return UITableViewCell() }
             
             cell.configureCell()
+            let status = array2[indexPath.row]//엔티티 접근
+            
+            
+            //준영님 예약 내역에는 예약자 명이 빠져있나요?
+            //애트리뷰트
+            cell.placeNameLabel.text = status.reserveRestaurantName //식당이름
+            cell.bookingDateLabel.text = status.reserveDate //예약 날짜
+            cell.personCountLabel.text = status.reservePeople //예약 인원
             
             return cell
         }
@@ -167,3 +201,8 @@ extension UIImage{
     }
 }
 
+//1. 코어데이터에서 모든거 다 가져오기 -> array viewdidload
+//현황 array1= 예약 내역 < array2 = 예약 현황
+//2. 필터(고차함수)를 통해서 array1 or array2 값을 집어넣기 -> 값을 현황,내역 각 배열 만들고 넣기
+//출력 tabelview에서 관리
+//3. 애트리뷰트 date 부분 처리

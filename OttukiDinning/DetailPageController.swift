@@ -77,16 +77,6 @@ class DetailPageController: UIViewController {
         ])
         dateText.text = "예약 날짜"
         
-         /*시간 선택 (30분 단위)
-        timePicker.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(timePicker)
-        NSLayoutConstraint.activate([
-            timePicker.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 20),
-            timePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            timePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            timePicker.heightAnchor.constraint(equalToConstant: 100)
-        ])*/
-        
         // 인원 수 조절
         peopleCounter.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(peopleCounter)
@@ -152,16 +142,17 @@ class DetailPageController: UIViewController {
        
        let newReserve = Reserve(context: context)
        
-       newReserve.reservedate = datePicker.date
-       newReserve.reservename = nameTextField.text
-       newReserve.reservepeople = Int32(peopleCounter.value)
-       
+       newReserve.reserveDate = datePicker.date
+       newReserve.reserveName = nameTextField.text
+       newReserve.reservePeople = String(peopleCounter.value)
+       newReserve.reserveRestaurantName = reservationRestaurantName
        try? context.save()
        
+       //코어 데이터에 저장 잘 되었는지 확인 필요할 때 쓰기
        /*
        let request = Reserve.fetchRequest()
        let reserves = try? context.fetch(request)
-       print(reserves)
+       print(newReserve)
        */
        
         // 예약 로직 처리
