@@ -45,7 +45,6 @@ class LogInViewController: UIViewController {
         idTextField.autocorrectionType = .no
         idTextField.spellCheckingType = .no
         
-        
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         passwordTextField.layer.cornerRadius = 15
