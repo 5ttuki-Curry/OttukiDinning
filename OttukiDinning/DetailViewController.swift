@@ -73,6 +73,8 @@ class DetailViewController: UIViewController {
             topMyInfoButton.widthAnchor.constraint(equalToConstant: 45),
             topMyInfoButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
         ])
+        
+        topMyInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
     }
     
     private func setMiddleUIStackView() {
@@ -96,11 +98,13 @@ class DetailViewController: UIViewController {
         
         let spacerView = UIView()
         spacerView.backgroundColor = .clear
-        spacerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        spacerView.translatesAutoresizingMaskIntoConstraints = false
+        spacerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         labelStackView.insertArrangedSubview(spacerView, at: 5)
         
         restaurantLabel.textColor = UIColor(red: 1.0, green: 0.2627, blue: 0.2627, alpha: 1.0)
         restaurantLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        
         categoryLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         addressLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         phoneLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
@@ -127,8 +131,6 @@ class DetailViewController: UIViewController {
         view.addSubview(bottomUIStackView)
         bottomUIStackView.axis = .horizontal
         bottomUIStackView.distribution = .equalSpacing
-        bottomUIStackView.isLayoutMarginsRelativeArrangement = true
-        bottomUIStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 39, bottom: 0, trailing: 39)
         
         bottomUIStackView.addArrangedSubview(homeButton)
         bottomUIStackView.addArrangedSubview(searchButton)
@@ -140,11 +142,14 @@ class DetailViewController: UIViewController {
         
         bottomUIStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bottomUIStackView.heightAnchor.constraint(equalToConstant: 100),
+            bottomUIStackView.heightAnchor.constraint(equalToConstant: 40),
             bottomUIStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 39),
+            bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -39)
         ])
+        homeButton.addTarget(self, action: #selector(self.homeButtonTapped), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(self.searchButtonTapped), for: .touchUpInside)
+        myInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
     }
     
     @objc func tapReservationButton() {
@@ -157,5 +162,17 @@ class DetailViewController: UIViewController {
             presentVC.reservationRestaurantName = data.placeName
             present(presentVC, animated: true, completion: nil)
         }
+    }
+    
+    @objc func homeButtonTapped() {
+        ButtonManager.homeButtonTapped(viewController: self)
+    }
+    
+    @objc func searchButtonTapped() {
+        ButtonManager.searchButtonTapped(viewController: self)
+    }
+
+    @objc func myInfoButtonTapped() {
+        ButtonManager.myInfoButtonTapped(viewController: self)
     }
 }

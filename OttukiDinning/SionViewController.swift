@@ -284,8 +284,17 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
             bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+        
+        homeButton.addTarget(self, action: #selector(self.homeButtonTapped), for: .touchUpInside)
+        myInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
     }
     
-    
+    @objc func homeButtonTapped() {
+        ButtonManager.homeButtonTapped(viewController: self)
+    }
+
+    @objc func myInfoButtonTapped() {
+        ButtonManager.myInfoButtonTapped(viewController: self)
+    }
     
 } // class
