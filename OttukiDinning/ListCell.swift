@@ -21,19 +21,21 @@ class ListCell: UICollectionViewCell {
             
             // 메인 페이지 상품 데이터 JSON Dummy API 활용해서 노출하기  (썸네일, 상품명, 설명, 가격)
             DispatchQueue.main.async {
-//이미지                self.cellImage.image = nil
+                //이미지                self.cellImage.image = nil
                 self.nameLabel.text = searchStore.placeName
                 self.addressLabel.text = searchStore.addressName
-//별점                self.ratingLabel.text =
+                
+                
             }
             
-            // 이미지
-//            DispatchQueue.global().async { [weak self] in
-//                if let data = try? Data(contentsOf: RestaurantData.image), let image = UIImage(data: data) {
-//                    DispatchQueue.main.async { self?.cellImage.image = image}
-//                }
-//            }
         }
+        
+        // 이미지
+        //            DispatchQueue.global().async { [weak self] in
+        //                if let data = try? Data(contentsOf: RestaurantData.image), let image = UIImage(data: data) {
+        //                    DispatchQueue.main.async { self?.cellImage.image = image}
+        //                }
+        //            }
     }
     
     override func awakeFromNib() {
@@ -55,15 +57,15 @@ class ListCell: UICollectionViewCell {
     
     func setCell(_ data: RestaurantData){
         
-// 이미지       if let image = data.image {
-//            cellImage.image = image
-//        }
+        // 이미지       if let image = data.image {
+        //            cellImage.image = image
+        //        }
         
         nameLabel.text = data.placeName
         nameLabel.layer.masksToBounds = true
         addressLabel.text = data.addressName
         addressLabel.layer.masksToBounds = true
-// 별점      ratingLabel.text = String(data.rate)
+        // 별점      ratingLabel.text = String(data.rate)
         
         
         // cell 테두리
@@ -74,6 +76,9 @@ class ListCell: UICollectionViewCell {
         
         cellShadow()
     }
+    
+    
+    
     
     // cell shadow
     func cellShadow() {
@@ -102,7 +107,7 @@ class ListCell: UICollectionViewCell {
                         
                         print(store.placeName)
                         print(store.addressName)
-// 이미지                       print(store.image)
+                        // 이미지                       print(store.image)
                         
                     } catch {
                         print("Decode Error: \(error)")
@@ -117,6 +122,6 @@ class ListCell: UICollectionViewCell {
             task.resume()
         }
     }
-
+    
     
 }

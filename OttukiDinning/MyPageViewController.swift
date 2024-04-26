@@ -25,6 +25,11 @@ class MyPageViewController: UIViewController {
     
     var isStatusMode = true
     var isHistoryMode = true
+    var array:[Reserve] = [] //코어데이터에서 가져온 전체!
+    var array1:[Reserve] = [] //예약 현황 배열
+    var array2:[Reserve] = [] //예약 내역 배열
+    
+    
     
     var persistentContainer: NSPersistentContainer? {
             (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
@@ -180,12 +185,14 @@ class MyPageViewController: UIViewController {
 
 
 
+
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate, ButtonTappedDelegate {
-    //데이터 가지고 그려보기
+
     //테이블에 원하는 갯수를 조건 맞춰주기
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(array1)
         print(array2)
+
         if isStatusMode {
             return array1.count
         } else {
@@ -196,25 +203,29 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate, Butt
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isStatusMode {
+            //현황
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingStatusCell", for: indexPath)
                     as? BookingStatusTableViewCell else { return UITableViewCell() }
             
             cell.configureCell()
             let status = array1[indexPath.row]//엔티티 접근
+
             //애트리뷰트
             cell.placeNameLabel.text = status.reserveRestaurantName             //식당이름
             cell.personNameLabel.text = status.reserveName              //예약자 명
             cell.bookingDateLabel.text = "\(String(describing: status.reserveDate!))"        //예약 날짜
             cell.personCountLabel.text = String(status.reservePeople) + " 명"  //예약 인원
             cell.delegate = self
-            
+
             return cell
         } else {
+            //내역
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: indexPath)
                     as? BookingHistoryTableViewCell else { return UITableViewCell() }
             
             cell.configureCell()
             let status = array2[indexPath.row]//엔티티 접근
+
             //애트리뷰트
             cell.placeNameLabel.text = status.reserveRestaurantName //식당이름
             cell.bookingDateLabel.text = "\(String(describing: status.reserveDate!))" //예약 날짜
@@ -293,7 +304,6 @@ extension UIImage{
         return rectangleImage!
     }
 }
-
 
 
 //1. 코어데이터에서 모든거 다 가져오기 -> array viewdidload
