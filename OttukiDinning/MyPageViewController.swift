@@ -30,14 +30,9 @@ class MyPageViewController: UIViewController {
     var array2:[Reserve] = [] //예약 내역 배열
     
     
-    
     var persistentContainer: NSPersistentContainer? {
             (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
         }
-    var array:[Reserve] = [] //코어데이터에서 가져온 전체!
-    var array1:[Reserve] = [] //예약 현황 배열
-    var array2:[Reserve] = [] //예약 내역 배열
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

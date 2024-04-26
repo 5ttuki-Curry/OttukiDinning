@@ -47,15 +47,11 @@
 		FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D222BD953F2001A046A /* SignUpViewController.swift */; };
 		FF8F7D262BD95546001A046A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		FF8F7D292BD9556B001A046A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		FF8F7D2F2BDA04E9001A046A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D2E2BDA04E9001A046A /* Kingfisher */; };
-		FF8F7D392BDB678E001A046A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D382BDB678E001A046A /* Alamofire */; };
-		FF8F7D3B2BDB67E6001A046A /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D3A2BDB67E6001A046A /* KakaoSDK */; };
-		FF8F7D3D2BDB67E6001A046A /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D3C2BDB67E6001A046A /* KakaoSDKAuth */; };
-		FF8F7D3F2BDB67E6001A046A /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D3E2BDB67E6001A046A /* KakaoSDKCert */; };
-		FF8F7D412BDB67E6001A046A /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D402BDB67E6001A046A /* KakaoSDKCertCore */; };
-		FF8F7D432BDB67E6001A046A /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D422BDB67E6001A046A /* KakaoSDKCommon */; };
 		FF8F7D452BDB9620001A046A /* ButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D442BDB9620001A046A /* ButtonManager.swift */; };
-
+		FF8F7D482BDBC328001A046A /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB7405F2BDB90CA009C1525 /* KakaoSDKAuth */; };
+		FF8F7D492BDBC328001A046A /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740612BDB90CA009C1525 /* KakaoSDKCommon */; };
+		FF8F7D4A2BDBC328001A046A /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740632BDB90CA009C1525 /* KakaoSDKUser */; };
+		FF8F7D4B2BDBC328001A046A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740662BDB9263009C1525 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,12 +122,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CB740672BDB9263009C1525 /* Kingfisher in Frameworks */,
-				9CB740622BDB90CA009C1525 /* KakaoSDKCommon in Frameworks */,
+				FF8F7D4B2BDBC328001A046A /* Kingfisher in Frameworks */,
+				FF8F7D4A2BDBC328001A046A /* KakaoSDKUser in Frameworks */,
+				FF8F7D492BDBC328001A046A /* KakaoSDKCommon in Frameworks */,
+				FF8F7D482BDBC328001A046A /* KakaoSDKAuth in Frameworks */,
 				FF8F7D262BD95546001A046A /* (null) in Frameworks */,
 				FF8F7D292BD9556B001A046A /* (null) in Frameworks */,
-				9CB740642BDB90CA009C1525 /* KakaoSDKUser in Frameworks */,
-				9CB740602BDB90CA009C1525 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
