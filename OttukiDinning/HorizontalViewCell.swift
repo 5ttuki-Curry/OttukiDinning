@@ -11,41 +11,18 @@ import UIKit
 class HorizontalViewCell: UICollectionViewCell {
     
     let horizontalStackView = UIStackView()
-    let restaurantImageView = UIImageView()
+    var restaurantImageView = UIImageView()
     let restaurantLabel = UILabel()
+    let networkManager = NetworkManager()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setHorizontalViewCell()
     }
     
-    func setImageView(url: String) {
-        restaurantImageView.contentMode = .scaleAspectFit // 이미지 비율 유지
-        
-        if let url = URL(string: "\(url)1.svg") {
-            restaurantImageView.kf.setImage(with: url)
-        } else {
-            restaurantImageView.image = UIImage(named: "Restaurant") // 이미지 이름 설정
-        }
-    }
-    
-    func cachingImage(number: String) {
-        let urlString = "https://github.com/5ttuki-Curry/ImageStorage/baa18c257b05820f82b61cd03c0754b280e0bcba/\(number).svg"
-        if let url = URL(string: urlString) {
-            restaurantImageView.kf.setImage(
-                with: url,
-                placeholder: nil,
-                options: [.processor(SVGProcessor())],
-                completionHandler: { result in
-                    switch result {
-                    case .success(let value):
-                        print("이미지 로드 성공: \(value.source.url?.absoluteString ?? "")")
-                    case .failure(let error):
-                        print("이미지 로드 실패: \(error.localizedDescription)")
-                    }
-                }
-            )
-        }
+    func setRestaurantImageView(placeName: String) {
+        restaurantImageView = networkManager.cachingImage(placeName: placeName)
+        restaurantImageView.contentMode = .scaleAspectFill
     }
     
     private func setHorizontalViewCell() {

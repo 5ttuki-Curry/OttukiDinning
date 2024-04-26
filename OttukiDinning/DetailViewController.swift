@@ -10,6 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var detailRestaurantData: RestaurantData?
+    let networkManager = NetworkManager()
     
     var bottomUIStackView = UIStackView()
     var middleUIStackView = UIStackView()
