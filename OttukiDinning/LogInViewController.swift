@@ -19,6 +19,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var kakaoLogInButton: UIButton!
     
     let defaults = UserDefaults.standard
+    static var navigationController = UINavigationController()
     
     
     override func viewDidLoad() {
@@ -43,7 +44,6 @@ class LogInViewController: UIViewController {
         idTextField.clearButtonMode = .always
         idTextField.autocorrectionType = .no
         idTextField.spellCheckingType = .no
-        
         
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
@@ -91,10 +91,15 @@ class LogInViewController: UIViewController {
         // id, pw 맞는지 확인
         if idTextField.text == readLoginInfo(forKey: "id"), passwordTextField.text == readLoginInfo(forKey: "password") {
             //  맞으면 다음 화면으로 이동
+            print("다음화면 이동")
             let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
-            guard let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeView") as? HomeViewController else { return }
-            homeVC.modalPresentationStyle = .fullScreen
-            self.present(homeVC, animated: true, completion: nil)
+            guard let nextVC = storyboard.instantiateViewController(identifier: "HomeView") as? HomeViewController else {
+                return
+            }
+            
+            LogInViewController.navigationController = UINavigationController(rootViewController: nextVC)
+            LogInViewController.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(LogInViewController.navigationController, animated: true)
         } else {
             // 틀리면 alert창 띄워 경고
             let alert = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "다시 입력해 주세요.", preferredStyle: .alert)
