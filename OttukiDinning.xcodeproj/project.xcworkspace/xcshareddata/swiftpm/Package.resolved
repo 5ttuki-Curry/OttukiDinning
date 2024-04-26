@@ -1,5 +1,4 @@
 {
-  "originHash" : "eb7006a33daebfe6347591bfec590e6511ebbda41d91aa83a3995b1f3670f2cf",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -20,12 +19,12 @@
       }
     },
     {
-      "identity" : "kingfisher",
+      "identity" : "kakaomapssdk-spm",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher",
+      "location" : "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git",
       "state" : {
-        "revision" : "5b92f029fab2cce44386d28588098b5be0824ef5",
-        "version" : "7.11.0"
+        "revision" : "c1571d411caca22ad6e3e76a593e0b95b3586fb7",
+        "version" : "2.10.4"
       }
     }
   ],

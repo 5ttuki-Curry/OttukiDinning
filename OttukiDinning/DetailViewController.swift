@@ -10,7 +10,6 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var detailRestaurantData: RestaurantData?
-    let networkManager = NetworkManager()
     
     var bottomUIStackView = UIStackView()
     var middleUIStackView = UIStackView()
@@ -19,8 +18,8 @@ class DetailViewController: UIViewController {
     var searchImage = UIImage(named: "Search")
     var myInfoImage = UIImage(named: "MyInfo")
     var profileImage = UIImage(named: "Profile")
+    var restaurantImage = UIImage(named: "Restaurant")
     var reservationImage = UIImage(named: "Reservation")
-    var restaurantImageView = UIImageView()
     
     let topMyInfoButton = UIButton()
     let homeButton = UIButton()
@@ -42,26 +41,6 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setRestaurantImageView(placeName: String) {
-        let urlString = "https://raw.githubusercontent.com/5ttuki-Curry/ImageStorage/main/\(placeName).png"
-        
-        if let url = URL(string: urlString) {
-            restaurantImageView.kf.setImage(
-                with: url,
-                placeholder: nil,
-                completionHandler: { result in
-                    switch result {
-                    case .success(let value):
-                        print("이미지 로드 성공: \(value.source.url?.absoluteString ?? "")")
-                    case .failure(let error):
-                        print("이미지 로드 실패: \(error.localizedDescription)")
-                        self.restaurantImageView.image = UIImage(named: "NoImage")
-                    }
-                }
-            )
-        }
-    }
-    
     private func setTopUIButton() {
         view.addSubview(topMyInfoButton)
         topMyInfoButton.setImage(profileImage, for: .normal)
@@ -81,8 +60,9 @@ class DetailViewController: UIViewController {
         middleUIStackView.distribution = .fillEqually
         middleUIStackView.spacing = 10
         
-        middleUIStackView.addArrangedSubview(restaurantImageView)
+        let restaurantImageView = UIImageView(image: restaurantImage)
         restaurantImageView.contentMode = .scaleAspectFit
+        middleUIStackView.addArrangedSubview(restaurantImageView)
         middleUIStackView.addArrangedSubview(labelStackView)
         labelStackView.axis = .vertical
         labelStackView.spacing = 10
@@ -94,17 +74,12 @@ class DetailViewController: UIViewController {
         labelStackView.addArrangedSubview(urlLabel)
         labelStackView.addArrangedSubview(reservationButton)
         
-        let spacerView = UIView()
-        spacerView.backgroundColor = .clear
-        spacerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        labelStackView.insertArrangedSubview(spacerView, at: 5)
-        
         restaurantLabel.textColor = UIColor(red: 1.0, green: 0.2627, blue: 0.2627, alpha: 1.0)
         restaurantLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
-        categoryLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        addressLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        phoneLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        urlLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        categoryLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
+        phoneLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
+        urlLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
         reservationButton.setImage(reservationImage, for: .normal)
         
         restaurantLabel.text = self.detailRestaurantData?.placeName

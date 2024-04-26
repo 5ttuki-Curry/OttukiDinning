@@ -112,18 +112,15 @@ extension HomeCollectionViewCell: UICollectionViewDelegate, UICollectionViewData
         switch cellNumber {
         case 0:
             cell.restaurantLabel.text = seoulLivingArea[indexPath.row]
-            cell.setRestaurantImageView(placeName: seoulLivingArea[indexPath.row])
         case 1:
             if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
                 cell.restaurantLabel.text = restaurantData[indexPath.row].placeName
-                cell.setRestaurantImageView(placeName: restaurantData[indexPath.row].placeName)
             } else {
                 cell.restaurantLabel.text = "None"
             }
         case 2:
             if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
                 cell.restaurantLabel.text = restaurantData[(restaurantData.count - 1) - indexPath.row].placeName
-                cell.setRestaurantImageView(placeName: restaurantData[(restaurantData.count - 1) - indexPath.row].placeName)
             } else {
                 cell.restaurantLabel.text = "None"
             }

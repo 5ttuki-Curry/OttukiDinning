@@ -42,9 +42,6 @@
 		FF8F7D1F2BD953CB001A046A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D1E2BD953CB001A046A /* Main.storyboard */; };
 		FF8F7D212BD953EA001A046A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D202BD953EA001A046A /* LogInViewController.swift */; };
 		FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D222BD953F2001A046A /* SignUpViewController.swift */; };
-		FF8F7D262BD95546001A046A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D252BD95546001A046A /* Alamofire */; };
-		FF8F7D292BD9556B001A046A /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D282BD9556B001A046A /* KakaoSDK */; };
-		FF8F7D2F2BDA04E9001A046A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF8F7D2E2BDA04E9001A046A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,9 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8F7D2F2BDA04E9001A046A /* Kingfisher in Frameworks */,
-				FF8F7D262BD95546001A046A /* Alamofire in Frameworks */,
-				FF8F7D292BD9556B001A046A /* KakaoSDK in Frameworks */,
+				9CB740422BD9F200009C1525 /* KakaoSDKCommon in Frameworks */,
+				9CB740402BD9F200009C1525 /* KakaoSDKAuth in Frameworks */,
+				9CB740442BD9F200009C1525 /* KakaoSDKUser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,9 +227,9 @@
 			);
 			name = OttukiDinning;
 			packageProductDependencies = (
-				FF8F7D252BD95546001A046A /* Alamofire */,
-				FF8F7D282BD9556B001A046A /* KakaoSDK */,
-				FF8F7D2E2BDA04E9001A046A /* Kingfisher */,
+				9CB7403F2BD9F200009C1525 /* KakaoSDKAuth */,
+				9CB740412BD9F200009C1525 /* KakaoSDKCommon */,
+				9CB740432BD9F200009C1525 /* KakaoSDKUser */,
 			);
 			productName = OttukiDinning;
 			productReference = FF8F7CB22BD6349B001A046A /* OttukiDinning.app */;
@@ -307,9 +304,8 @@
 			);
 			mainGroup = FF8F7CA92BD6349B001A046A;
 			packageReferences = (
-				FF8F7D242BD95546001A046A /* XCRemoteSwiftPackageReference "Alamofire" */,
-				FF8F7D272BD9556B001A046A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				FF8F7D2D2BDA04E9001A046A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
+				9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = FF8F7CB32BD6349B001A046A /* Products */;
 			projectDirPath = "";
@@ -722,28 +718,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FF8F7D242BD95546001A046A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
-			requirement = {
-				kind = exactVersion;
-				version = 5.9.1;
-			};
-		};
-		FF8F7D272BD9556B001A046A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+		9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
 			requirement = {
-				kind = exactVersion;
-				version = 2.22.1;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.22.1;
 			};
 		};
-		FF8F7D2D2BDA04E9001A046A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
 			requirement = {
-				kind = exactVersion;
-				version = 7.11.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -763,11 +751,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
-		};
-		FF8F7D2E2BDA04E9001A046A /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF8F7D2D2BDA04E9001A046A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 
