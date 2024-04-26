@@ -66,6 +66,9 @@ class HomeViewController: UICollectionViewController {
             topSearchButton.widthAnchor.constraint(equalToConstant: 45),
             topSearchButton.trailingAnchor.constraint(equalTo: topMyInfoButton.leadingAnchor, constant: -10)
         ])
+        
+        topMyInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
+        topSearchButton.addTarget(self, action: #selector(self.searchButtonTapped), for: .touchUpInside)
     }
     
     private func setBottomUIStackView() {
@@ -90,7 +93,8 @@ class HomeViewController: UICollectionViewController {
             bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
+
+        searchButton.addTarget(self, action: #selector(self.searchButtonTapped), for: .touchUpInside)
         myInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
     }
     
@@ -129,11 +133,12 @@ class HomeViewController: UICollectionViewController {
         return cell
     }
     
+    @objc func searchButtonTapped() {
+        ButtonManager.searchButtonTapped(viewController: self)
+    }
+
     @objc func myInfoButtonTapped() {
-        let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
-        guard let mypageVC = storyboard.instantiateViewController(withIdentifier: "MyPageView") as? MyPageViewController else { return }
-        mypageVC.modalPresentationStyle = .fullScreen
-        self.present(mypageVC, animated: true, completion: nil)
+        ButtonManager.myInfoButtonTapped(viewController: self)
     }
     
 }
