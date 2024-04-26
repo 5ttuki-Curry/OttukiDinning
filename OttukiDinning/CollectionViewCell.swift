@@ -24,6 +24,7 @@ class CollectionViewCell: UICollectionViewCell {
             DispatchQueue.main.async {
 //이미지                self.cellImage.image = nil
                 self.cellLabel.text = searchStore.placeName
+
             }
             
             // 이미지
@@ -47,6 +48,17 @@ class CollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    func setStarArray() {
+        var starArray: [Double] = []
+        
+        for _ in 0...15 {
+            let randomRating = Double.random(in: 3.5...5.0)
+            starArray.append(randomRating)
+        }
+        self.cellLabel.text = String(Int(starArray[0])) // 예시로 첫 번째 원소의 정수 부분을 보여줍니다.
+    }
+    
     
     func setCell(_ data: RestaurantData){
         
