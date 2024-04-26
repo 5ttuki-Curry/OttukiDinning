@@ -15,10 +15,7 @@ class ViewController: UIViewController {
         // 주석 추가
         // 준철 깃 연습(?) + 브런치 만들기
     }
-    
-    func MainView() {
-        
-    }
+
 
 }
 
