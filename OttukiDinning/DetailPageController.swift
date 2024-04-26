@@ -23,6 +23,7 @@ class DetailPageController: UIViewController {
     let peopleCountLabel = UILabel()
     let peopleText = UILabel()
     let reserveButton = UIButton()
+    var reservationRestaurantName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,7 +167,12 @@ class DetailPageController: UIViewController {
         // 예약 로직 처리
         // 예약 정보 확인을 위한 간단한 alert 표시
         let alert = UIAlertController(title: "예약 완료", message: "예약자명: \(nameTextField.text!)\n날짜: \(datePicker.date)\n인원: \(Int(peopleCounter.value))명", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+       alert.addAction(UIAlertAction(title: "확인", style: .default) { [weak self] (_) in
+           self?.dismiss(animated: true, completion: {
+               // dismiss가 완료된 후, 루트 뷰 컨트롤러로 이동하는 로직을 실행
+               LogInViewController.navigationController.popToRootViewController(animated: true)
+           })
+       })
         self.present(alert, animated: true, completion: nil)
     }
     
