@@ -46,7 +46,7 @@ class SignUpViewController: UIViewController {
         nicknameTextField.layer.cornerRadius = 15
         nicknameTextField.addLeftPadding()
         nicknameTextField.placeholder = "닉네임을 입력하세요"
-        nicknameTextField.keyboardType = .default
+        nicknameTextField.keyboardType = .emailAddress
         nicknameTextField.returnKeyType = .next
         nicknameTextField.clearButtonMode = .always
         nicknameTextField.autocorrectionType = .no
@@ -195,7 +195,9 @@ extension SignUpViewController: UITextFieldDelegate {
     // 엔터키 누르면 다음으로 넘어가다가 마지막에 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField == emailTextField {
+        if textField == nicknameTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
             setPasswordTextField.becomeFirstResponder()
         } else if textField == setPasswordTextField {
             checkPasswordTextField.becomeFirstResponder()

@@ -90,6 +90,8 @@ class HomeViewController: UICollectionViewController {
             bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+        
+        myInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -127,7 +129,15 @@ class HomeViewController: UICollectionViewController {
         return cell
     }
     
+    @objc func myInfoButtonTapped() {
+        let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
+        guard let mypageVC = storyboard.instantiateViewController(withIdentifier: "MyPageView") as? MyPageViewController else { return }
+        self.present(mypageVC, animated: true, completion: nil)
+    }
+    
 }
+
+
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     // UICollectionViewDelegateFlowLayout 메소드

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyPageViewController: UIViewController {
 
     
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -46,29 +46,29 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     func setTableView() {
         tableview.dataSource = self
         tableview.delegate = self
-        tableview.register(UINib(nibName: isStatusMode ? "BookingStatusTableViewCell" : "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: isStatusMode ? "BookingStatusTableViewCell" : "BookingHistoryTableViewCell")
-        self.tableview.reloadData()
+        tableview.register(UITableViewCell.self, forCellReuseIdentifier: isStatusMode ? "BookingStatusCell" : "BookingHistoryCell")
+        tableview.register(UINib(nibName: isStatusMode ? "BookingStatusTableViewCell" : "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: isStatusMode ? "BookingStatusCell" : "BookingHistoryCell")
+        self.tableview.reloadInputViews()
     }
 
    
     @IBAction func controlSelected(_ sender: UISegmentedControl) {
-        reservationControl.changeUnderlinePosition()         // 언더라인 입력값 따라 바꾸기
+        reservationControl.changeUnderlinePosition() // 언더라인 옮겨가기
         
         switch sender.selectedSegmentIndex {
         case 0:
             // 예약 현황 보여주기
             isStatusMode = true
             isHistoryMode = false
-            tableview.reloadData()
+            self.tableview.reloadData()
         case 1:
             // 예약 내역 보여주기
             isStatusMode = false
             isHistoryMode = true
-            tableview.reloadData()
+            self.tableview.reloadData()
         default:
             break
         }
-        
     }
     
     
@@ -78,9 +78,13 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         } else { return "" }
     }
 
+}
+
+
+extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1  /// 에러 방지 목적으로 임시 값 넣었습니다!!
+        return 1  /// 에러 방지 목적으로 넣은 임시값!!
     }
     
     
@@ -97,7 +101,6 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
             return cell
         }
     }
-
 }
 
 
