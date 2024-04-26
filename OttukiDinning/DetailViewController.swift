@@ -106,6 +106,7 @@ class DetailViewController: UIViewController {
         phoneLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         urlLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         reservationButton.setImage(reservationImage, for: .normal)
+        reservationButton.addTarget(self, action: #selector(tapReservationButton), for: .touchUpInside)
         
         restaurantLabel.text = self.detailRestaurantData?.placeName
         categoryLabel.text = self.detailRestaurantData?.categoryName
@@ -144,5 +145,17 @@ class DetailViewController: UIViewController {
             bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+    
+    @objc func tapReservationButton() {
+        let storyboard = UIStoryboard(name: "DetailPage", bundle: nil)
+        if let presentVC = storyboard.instantiateViewController(withIdentifier: "DetailPage") as? DetailPageController {
+            guard let data = detailRestaurantData else {
+                return
+            }
+            
+            presentVC.reservationRestaurantName = data.placeName
+            present(presentVC, animated: true, completion: nil)
+        }
     }
 }
