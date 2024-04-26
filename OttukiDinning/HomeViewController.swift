@@ -90,6 +90,8 @@ class HomeViewController: UICollectionViewController {
             bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+        
+        myInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -127,7 +129,16 @@ class HomeViewController: UICollectionViewController {
         return cell
     }
     
+    @objc func myInfoButtonTapped() {
+        let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
+        guard let mypageVC = storyboard.instantiateViewController(withIdentifier: "MyPageView") as? MyPageViewController else { return }
+        mypageVC.modalPresentationStyle = .fullScreen
+        self.present(mypageVC, animated: true, completion: nil)
+    }
+    
 }
+
+
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     // UICollectionViewDelegateFlowLayout 메소드
@@ -135,7 +146,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         // 화면의 너비
         let width = collectionView.frame.width
         // 화면의 높이를 3으로 나누어 각 섹션의 높이를 설정
-        let height = collectionView.frame.height / 3
+        let height = collectionView.frame.height / 2.6
         
         return CGSize(width: width, height: height)
     }
@@ -152,13 +163,16 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
             case 0:
                 let restaurantData = HomeCollectionViewCell.seoulRestaurantData[indexPath.row][Int.random(in: 0...4)]
                 detailViewController.detailRestaurantData = restaurantData
+                detailViewController.setRestaurantImageView(placeName: restaurantData.placeName)
             case 1:
                 if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
                     detailViewController.detailRestaurantData = restaurantData[indexPath.row]
+                    detailViewController.setRestaurantImageView(placeName: restaurantData[indexPath.row].placeName)
                 }
             case 2:
                 if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
                     detailViewController.detailRestaurantData = restaurantData[(restaurantData.count - 1) - indexPath.row]
+                    detailViewController.setRestaurantImageView(placeName: restaurantData[(restaurantData.count - 1) - indexPath.row].placeName)
                 }
             default:
                 return
