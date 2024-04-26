@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // 주석 추가
+        // 준철 깃 연습(?) + 브런치 만들기
     }
 
 
