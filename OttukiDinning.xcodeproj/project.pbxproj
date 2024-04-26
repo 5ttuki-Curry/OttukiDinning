@@ -7,40 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BB1B7EB2BDA2DC00097B518 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB1B7EA2BDA2DC00097B518 /* ListCell.xib */; };
-		7BB1B7ED2BDA2DC50097B518 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7EC2BDA2DC50097B518 /* ListCell.swift */; };
-		7BB1B7EF2BDA2DC90097B518 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB1B7EE2BDA2DC90097B518 /* CollectionViewCell.xib */; };
-		7BB1B7F12BDA2DCD0097B518 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */; };
-		7BB1B7F52BDA2DDB0097B518 /* Sion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */; };
-		7BB1B7F62BDA2DDB0097B518 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F32BDA2DDB0097B518 /* SampleData.swift */; };
-		7BB1B7F72BDA2DDB0097B518 /* SionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F42BDA2DDB0097B518 /* SionViewController.swift */; };
-		7BB1B7FA2BDA7D9F0097B518 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F82BDA7D9F0097B518 /* SearchBarViewController.swift */; };
-		9CB740402BD9F200009C1525 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB7403F2BD9F200009C1525 /* KakaoSDKAuth */; };
-		9CB740422BD9F200009C1525 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740412BD9F200009C1525 /* KakaoSDKCommon */; };
-		9CB740442BD9F200009C1525 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740432BD9F200009C1525 /* KakaoSDKUser */; };
 		FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB52BD6349B001A046A /* AppDelegate.swift */; };
 		FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */; };
 		FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CB92BD6349B001A046A /* ViewController.swift */; };
+		FF8F7CBD2BD6349B001A046A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CBC2BD6349B001A046A /* Base */; };
 		FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */; };
 		FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CC12BD6349C001A046A /* Assets.xcassets */; };
 		FF8F7CC52BD6349C001A046A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CC42BD6349C001A046A /* Base */; };
 		FF8F7CD02BD6349C001A046A /* OttukiDinningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CCF2BD6349C001A046A /* OttukiDinningTests.swift */; };
 		FF8F7CDA2BD6349C001A046A /* OttukiDinningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CD92BD6349C001A046A /* OttukiDinningUITests.swift */; };
 		FF8F7CDC2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */; };
-		FF8F7CF32BD65892001A046A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CF22BD65892001A046A /* HomeViewController.swift */; };
-		FF8F7CF52BD658A9001A046A /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7CF42BD658A9001A046A /* HomeView.storyboard */; };
-		FF8F7CFB2BD65960001A046A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CFA2BD65960001A046A /* NetworkManager.swift */; };
-		FF8F7CFE2BD65976001A046A /* RestaurantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CFC2BD65976001A046A /* RestaurantData.swift */; };
-		FF8F7D012BD67D77001A046A /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */; };
-		FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */; };
-		FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */; };
-		FF8F7D0E2BD7AEBB001A046A /* HorizontalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */; };
-		FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */; };
-		FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D112BD7D073001A046A /* DetailViewController.swift */; };
-		FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */; };
-		FF8F7D1F2BD953CB001A046A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F7D1E2BD953CB001A046A /* Main.storyboard */; };
-		FF8F7D212BD953EA001A046A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D202BD953EA001A046A /* LogInViewController.swift */; };
-		FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F7D222BD953F2001A046A /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,18 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7BB1B7EA2BDA2DC00097B518 /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
-		7BB1B7EC2BDA2DC50097B518 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
-		7BB1B7EE2BDA2DC90097B518 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
-		7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sion.storyboard; sourceTree = "<group>"; };
-		7BB1B7F32BDA2DDB0097B518 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
-		7BB1B7F42BDA2DDB0097B518 /* SionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SionViewController.swift; sourceTree = "<group>"; };
-		7BB1B7F82BDA7D9F0097B518 /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		FF8F7CB22BD6349B001A046A /* OttukiDinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OttukiDinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CB52BD6349B001A046A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF8F7CB92BD6349B001A046A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF8F7CBC2BD6349B001A046A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF8F7CBF2BD6349B001A046A /* OttukiDinning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OttukiDinning.xcdatamodel; sourceTree = "<group>"; };
 		FF8F7CC12BD6349C001A046A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8F7CC42BD6349C001A046A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,20 +51,6 @@
 		FF8F7CD52BD6349C001A046A /* OttukiDinningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttukiDinningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CD92BD6349C001A046A /* OttukiDinningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttukiDinningUITests.swift; sourceTree = "<group>"; };
 		FF8F7CDB2BD6349C001A046A /* OttukiDinningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttukiDinningUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FF8F7CF22BD65892001A046A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		FF8F7CF42BD658A9001A046A /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
-		FF8F7CFA2BD65960001A046A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		FF8F7CFC2BD65976001A046A /* RestaurantData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantData.swift; sourceTree = "<group>"; };
-		FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
-		FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
-		FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewCell.swift; sourceTree = "<group>"; };
-		FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalViewCell.xib; sourceTree = "<group>"; };
-		FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
-		FF8F7D112BD7D073001A046A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
-		FF8F7D1E2BD953CB001A046A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		FF8F7D202BD953EA001A046A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		FF8F7D222BD953F2001A046A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CB740422BD9F200009C1525 /* KakaoSDKCommon in Frameworks */,
-				9CB740402BD9F200009C1525 /* KakaoSDKAuth in Frameworks */,
-				9CB740442BD9F200009C1525 /* KakaoSDKUser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,35 +101,14 @@
 		FF8F7CB42BD6349B001A046A /* OttukiDinning */ = {
 			isa = PBXGroup;
 			children = (
-				FF8F7D222BD953F2001A046A /* SignUpViewController.swift */,
-				FF8F7D202BD953EA001A046A /* LogInViewController.swift */,
-				FF8F7D1E2BD953CB001A046A /* Main.storyboard */,
-				FF8F7CFD2BD65976001A046A /* Models */,
-				FF8F7CFA2BD65960001A046A /* NetworkManager.swift */,
-				FF8F7CF42BD658A9001A046A /* HomeView.storyboard */,
-				FF8F7CF22BD65892001A046A /* HomeViewController.swift */,
 				FF8F7CB52BD6349B001A046A /* AppDelegate.swift */,
 				FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */,
 				FF8F7CB92BD6349B001A046A /* ViewController.swift */,
+				FF8F7CBB2BD6349B001A046A /* Main.storyboard */,
 				FF8F7CC12BD6349C001A046A /* Assets.xcassets */,
 				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
 				FF8F7CC62BD6349C001A046A /* Info.plist */,
 				FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */,
-				FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */,
-				FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */,
-				FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */,
-				FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */,
-				FF8F7D112BD7D073001A046A /* DetailViewController.swift */,
-				FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */,
-				FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */,
-				7BB1B7F32BDA2DDB0097B518 /* SampleData.swift */,
-				7BB1B7F42BDA2DDB0097B518 /* SionViewController.swift */,
-				7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */,
-				7BB1B7EA2BDA2DC00097B518 /* ListCell.xib */,
-				7BB1B7EC2BDA2DC50097B518 /* ListCell.swift */,
-				7BB1B7EE2BDA2DC90097B518 /* CollectionViewCell.xib */,
-				7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */,
-				7BB1B7F82BDA7D9F0097B518 /* SearchBarViewController.swift */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -199,14 +130,6 @@
 			path = OttukiDinningUITests;
 			sourceTree = "<group>";
 		};
-		FF8F7CFD2BD65976001A046A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				FF8F7CFC2BD65976001A046A /* RestaurantData.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,11 +146,6 @@
 			dependencies = (
 			);
 			name = OttukiDinning;
-			packageProductDependencies = (
-				9CB7403F2BD9F200009C1525 /* KakaoSDKAuth */,
-				9CB740412BD9F200009C1525 /* KakaoSDKCommon */,
-				9CB740432BD9F200009C1525 /* KakaoSDKUser */,
-			);
 			productName = OttukiDinning;
 			productReference = FF8F7CB22BD6349B001A046A /* OttukiDinning.app */;
 			productType = "com.apple.product-type.application";
@@ -300,10 +218,6 @@
 				Base,
 			);
 			mainGroup = FF8F7CA92BD6349B001A046A;
-			packageReferences = (
-				FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
-				9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-			);
 			productRefGroup = FF8F7CB32BD6349B001A046A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -320,16 +234,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8F7D012BD67D77001A046A /* HomeCollectionViewCell.xib in Resources */,
-				7BB1B7EB2BDA2DC00097B518 /* ListCell.xib in Resources */,
 				FF8F7CC22BD6349C001A046A /* Assets.xcassets in Resources */,
-				FF8F7D102BD7D056001A046A /* DetailView.storyboard in Resources */,
-				FF8F7D1F2BD953CB001A046A /* Main.storyboard in Resources */,
-				FF8F7D0D2BD7AEBB001A046A /* HorizontalViewCell.xib in Resources */,
 				FF8F7CC52BD6349C001A046A /* Base in Resources */,
-				FF8F7CF52BD658A9001A046A /* HomeView.storyboard in Resources */,
-				7BB1B7EF2BDA2DC90097B518 /* CollectionViewCell.xib in Resources */,
-				7BB1B7F52BDA2DDB0097B518 /* Sion.storyboard in Resources */,
+				FF8F7CBD2BD6349B001A046A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,24 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8F7CF32BD65892001A046A /* HomeViewController.swift in Sources */,
-				FF8F7D0E2BD7AEBB001A046A /* HorizontalViewCell.swift in Sources */,
 				FF8F7CBA2BD6349B001A046A /* ViewController.swift in Sources */,
-				7BB1B7ED2BDA2DC50097B518 /* ListCell.swift in Sources */,
-				FF8F7CFE2BD65976001A046A /* RestaurantData.swift in Sources */,
-				7BB1B7F12BDA2DCD0097B518 /* CollectionViewCell.swift in Sources */,
-				FF8F7CFB2BD65960001A046A /* NetworkManager.swift in Sources */,
-				7BB1B7F72BDA2DDB0097B518 /* SionViewController.swift in Sources */,
-				7BB1B7F62BDA2DDB0097B518 /* SampleData.swift in Sources */,
 				FF8F7CC02BD6349B001A046A /* OttukiDinning.xcdatamodeld in Sources */,
 				FF8F7CB62BD6349B001A046A /* AppDelegate.swift in Sources */,
-				FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */,
-				FF8F7D212BD953EA001A046A /* LogInViewController.swift in Sources */,
-				FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */,
-				7BB1B7FA2BDA7D9F0097B518 /* SearchBarViewController.swift in Sources */,
 				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
-				FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */,
-				FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +301,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FF8F7CBB2BD6349B001A046A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF8F7CBC2BD6349B001A046A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -712,43 +613,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.22.1;
-			};
-		};
-		FF8F7CF92BD6592B001A046A /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.10.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9CB7403F2BD9F200009C1525 /* KakaoSDKAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKAuth;
-		};
-		9CB740412BD9F200009C1525 /* KakaoSDKCommon */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKCommon;
-		};
-		9CB740432BD9F200009C1525 /* KakaoSDKUser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CB7403E2BD9F200009C1525 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKUser;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */ = {
