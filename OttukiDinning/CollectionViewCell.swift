@@ -16,6 +16,25 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     
     
+    private var searchStore : RestaurantData? = nil {
+        didSet {
+            guard let searchStore = self.searchStore else {return}
+            
+            // 메인 페이지 상품 데이터 JSON Dummy API 활용해서 노출하기  (썸네일, 상품명, 설명, 가격)
+            DispatchQueue.main.async {
+//이미지                self.cellImage.image = nil
+                self.cellLabel.text = searchStore.placeName
+            }
+            
+            // 이미지
+//            DispatchQueue.global().async { [weak self] in
+//                if let data = try? Data(contentsOf: RestaurantData.image), let image = UIImage(data: data) {
+//                    DispatchQueue.main.async { self?.cellImage.image = image}
+//                }
+//            }
+        }
+    }
+    
     
     override var isHighlighted: Bool {
         didSet {
@@ -24,18 +43,18 @@ class CollectionViewCell: UICollectionViewCell {
             contentView.backgroundColor = UIColor(red: 255/255, green: 247/255, blue: 176/255, alpha: 0.3)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
-                self.contentView.backgroundColor = .clear
+                self.contentView.backgroundColor = .white
             }
         }
     }
     
-    func setCell(_ data: SearchStoreData){
+    func setCell(_ data: RestaurantData){
         
-        if let image = data.image {
-            cellImage.image = image
-        }
+// 이미지      if let image = data.image {
+//            cellImage.image = image
+//        }
         
-        cellLabel.text = data.name
+        cellLabel.text = data.placeName
         cellLabel.layer.masksToBounds = true
         
         
@@ -57,7 +76,38 @@ class CollectionViewCell: UICollectionViewCell {
         contentView.layer.masksToBounds = false
     }
     
-    
+    //URL Session
+    private func fetchRemoteProduct() {
+        let storeID = Int.random(in: 1...100) // 1~1000까지 랜덤한 숫자
+        
+        if let url = URL(string: "https://dummyjson.com/products/\(storeID)") {
+            // URLSessionDataTask를 사용하여 비동기적으로 데이터 요청
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                else if let data = data {
+                    
+                    do {
+                        let store = try JSONDecoder().decode(RestaurantData.self, from: data)
+                        self.searchStore = store
+                        
+                        print(store.placeName)
+// 이미지                       print(store.image)
+                        
+                    } catch {
+                        print("Decode Error: \(error)")
+                    }
+                }
+                guard let response = response as? HTTPURLResponse,
+                      (200...299).contains(response.statusCode)  // 보통 성공한 응답은 200번대임.
+                else {return}
+            }
+            
+            // 네트워크 요청 시작
+            task.resume()
+        }
+    }
     
     
     
