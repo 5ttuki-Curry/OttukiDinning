@@ -9,22 +9,21 @@ import UIKit
 import Alamofire
 
 
-class SionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating {
+class SionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     let networkManager = NetworkManager()
-//    var result : [SearchStoreData] = SearchStoreData.data
+    //    var result : [SearchStoreData] = SearchStoreData.data
     var result2: [RestaurantData] = []
     let collectionView = UITableView()
     
-
-    
-    var isFiltering: Bool {
-            let searchController = self.navigationItem.searchController
-            let isActive = searchController?.isActive ?? false
-            let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
-            return isActive && isSearchBarHasText
-             }   // 검색하지 않을 때에도 searchController의 속성 활성화
-    
+//    
+//        var isFiltering: Bool {
+//                let searchController = self.navigationItem.searchController
+//                let isActive = searchController?.isActive ?? false
+//                let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+//                return isActive && isSearchBarHasText
+//                 }   // 검색하지 않을 때에도 searchController의 속성 활성화
+//    
     
     @IBOutlet weak var sortingStyleButton: UIButton!
     @IBOutlet weak var listStyleButton: UIButton!
@@ -40,6 +39,9 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+
         //초기 화면을 별점순으로 설정
         //            SearchStoreData.data.sort {
         //                if $0.rate == $1.rate {
@@ -51,7 +53,6 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         //아직 별점이 없기에 초기 화면 가나다순으로 설정하는 것으로 변경
         result2.sort { $0.placeName < $1.placeName }
-    
         self.searchCollectionView.reloadData()
         
         setSearchController(searchBar)
@@ -77,6 +78,7 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = true
         self.navigationItem.title = "맛집 검색"
         searchController.hidesNavigationBarDuringPresentation = false   // 만약 위에 '맛집 검색'을 숨길거면 지워도 되는 코드
         
@@ -85,12 +87,20 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
         searchController.searchBar.placeholder = "지역, 음식, 매장명 검색"
         
+        searchController.delegate = self
         self.searchBar.delegate = self    }
     
+    
     // 텍스트 검색 시
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text else { return }
+    }
+    
+    
     func updateSearchResults(for searchController: UISearchController) {
         searchBar.resignFirstResponder() // 키보드
-    
+        
         dump(searchController.searchBar.text) // 입력 텍스트가 프린트 되어 확인 가능
         
         guard let text = searchController.searchBar.text?.lowercased() else { return }
@@ -101,7 +111,8 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
             case .success(let a):
                 self.result2 = a
                 print(a)
-                self.collectionView.reloadData()    // 보라색 에러
+                self.collectionView.reloadData()    // 보라색 에러 나면 dispatchqueue main
+                print("1111111111111111111111111111111111111111111111111111111111111111111")
                 
             case .failure(_):
                 break
@@ -109,21 +120,54 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
             
         }
         
-
+        isCollectionMode = true
+        setCollectionView()
+        
     }
-   
+    
+    
+    // 검색 버튼이 눌렸을 때의 동작
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        print("검색 실행")
+        
+        guard let text = searchBar.text?.lowercased() else { return }
+        
+        networkManager.searchRestaurantList(keyword: text) { result in
+            switch result {
+                
+            case .success(let a):
+                self.result2 = a
+                print(a)
+                self.collectionView.reloadData()    // 보라색 에러 나면 dispatchqueue main
+                print("22222222222222222222222222222222222222222222222222222222222222222222")
+                
+            case .failure(_):
+                break
+            }
+            
+        }
+        
+        // 키보드 숨김
+        searchBar.resignFirstResponder()
+    }
     
     // 취소 버튼 클릭 시
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.text = ""
+        self.result2.removeAll()
         self.searchBar.resignFirstResponder()
         self.collectionView.reloadData()
     }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+            searchBar.showsCancelButton = false
+        }
+    
+    
+    
+    
 
-    
-    
-    
     //MARK: - CollectionView
     
     func initUI() {
@@ -139,10 +183,8 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return result2.count
-//        return self.isFilterting ? self.searchResultArr.count : self.result.count
+        return self.result2.count
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -202,24 +244,24 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
             // 가나다순으로 정렬
             if action.title == "가나다 순" {
                 self.result2.sort { $0.placeName < $1.placeName }
-//            } else if action.title == "별점 높은 순" {            // 현재는 아직 별점이 없음
-//                SearchStoreData.data.sort {
-//                    if $0.rate == $1.rate {
-//                        return $0.name < $1.name
-//                    } else {
-//                        return $0.rate > $1.rate
-//                    }
-//                }
+                //            } else if action.title == "별점 높은 순" {            // 현재는 아직 별점이 없음
+                //                SearchStoreData.data.sort {
+                //                    if $0.rate == $1.rate {
+                //                        return $0.name < $1.name
+                //                    } else {
+                //                        return $0.rate > $1.rate
+                //                    }
+                //                }
             }
-
-
+            
+            
             self.searchCollectionView.reloadData()
             print(action.title)}
         
         
         self.sortingStyleButton.menu = UIMenu( children: [
-            UIAction(title: "별점 높은 순", handler: seletedPriority),
-            UIAction(title: "가나다 순", handler: seletedPriority)])
+            UIAction(title: "가나다 순", handler: seletedPriority),
+            UIAction(title: "별점 높은 순", handler: seletedPriority)])
         self.sortingStyleButton.showsMenuAsPrimaryAction = true
         self.sortingStyleButton.changesSelectionAsPrimaryAction = true
         
@@ -251,7 +293,7 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     //MARK: - 아래 버튼 구현
-  
+    
     var homeImage = UIImage(named: "HomeEmpty")
     var searchImage = UIImage(named: "Search2")
     var myInfoImage = UIImage(named: "MyInfo")
