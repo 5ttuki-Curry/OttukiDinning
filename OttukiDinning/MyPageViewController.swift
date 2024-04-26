@@ -12,21 +12,28 @@ class MyPageViewController: UIViewController {
     
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
-    // 비밀번호 찾기 버튼은 추후 구현 여부 결정
     @IBOutlet weak var reservationControl: UISegmentedControl!
     @IBOutlet weak var tableview: UITableView!
+    
+    var bottomUIStackView = UIStackView()
+    let homeButton = UIButton()
+    let searchButton = UIButton()
+    let myInfoButton = UIButton()
     
     let defaults = UserDefaults.standard
     
     var isStatusMode = true
     var isHistoryMode = true
     
+    let reserveList: [Reserve] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureUI()
         setTableView()
+        setBottomUIStackView()
     }
     
     
@@ -49,13 +56,46 @@ class MyPageViewController: UIViewController {
         tableview.delegate = self
         tableview.register(UINib(nibName: "BookingStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingStatusCell")
         tableview.register(UINib(nibName: "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingHistoryCell")
-        tableview.rowHeight = UITableView.automaticDimension
-        tableview.estimatedRowHeight = UITableView.automaticDimension
+    }
+    
+    
+    private func setBottomUIStackView() {
+        view.addSubview(bottomUIStackView)
+        bottomUIStackView.axis = .horizontal
+        bottomUIStackView.distribution = .equalSpacing
+        bottomUIStackView.isLayoutMarginsRelativeArrangement = true
+        bottomUIStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 39, bottom: 0, trailing: 39)
+        
+        homeButton.setImage(UIImage(named: "HomeEmpty"), for: .normal)
+        searchButton.setImage(UIImage(named: "Search"), for: .normal)
+        myInfoButton.setImage(UIImage(named: "MyInfo"), for: .normal)
+        
+        bottomUIStackView.addArrangedSubview(homeButton)
+        bottomUIStackView.addArrangedSubview(searchButton)
+        bottomUIStackView.addArrangedSubview(myInfoButton)
+        
+        bottomUIStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bottomUIStackView.heightAnchor.constraint(equalToConstant: 40),
+            bottomUIStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomUIStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            bottomUIStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        
+        myInfoButton.addTarget(self, action: #selector(self.myInfoButtonTapped), for: .touchUpInside)
+    }
+    
+    
+    @objc func myInfoButtonTapped() {
+        let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
+        guard let mypageVC = storyboard.instantiateViewController(withIdentifier: "MyPageView") as? MyPageViewController else { return }
+        mypageVC.modalPresentationStyle = .fullScreen
+        self.present(mypageVC, animated: true, completion: nil)
     }
 
    
     @IBAction func controlSelected(_ sender: UISegmentedControl) {
-        reservationControl.changeUnderlinePosition()
+        reservationControl.changeUnderlinePosition()     // 언더라인 위치 이동
         
         switch sender.selectedSegmentIndex {
         case 0:
@@ -73,7 +113,7 @@ class MyPageViewController: UIViewController {
         }
     }
     
-    
+    // userdefaults 데이터 읽어오기
     func readLoginInfo(forKey: String) -> String {
         if let value = defaults.string(forKey: forKey) {
             return value
@@ -86,7 +126,7 @@ class MyPageViewController: UIViewController {
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1  /// 에러 방지 목적으로 넣은 임시값!!
+        return 1
     }
     
     

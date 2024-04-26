@@ -17,8 +17,6 @@ class BookingStatusTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cancelButton: UIButton!
     
-    private var reserveList: [Reserve] = []
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +30,7 @@ class BookingStatusTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
+    
     }
     
     func configureCell() {
