@@ -14,7 +14,6 @@
 		7BB1B7F52BDA2DDB0097B518 /* Sion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */; };
 		7BB1B7F62BDA2DDB0097B518 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F32BDA2DDB0097B518 /* SampleData.swift */; };
 		7BB1B7F72BDA2DDB0097B518 /* SionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F42BDA2DDB0097B518 /* SionViewController.swift */; };
-		7BB1B7FA2BDA7D9F0097B518 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1B7F82BDA7D9F0097B518 /* SearchBarViewController.swift */; };
 		9CB740402BD9F200009C1525 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB7403F2BD9F200009C1525 /* KakaoSDKAuth */; };
 		9CB740422BD9F200009C1525 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740412BD9F200009C1525 /* KakaoSDKCommon */; };
 		9CB740442BD9F200009C1525 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB740432BD9F200009C1525 /* KakaoSDKUser */; };
@@ -68,7 +67,6 @@
 		7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sion.storyboard; sourceTree = "<group>"; };
 		7BB1B7F32BDA2DDB0097B518 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		7BB1B7F42BDA2DDB0097B518 /* SionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SionViewController.swift; sourceTree = "<group>"; };
-		7BB1B7F82BDA7D9F0097B518 /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		FF8F7CB22BD6349B001A046A /* OttukiDinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OttukiDinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8F7CB52BD6349B001A046A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				7BB1B7EC2BDA2DC50097B518 /* ListCell.swift */,
 				7BB1B7EE2BDA2DC90097B518 /* CollectionViewCell.xib */,
 				7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */,
-				7BB1B7F82BDA7D9F0097B518 /* SearchBarViewController.swift */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -368,7 +365,6 @@
 				FF8F7D122BD7D073001A046A /* DetailViewController.swift in Sources */,
 				FF8F7D212BD953EA001A046A /* LogInViewController.swift in Sources */,
 				FF8F7D142BD7D843001A046A /* HomeCollectionViewCellDelegate.swift in Sources */,
-				7BB1B7FA2BDA7D9F0097B518 /* SearchBarViewController.swift in Sources */,
 				FF8F7CB82BD6349B001A046A /* SceneDelegate.swift in Sources */,
 				FF8F7D232BD953F2001A046A /* SignUpViewController.swift in Sources */,
 				FF8F7D022BD67D77001A046A /* HomeCollectionViewCell.swift in Sources */,
