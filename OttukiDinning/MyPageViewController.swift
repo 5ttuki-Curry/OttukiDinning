@@ -38,7 +38,8 @@ class MyPageViewController: UIViewController {
         idLabel.font = .systemFont(ofSize: 17)
         
         reservationControl.selectedSegmentIndex = 0
-        reservationControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23, weight: .semibold)], for: .normal)
+        reservationControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .semibold)], for: .normal)
+        
         reservationControl.addUnderlineForSelectedSegment()    // 언더라인 생성
     }
     
@@ -46,14 +47,15 @@ class MyPageViewController: UIViewController {
     func setTableView() {
         tableview.dataSource = self
         tableview.delegate = self
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: isStatusMode ? "BookingStatusCell" : "BookingHistoryCell")
-        tableview.register(UINib(nibName: isStatusMode ? "BookingStatusTableViewCell" : "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: isStatusMode ? "BookingStatusCell" : "BookingHistoryCell")
-        self.tableview.reloadInputViews()
+        tableview.register(UINib(nibName: "BookingStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingStatusCell")
+        tableview.register(UINib(nibName: "BookingHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "BookingHistoryCell")
+        tableview.rowHeight = UITableView.automaticDimension
+        tableview.estimatedRowHeight = UITableView.automaticDimension
     }
 
    
     @IBAction func controlSelected(_ sender: UISegmentedControl) {
-        reservationControl.changeUnderlinePosition() // 언더라인 옮겨가기
+        reservationControl.changeUnderlinePosition()
         
         switch sender.selectedSegmentIndex {
         case 0:
@@ -93,14 +95,23 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingStatusCell", for: indexPath)
                     as? BookingStatusTableViewCell else { return UITableViewCell() }
             
+            cell.configureCell()
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: indexPath)
                     as? BookingHistoryTableViewCell else { return UITableViewCell() }
             
+            cell.configureCell()
+            
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.estimatedRowHeight
+    }
+    
 }
 
 

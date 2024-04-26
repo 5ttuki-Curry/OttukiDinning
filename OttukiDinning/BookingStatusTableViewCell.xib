@@ -88,7 +88,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="예약금 선불" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db4-M7-7aX">
-                        <rect key="frame" x="254.66666666666666" y="173.33333333333334" width="55.333333333333343" height="14.333333333333343"/>
+                        <rect key="frame" x="254.66666666666666" y="173.33333333333334" width="55.333333333333343" height="11.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" name="PointColor"/>
                         <nil key="highlightedColor"/>
@@ -98,8 +98,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="Tkt-kU-pPy"/>
                         </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                         <connections>
                             <action selector="cancelButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YZO-3Y-yJ8"/>
                         </connections>
@@ -107,6 +107,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="YIa-6d-LRD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2Ng-Rg-N7t"/>
+                    <constraint firstItem="YIa-6d-LRD" firstAttribute="top" secondItem="db4-M7-7aX" secondAttribute="bottom" constant="15" id="4IA-Lh-86t"/>
                     <constraint firstItem="db4-M7-7aX" firstAttribute="top" secondItem="Po4-wU-v0f" secondAttribute="bottom" id="5x7-Sh-YIj"/>
                     <constraint firstAttribute="trailing" secondItem="YIa-6d-LRD" secondAttribute="trailing" constant="10" id="9TQ-zd-lax"/>
                     <constraint firstItem="Po4-wU-v0f" firstAttribute="centerY" secondItem="4F9-G3-ssY" secondAttribute="centerY" id="B6T-Z9-lxh"/>

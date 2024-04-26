@@ -132,6 +132,7 @@ class HomeViewController: UICollectionViewController {
     @objc func myInfoButtonTapped() {
         let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
         guard let mypageVC = storyboard.instantiateViewController(withIdentifier: "MyPageView") as? MyPageViewController else { return }
+        mypageVC.modalPresentationStyle = .fullScreen
         self.present(mypageVC, animated: true, completion: nil)
     }
     

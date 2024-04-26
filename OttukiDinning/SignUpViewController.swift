@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nicknameTextField.delegate = self
         emailTextField.delegate = self
         setPasswordTextField.delegate = self
         checkPasswordTextField.delegate = self
@@ -195,13 +196,13 @@ extension SignUpViewController: UITextFieldDelegate {
     // 엔터키 누르면 다음으로 넘어가다가 마지막에 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField == nicknameTextField {
+        if textField === nicknameTextField {
             emailTextField.becomeFirstResponder()
-        } else if textField == emailTextField {
+        } else if textField === emailTextField {
             setPasswordTextField.becomeFirstResponder()
-        } else if textField == setPasswordTextField {
+        } else if textField === setPasswordTextField {
             checkPasswordTextField.becomeFirstResponder()
-        } else if textField == checkPasswordTextField {
+        } else if textField === checkPasswordTextField {
             textField.resignFirstResponder()
         }
         return true

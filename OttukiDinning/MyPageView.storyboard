@@ -89,7 +89,7 @@
                                 </items>
                             </tabBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="frJ-j4-XhA">
-                                <rect key="frame" x="5" y="325" width="383" height="439"/>
+                                <rect key="frame" x="10" y="335" width="373" height="434"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -97,14 +97,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TuW-By-LVy" firstAttribute="top" secondItem="LI1-9i-rA0" secondAttribute="bottom" constant="50" id="5dQ-sj-DKd"/>
-                            <constraint firstItem="frJ-j4-XhA" firstAttribute="top" secondItem="TuW-By-LVy" secondAttribute="bottom" constant="5" id="5yl-ok-SBv"/>
+                            <constraint firstItem="frJ-j4-XhA" firstAttribute="top" secondItem="TuW-By-LVy" secondAttribute="bottom" constant="15" id="5yl-ok-SBv"/>
                             <constraint firstItem="LI1-9i-rA0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="8uI-uG-Zrq"/>
-                            <constraint firstItem="frJ-j4-XhA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="A9J-lw-h2Z"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="frJ-j4-XhA" secondAttribute="trailing" constant="5" id="AJ7-SY-Nbh"/>
+                            <constraint firstItem="frJ-j4-XhA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="A9J-lw-h2Z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="frJ-j4-XhA" secondAttribute="trailing" constant="10" id="AJ7-SY-Nbh"/>
                             <constraint firstItem="LI1-9i-rA0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Jhg-tx-zEx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TuW-By-LVy" secondAttribute="trailing" id="M25-UP-cTR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LI1-9i-rA0" secondAttribute="trailing" constant="16" id="VV4-ZR-Ubg"/>
-                            <constraint firstItem="OSU-cY-XF1" firstAttribute="top" secondItem="frJ-j4-XhA" secondAttribute="bottom" constant="5" id="WQH-eX-djC"/>
+                            <constraint firstItem="OSU-cY-XF1" firstAttribute="top" secondItem="frJ-j4-XhA" secondAttribute="bottom" id="WQH-eX-djC"/>
                             <constraint firstItem="OSU-cY-XF1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kgp-B8-aa1"/>
                             <constraint firstItem="OSU-cY-XF1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rpg-DU-idP"/>
                             <constraint firstItem="TuW-By-LVy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uM0-lq-yvO"/>

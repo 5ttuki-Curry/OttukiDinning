@@ -25,6 +25,13 @@ class BookingHistoryTableViewCell: UITableViewCell {
         
     }
     
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+    
+    
     func configureCell() {
         placeNameLabel.font = .boldSystemFont(ofSize: 23)
         
@@ -33,9 +40,9 @@ class BookingHistoryTableViewCell: UITableViewCell {
         
         personCountLabel.font = .boldSystemFont(ofSize: 23)
         
-        contentView.layer.cornerRadius = 5
-        contentView.layer.borderWidth = 5
-        contentView.layer.borderColor = UIColor(named: "shadowColor")?.cgColor
+        contentView.layer.cornerRadius = 15
+        contentView.layer.borderWidth = 3
+        contentView.layer.borderColor = UIColor(named: "ShadowColor")?.cgColor
         }
     
 }
