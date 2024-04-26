@@ -1,12 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "image 5.svg",
+      "filename" : "image 4.svg",
       "idiom" : "universal"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en"
     }
   ],
   "info" : {
