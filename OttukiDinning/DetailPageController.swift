@@ -152,17 +152,15 @@ class DetailPageController: UIViewController {
        
        let newReserve = Reserve(context: context)
        
-       newReserve.reservedate = datePicker.date
-       newReserve.reservename = nameTextField.text
-       newReserve.reservepeople = Int32(peopleCounter.value)
-       
+       newReserve.reserveDate = datePicker.date
+       newReserve.reserveName = nameTextField.text
+       newReserve.reservePeople = Int32(peopleCounter.value)
+       newReserve.reserveRestaurantName = reservationRestaurantName
        try? context.save()
        
-       /*
        let request = Reserve.fetchRequest()
        let reserves = try? context.fetch(request)
-       print(reserves)
-       */
+       print(newReserve)
        
         // 예약 로직 처리
         // 예약 정보 확인을 위한 간단한 alert 표시

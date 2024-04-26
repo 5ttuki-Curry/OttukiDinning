@@ -17,12 +17,15 @@ class BookingStatusTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cancelButton: UIButton!
     
+    var delegate: ButtonTappedDelegate?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -53,7 +56,11 @@ class BookingStatusTableViewCell: UITableViewCell {
         }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        print("취소")   // 데이터 배열 삭제하기
+        delegate?.cellButtonTapped()
     }
-    
+}
+
+
+protocol ButtonTappedDelegate {
+    func cellButtonTapped()
 }
