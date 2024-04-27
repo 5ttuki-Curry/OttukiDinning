@@ -15,6 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellLabel: UILabel!
     
+    let networkManager = NetworkManager()
     
     private var searchStore : RestaurantData? = nil {
         didSet {
@@ -52,13 +53,21 @@ class CollectionViewCell: UICollectionViewCell {
     
     func setCell(_ data: RestaurantData){
         
-// 이미지      if let image = data.image {
-//            cellImage.image = image
-//        }
-        
         cellLabel.text = data.placeName
         cellLabel.layer.masksToBounds = true
         
+        networkManager.downloadImage(placeName: data.placeName) { image in
+            // UI 작업은 메인 스레드에서 실행
+            DispatchQueue.main.async {
+                if let downloadedImage = image {
+                    // UIImageView에 이미지 설정
+                    self.cellImage.image = downloadedImage
+                } else {
+                    // 이미지 로딩 실패 처리
+                    print("Image download failed")
+                }
+            }
+        }
         
         // cell 테두리
         contentView.layer.cornerRadius = 16

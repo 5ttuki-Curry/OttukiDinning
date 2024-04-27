@@ -100,9 +100,7 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
             case .success(let a):
                 self.result2 = a
-                print(a)
                 self.collectionView.reloadData()    // 보라색 에러 나면 dispatchqueue main
-                print("1111111111111111111111111111111111111111111111111111111111111111111")
                 
             case .failure(_):
                 break
@@ -118,27 +116,13 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // 검색 버튼이 눌렸을 때의 동작
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        print("검색 실행")
-        
-        guard let text = searchBar.text?.lowercased() else { return }
-        
-        networkManager.searchRestaurantList(keyword: text) { result in
-            switch result {
-                
-            case .success(let a):
-                self.result2 = a
-                print(a)
-                self.collectionView.reloadData()    // 보라색 에러 나면 dispatchqueue main
-                print("22222222222222222222222222222222222222222222222222222222222222222222")
-                
-            case .failure(_):
-                break
-            }
-            
+        // 사용자가 검색 버튼을 클릭했을 때 원하는 작업을 여기에 구현합니다.
+        if let searchText = searchBar.text {
+            // 검색어를 사용한 검색 로직 실행
+            print("검색어: \(searchText)")
         }
         
-        // 키보드 숨김
+        // 키보드를 숨깁니다.
         searchBar.resignFirstResponder()
     }
     
