@@ -19,6 +19,8 @@ class BookingStatusTableViewCell: UITableViewCell {
     
     var delegate: ButtonTappedDelegate?
     
+    var cellIndex = 0
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,11 +58,11 @@ class BookingStatusTableViewCell: UITableViewCell {
         }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        delegate?.cellButtonTapped()
+        self.delegate?.cellButtonTapped(index: cellIndex)
     }
 }
 
 
 protocol ButtonTappedDelegate {
-    func cellButtonTapped()
+    func cellButtonTapped(index: Int)
 }
