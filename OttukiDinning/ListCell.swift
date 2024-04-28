@@ -24,9 +24,19 @@ class ListCell: UICollectionViewCell {
             // 메인 페이지 상품 데이터 JSON Dummy API 활용해서 노출하기  (썸네일, 상품명, 설명, 가격)
             DispatchQueue.main.async {
                 self.nameLabel.text = searchStore.placeName
-                self.addressLabel.text = searchStore.addressName         
+                self.addressLabel.text = searchStore.addressName
+                
+                
             }
+            
         }
+        
+        // 이미지
+        //            DispatchQueue.global().async { [weak self] in
+        //                if let data = try? Data(contentsOf: RestaurantData.image), let image = UIImage(data: data) {
+        //                    DispatchQueue.main.async { self?.cellImage.image = image}
+        //                }
+        //            }
     }
     
     override func awakeFromNib() {

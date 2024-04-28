@@ -12,10 +12,19 @@ import Alamofire
 class SionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     let networkManager = NetworkManager()
-
+    //    var result : [SearchStoreData] = SearchStoreData.data
     var result2: [RestaurantData] = []
     let collectionView = UITableView()
     var starArray: [Double] = []
+    
+//    
+//        var isFiltering: Bool {
+//                let searchController = self.navigationItem.searchController
+//                let isActive = searchController?.isActive ?? false
+//                let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+//                return isActive && isSearchBarHasText
+//                 }   // 검색하지 않을 때에도 searchController의 속성 활성화
+//    
     
     @IBOutlet weak var sortingStyleButton: UIButton!
     @IBOutlet weak var listStyleButton: UIButton!
@@ -45,6 +54,8 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         setCollectionView()
         
         setBottomUIStackView()
+        
+        
     }
     
     //MARK: - SearchBar
