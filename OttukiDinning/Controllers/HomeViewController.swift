@@ -20,6 +20,7 @@ class HomeViewController: UICollectionViewController {
     let homeButton = UIButton()
     let searchButton = UIButton()
     let myInfoButton = UIButton()
+    let networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class HomeViewController: UICollectionViewController {
         self.setTopUIButton()
         self.setCollectionView()
         view.backgroundColor = .white
+        networkManager.setRestaurantData()
     }
     
     private func setCollectionView() {
@@ -166,16 +168,18 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
             
             switch cell.cellNumber {
             case 0:
-                let restaurantData = HomeCollectionViewCell.seoulRestaurantData[indexPath.row][Int.random(in: 0...14)]
-                detailViewController.detailRestaurantData = restaurantData
-                detailViewController.setRestaurantImageView(placeName: restaurantData.placeName)
+                if let regionRestaurants = NetworkManager.seoulRestaurantData[NetworkManager.seoulLivingArea[indexPath.row]] {
+                    let restaurantData = regionRestaurants[Int.random(in: 0..<regionRestaurants.count)]
+                    detailViewController.detailRestaurantData = restaurantData
+                    detailViewController.setRestaurantImageView(placeName: restaurantData.placeName)
+                }
             case 1:
-                if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
+                if let restaurantData = NetworkManager.defaultRestaurantData {
                     detailViewController.detailRestaurantData = restaurantData[indexPath.row]
                     detailViewController.setRestaurantImageView(placeName: restaurantData[indexPath.row].placeName)
                 }
             case 2:
-                if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
+                if let restaurantData = NetworkManager.defaultRestaurantData {
                     detailViewController.detailRestaurantData = restaurantData[(restaurantData.count - 1) - indexPath.row]
                     detailViewController.setRestaurantImageView(placeName: restaurantData[(restaurantData.count - 1) - indexPath.row].placeName)
                 }

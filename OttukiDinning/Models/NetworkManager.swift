@@ -11,6 +11,10 @@ import UIKit
 
 class NetworkManager {
     
+    static var defaultRestaurantData: [RestaurantData]?
+    static var seoulRestaurantData: [String: [RestaurantData]] = [:]
+    static let seoulLivingArea: [String] = ["강동구 맛집", "강서구 맛집", "강북구 맛집", "강남구 맛집"]
+    
     // Alamofire를 이용한 키워드 식당 리스트
     func searchRestaurantList(keyword: String, completion: @escaping (Result<[RestaurantData], Error>) -> Void) {
         let headers: HTTPHeaders = ["Authorization": "KakaoAK 4457647991508438bc027a5a8e998987"]
@@ -47,6 +51,21 @@ class NetworkManager {
                 print("Error downloading image: \(error)")
                 DispatchQueue.main.async {
                     completion(UIImage(named: "NoImage"))
+                }
+            }
+        }
+    }
+    
+    func setRestaurantData() {
+        for keyword in NetworkManager.seoulLivingArea {
+            self.searchRestaurantList(keyword: keyword) { [weak self] result in
+                switch result {
+                case .success(let restaurantList):
+                    NetworkManager.seoulRestaurantData[keyword] = restaurantList
+//                    self?.horizontalCollectionView.reloadData()
+                    print(restaurantList.count)
+                case .failure(let error):
+                    print(error)
                 }
             }
         }
