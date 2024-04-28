@@ -166,7 +166,7 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
             
             switch cell.cellNumber {
             case 0:
-                let restaurantData = HomeCollectionViewCell.seoulRestaurantData[indexPath.row][Int.random(in: 0...4)]
+                let restaurantData = HomeCollectionViewCell.seoulRestaurantData[indexPath.row][Int.random(in: 0...14)]
                 detailViewController.detailRestaurantData = restaurantData
                 detailViewController.setRestaurantImageView(placeName: restaurantData.placeName)
             case 1:
