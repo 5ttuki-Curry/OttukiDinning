@@ -10,9 +10,6 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell {
     
     let networkManager = NetworkManager()
-    static var defaultRestaurantData: [RestaurantData]?
-    static var seoulRestaurantData: [[RestaurantData]] = []
-    let seoulLivingArea: [String] = ["강동구 맛집", "강서구 맛집", "강북구 맛집", "강남구 맛집"]
     
     var cellNumber = 0
     let titleLabel = UILabel()
@@ -32,7 +29,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.executeNetworkManager("서울 맛집")
-        self.setRestaurantData()
+//        self.setRestaurantData()
         self.setHomeCollectionViewCell()
         
     }
@@ -41,25 +38,10 @@ class HomeCollectionViewCell: UICollectionViewCell {
         networkManager.searchRestaurantList(keyword: keyword) { [weak self] result in
             switch result {
             case .success(let restaurantList):
-                HomeCollectionViewCell.defaultRestaurantData = restaurantList
+                NetworkManager.defaultRestaurantData = restaurantList
                 self?.horizontalCollectionView.reloadData()
             case .failure(let error):
                 print(error)
-            }
-        }
-    }
-    
-    func setRestaurantData() {
-        for keyword in seoulLivingArea {
-            networkManager.searchRestaurantList(keyword: keyword) { [weak self] result in
-                switch result {
-                case .success(let restaurantList):
-                    HomeCollectionViewCell.seoulRestaurantData.append(restaurantList)
-                    self?.horizontalCollectionView.reloadData()
-                    print(restaurantList.count)
-                case .failure(let error):
-                    print(error)
-                }
             }
         }
     }
@@ -111,17 +93,17 @@ extension HomeCollectionViewCell: UICollectionViewDelegate, UICollectionViewData
         
         switch cellNumber {
         case 0:
-            cell.restaurantLabel.text = seoulLivingArea[indexPath.row]
-            cell.setRestaurantImageView(placeName: seoulLivingArea[indexPath.row])
+            cell.restaurantLabel.text = NetworkManager.seoulLivingArea[indexPath.row]
+            cell.setRestaurantImageView(placeName: NetworkManager.seoulLivingArea[indexPath.row])
         case 1:
-            if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
+            if let restaurantData = NetworkManager.defaultRestaurantData {
                 cell.restaurantLabel.text = restaurantData[indexPath.row].placeName
                 cell.setRestaurantImageView(placeName: restaurantData[indexPath.row].placeName)
             } else {
                 cell.restaurantLabel.text = "None"
             }
         case 2:
-            if let restaurantData = HomeCollectionViewCell.defaultRestaurantData {
+            if let restaurantData = NetworkManager.defaultRestaurantData {
                 cell.restaurantLabel.text = restaurantData[(restaurantData.count - 1) - indexPath.row].placeName
                 cell.setRestaurantImageView(placeName: restaurantData[(restaurantData.count - 1) - indexPath.row].placeName)
             } else {

@@ -12,7 +12,8 @@ import Alamofire
 class SionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     let networkManager = NetworkManager()
-
+    var searchDebounceTimer: Timer?
+    
     var result2: [RestaurantData] = []
     let collectionView = UITableView()
     var starArray: [Double] = []
@@ -67,67 +68,57 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         searchController.searchBar.placeholder = "지역, 음식, 매장명 검색"
         
         searchController.delegate = self
-        self.searchBar.delegate = self    }
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        // 검색 결과를 업데이트하는 뷰 컨트롤러로 searchController를 설정
+        navigationItem.searchController = searchController
+    }
     
     
     // 텍스트 검색 시
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let text = searchBar.text else { return }
+    func updateSearchResults(for searchController: UISearchController) {
+        dump(searchController.searchBar.text) // 디버깅을 위한 출력
+                
+        guard let text = searchController.searchBar.text?.lowercased() else {
+            return
+        }
+        
+        performSearch(with: text)
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder() // 키보드를 숨깁니다.
+        
+        guard let text = searchBar.text?.lowercased() else {
+            return
+        }
+        
+        performSearch(with: text)
+    }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        searchBar.resignFirstResponder() // 키보드
-        
-        dump(searchController.searchBar.text) // 입력 텍스트가 프린트 되어 확인 가능
-        
-        guard let text = searchController.searchBar.text?.lowercased() else { return }
-        
-        networkManager.searchRestaurantList(keyword: text) { result in
-            switch result {
-                
-            case .success(let a):
-                self.result2 = a
-                self.collectionView.reloadData()    // 보라색 에러 나면 dispatchqueue main
-                
-            case .failure(_):
-                break
+    func performSearch(with text: String) {
+        searchDebounceTimer?.invalidate()  // 기존 타이머를 취소합니다.
+        searchDebounceTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self] _ in
+            self?.networkManager.searchRestaurantList(keyword: text) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let a):
+                        self?.result2 = a
+                        self?.collectionView.reloadData()
+                    case .failure(_):
+                        // 에러 처리
+                        break
+                    }
+                }
             }
             
-        }
-        
-        isCollectionMode = true
-        setCollectionView()
-        
+            self?.isCollectionMode = true
+            self?.setCollectionView()
+        })
     }
     
-    
-    // 검색 버튼이 눌렸을 때의 동작
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // 사용자가 검색 버튼을 클릭했을 때 원하는 작업을 여기에 구현합니다.
-        if let searchText = searchBar.text {
-            // 검색어를 사용한 검색 로직 실행
-            print("검색어: \(searchText)")
-        }
-        
-        // 키보드를 숨깁니다.
-        searchBar.resignFirstResponder()
-    }
-    
-    // 취소 버튼 클릭 시
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.text = ""
-        self.result2.removeAll()
-        self.searchBar.resignFirstResponder()
-        self.collectionView.reloadData()
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-            searchBar.showsCancelButton = false
-        }
-    
-    
+    // 랜덤 별점 생성
     func setStarArray() {
         for _ in 0...15 {
             let randomRating = Double.random(in: 3.5...5.0)
@@ -135,6 +126,7 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    // 별점순으로 정렬
     func setRateSorted() {
         
         let combined = zip(self.starArray, self.result2)
