@@ -25,18 +25,8 @@ class ListCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 self.nameLabel.text = searchStore.placeName
                 self.addressLabel.text = searchStore.addressName
-                
-                
             }
-            
         }
-        
-        // 이미지
-        //            DispatchQueue.global().async { [weak self] in
-        //                if let data = try? Data(contentsOf: RestaurantData.image), let image = UIImage(data: data) {
-        //                    DispatchQueue.main.async { self?.cellImage.image = image}
-        //                }
-        //            }
     }
     
     override func awakeFromNib() {
@@ -134,3 +124,5 @@ class ListCell: UICollectionViewCell {
     
     
 }
+
+

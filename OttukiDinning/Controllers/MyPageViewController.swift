@@ -24,15 +24,14 @@ class MyPageViewController: UIViewController {
     let defaults = UserDefaults.standard
     
     var isStatusMode = true
-    var isHistoryMode = true
-    var array:[Reserve] = [] //코어데이터에서 가져온 전체!
-    var array1:[Reserve] = [] //예약 현황 배열
-    var array2:[Reserve] = [] //예약 내역 배열
-    
+    var array: [Reserve] = []  //코어데이터에서 가져온 전체!
+    var array1: [Reserve] = [] //예약 현황 배열
+    var array2: [Reserve] = [] //예약 내역 배열
     
     var persistentContainer: NSPersistentContainer? {
             (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
         }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,21 +97,21 @@ class MyPageViewController: UIViewController {
     func setArrays() {
         let calendar = Calendar.current
         let present = Date()
+        
         print(present)
         
         guard let context = self.persistentContainer?.viewContext else { return }
-        
         let request = Reserve.fetchRequest()
         guard let reserveList = try? context.fetch(request) else { return }
         
         array = reserveList
         self.array1 = array.filter{
-            calendar.compare(present, to: $0.reserveDate!, toGranularity: .day) == .orderedAscending
+            calendar.compare(present, to: $0.reserveDate!, toGranularity: .minute) == .orderedAscending
         }.sorted{
             $0.reserveDate! < $1.reserveDate!
         }
         self.array2 = array.filter{
-            calendar.compare(present, to: $0.reserveDate!, toGranularity: .day) == .orderedDescending
+            calendar.compare(present, to: $0.reserveDate!, toGranularity: .minute) == .orderedDescending
         }.sorted{
             $0.reserveDate! < $1.reserveDate!
         }
@@ -121,32 +120,17 @@ class MyPageViewController: UIViewController {
     
     
     @objc func homeButtonTapped() {
-        let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
-        guard let nextVC = storyboard.instantiateViewController(identifier: "HomeView") as? HomeViewController else {
-            return
-        }
-        ButtonManager.navigationController = UINavigationController(rootViewController: nextVC)
-        ButtonManager.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(ButtonManager.navigationController, animated: true)
+        ButtonManager.homeButtonTapped(viewController: self)
     }
     
     
     @objc func searchButtonTapped() {
-        let storyboard = UIStoryboard(name: "Sion", bundle: nil)
-        guard let nextVC = storyboard.instantiateViewController(identifier: "SionViewController") as? SionViewController else {
-            return
-        }
-        ButtonManager.navigationController = UINavigationController(rootViewController: nextVC)
-        ButtonManager.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(ButtonManager.navigationController, animated: true)
+        ButtonManager.searchButtonTapped(viewController: self)
     }
     
     
     @objc func myInfoButtonTapped() {
-        let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
-        guard let mypageVC = storyboard.instantiateViewController(withIdentifier: "MyPageView") as? MyPageViewController else { return }
-        mypageVC.modalPresentationStyle = .fullScreen
-        self.present(mypageVC, animated: false, completion: nil)
+        ButtonManager.myInfoButtonTapped(viewController: self)
     }
 
    
@@ -157,12 +141,10 @@ class MyPageViewController: UIViewController {
         case 0:
             // 예약 현황 보여주기
             isStatusMode = true
-            isHistoryMode = false
             self.tableview.reloadData()
         case 1:
             // 예약 내역 보여주기
             isStatusMode = false
-            isHistoryMode = true
             self.tableview.reloadData()
         default:
             break
@@ -177,8 +159,6 @@ class MyPageViewController: UIViewController {
     }
 
 }
-
-
 
 
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate, ButtonTappedDelegate {
@@ -197,19 +177,30 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate, Butt
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let date: DateFormatter = {
+            let df = DateFormatter()
+            df.locale = Locale(identifier: "ko_KR")
+            df.timeZone = TimeZone(abbreviation: "KST")
+            df.dateStyle = .long
+            df.timeStyle = .short
+            return df
+        }()
+        
         if isStatusMode {
             //현황
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookingStatusCell", for: indexPath)
                     as? BookingStatusTableViewCell else { return UITableViewCell() }
             
             cell.configureCell()
-            let status = array1[indexPath.row]//엔티티 접근
+            let status = array1[indexPath.row]   //엔티티 접근
 
             //애트리뷰트
-            cell.placeNameLabel.text = status.reserveRestaurantName             //식당이름
-            cell.personNameLabel.text = status.reserveName              //예약자 명
-            cell.bookingDateLabel.text = "\(String(describing: status.reserveDate!))"        //예약 날짜
-            cell.personCountLabel.text = String(status.reservePeople) + " 명"  //예약 인원
+            cell.placeNameLabel.text = status.reserveRestaurantName            //식당 이름
+            cell.personNameLabel.text = status.reserveName                     //예약자 명
+            if let reserveDate = status.reserveDate {
+                cell.bookingDateLabel.text = date.string(from: reserveDate)    //예약 날짜
+            }
+            cell.personCountLabel.text = String(status.reservePeople) + " 명"   //예약 인원
             cell.delegate = self
 
             return cell
@@ -219,11 +210,13 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate, Butt
                     as? BookingHistoryTableViewCell else { return UITableViewCell() }
             
             cell.configureCell()
-            let status = array2[indexPath.row]//엔티티 접근
+            let status = array2[indexPath.row]  //엔티티 접근
 
             //애트리뷰트
-            cell.placeNameLabel.text = status.reserveRestaurantName //식당이름
-            cell.bookingDateLabel.text = "\(String(describing: status.reserveDate!))" //예약 날짜
+            cell.placeNameLabel.text = status.reserveRestaurantName          //식당이름
+            if let reserveDate = status.reserveDate {
+                cell.bookingDateLabel.text = date.string(from: reserveDate)  //예약 날짜
+            }
             cell.personCountLabel.text = String(status.reservePeople) + " 명" //예약 인원
             
             return cell
@@ -232,17 +225,27 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate, Butt
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.estimatedRowHeight
+        return tableView.rowHeight
     }
     
+    // 셀 내부 취소하기 버튼
+    func cellButtonTapped(index: Int) {
+        array1.remove(at: index)   // 배열 삭제
+        tableview.reloadData()
+        
+        deleteData(index: index)   // 코어데이터 삭제
+    }
     
-    func cellButtonTapped() {
-        print("cancel")
-        // 배열 삭제하기
-        // 코어데이터 삭제하기
-        // 셀 삭제하기
-        //guard let cell = tableview.dequeueReusableCell(withIdentifier: "BookingHistoryCell", for: IndexPath)
+    // 코어데이터 특정 데이터만 삭제
+    func deleteData(index: Int) {
+        guard let context = self.persistentContainer?.viewContext else { return }
+        let request = Reserve.fetchRequest()
 
+        guard let reserveList = try? context.fetch(request) else { return }
+
+        context.delete(reserveList[index])
+
+        try? context.save()
     }
     
 }

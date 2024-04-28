@@ -148,6 +148,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CB740682BDC1306009C1525 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F7D1E2BD953CB001A046A /* Main.storyboard */,
+				FF8F7CF42BD658A9001A046A /* HomeView.storyboard */,
+				FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */,
+				FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */,
+				FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */,
+				FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */,
+				FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */,
+				7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */,
+				7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */,
+				7BB1B7EE2BDA2DC90097B518 /* CollectionViewCell.xib */,
+				7BB1B7EC2BDA2DC50097B518 /* ListCell.swift */,
+				7BB1B7EA2BDA2DC00097B518 /* ListCell.xib */,
+				B55E00252BD67D2000896FF0 /* DetailPage.storyboard */,
+				9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */,
+				9CB7405A2BDA59D3009C1525 /* BookingStatusTableViewCell.swift */,
+				9CB7405B2BDA59D3009C1525 /* BookingStatusTableViewCell.xib */,
+				9CB740562BDA5970009C1525 /* BookingHistoryTableViewCell.swift */,
+				9CB740572BDA5970009C1525 /* BookingHistoryTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CB740692BDC130F009C1525 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F7D202BD953EA001A046A /* LogInViewController.swift */,
+				FF8F7D222BD953F2001A046A /* SignUpViewController.swift */,
+				FF8F7CF22BD65892001A046A /* HomeViewController.swift */,
+				FF8F7D112BD7D073001A046A /* DetailViewController.swift */,
+				7BB1B7F42BDA2DDB0097B518 /* SionViewController.swift */,
+				B55E00272BD67DBA00896FF0 /* DetailPageController.swift */,
+				9CB740452BDA26FE009C1525 /* MyPageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		FF8F7CA92BD6349B001A046A = {
 			isa = PBXGroup;
 			children = (
@@ -171,43 +210,16 @@
 		FF8F7CB42BD6349B001A046A /* OttukiDinning */ = {
 			isa = PBXGroup;
 			children = (
-				FF8F7D222BD953F2001A046A /* SignUpViewController.swift */,
-				FF8F7D202BD953EA001A046A /* LogInViewController.swift */,
-				FF8F7D1E2BD953CB001A046A /* Main.storyboard */,
 				FF8F7CFD2BD65976001A046A /* Models */,
-				FF8F7CFA2BD65960001A046A /* NetworkManager.swift */,
-				FF8F7CF42BD658A9001A046A /* HomeView.storyboard */,
-				FF8F7CF22BD65892001A046A /* HomeViewController.swift */,
+				9CB740682BDC1306009C1525 /* Views */,
+				9CB740692BDC130F009C1525 /* Controllers */,
 				FF8F7CB52BD6349B001A046A /* AppDelegate.swift */,
 				FF8F7CB72BD6349B001A046A /* SceneDelegate.swift */,
 				FF8F7CB92BD6349B001A046A /* ViewController.swift */,
 				FF8F7CC12BD6349C001A046A /* Assets.xcassets */,
 				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
 				FF8F7CC62BD6349C001A046A /* Info.plist */,
-				FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */,
-				B55E00272BD67DBA00896FF0 /* DetailPageController.swift */,
-				B55E00252BD67D2000896FF0 /* DetailPage.storyboard */,
-				FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */,
-				FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */,
-				FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */,
-				FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */,
-				FF8F7D112BD7D073001A046A /* DetailViewController.swift */,
-				FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */,
-				FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */,
-				9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */,
-				9CB740452BDA26FE009C1525 /* MyPageViewController.swift */,
-				9CB7405A2BDA59D3009C1525 /* BookingStatusTableViewCell.swift */,
-				9CB7405B2BDA59D3009C1525 /* BookingStatusTableViewCell.xib */,
-				9CB740562BDA5970009C1525 /* BookingHistoryTableViewCell.swift */,
-				9CB740572BDA5970009C1525 /* BookingHistoryTableViewCell.xib */,
 				7BB1B7F32BDA2DDB0097B518 /* SampleData.swift */,
-				7BB1B7F42BDA2DDB0097B518 /* SionViewController.swift */,
-				7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */,
-				7BB1B7EA2BDA2DC00097B518 /* ListCell.xib */,
-				7BB1B7EC2BDA2DC50097B518 /* ListCell.swift */,
-				7BB1B7EE2BDA2DC90097B518 /* CollectionViewCell.xib */,
-				7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */,
-				FF8F7D442BDB9620001A046A /* ButtonManager.swift */,
 			);
 			path = OttukiDinning;
 			sourceTree = "<group>";
@@ -232,7 +244,11 @@
 		FF8F7CFD2BD65976001A046A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FF8F7CBE2BD6349B001A046A /* OttukiDinning.xcdatamodeld */,
 				FF8F7CFC2BD65976001A046A /* RestaurantData.swift */,
+				FF8F7CFA2BD65960001A046A /* NetworkManager.swift */,
+				FF8F7D442BDB9620001A046A /* ButtonManager.swift */,
+				FF8F7D132BD7D843001A046A /* HomeCollectionViewCellDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,7 +614,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinning;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jun.OttukiDinning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -627,7 +643,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.OttukiCurry.OttukiDinning;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jun.OttukiDinning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
