@@ -153,13 +153,10 @@
 			children = (
 				FF8F7D1E2BD953CB001A046A /* Main.storyboard */,
 				FF8F7CF42BD658A9001A046A /* HomeView.storyboard */,
-				FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */,
 				FF8F7D002BD67D77001A046A /* HomeCollectionViewCell.xib */,
-				FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */,
 				FF8F7D0C2BD7AEBB001A046A /* HorizontalViewCell.xib */,
 				FF8F7D0F2BD7D056001A046A /* DetailView.storyboard */,
 				7BB1B7F22BDA2DDB0097B518 /* Sion.storyboard */,
-				7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */,
 				7BB1B7EE2BDA2DC90097B518 /* CollectionViewCell.xib */,
 				7BB1B7EC2BDA2DC50097B518 /* ListCell.swift */,
 				7BB1B7EA2BDA2DC00097B518 /* ListCell.xib */,
@@ -176,6 +173,9 @@
 		9CB740692BDC130F009C1525 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7BB1B7F02BDA2DCD0097B518 /* CollectionViewCell.swift */,
+				FF8F7CFF2BD67D77001A046A /* HomeCollectionViewCell.swift */,
+				FF8F7D0B2BD7AEBB001A046A /* HorizontalViewCell.swift */,
 				FF8F7D202BD953EA001A046A /* LogInViewController.swift */,
 				FF8F7D222BD953F2001A046A /* SignUpViewController.swift */,
 				FF8F7CF22BD65892001A046A /* HomeViewController.swift */,
