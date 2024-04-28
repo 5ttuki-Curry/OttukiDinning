@@ -167,7 +167,7 @@ class DetailPageController: UIViewController {
        alert.addAction(UIAlertAction(title: "확인", style: .default) { [weak self] (_) in
            self?.dismiss(animated: true, completion: {
                // dismiss가 완료된 후, 루트 뷰 컨트롤러로 이동하는 로직을 실행
-               LogInViewController.navigationController.popToRootViewController(animated: true)
+               ButtonManager.navigationController.popToRootViewController(animated: true)
            })
        })
         self.present(alert, animated: true, completion: nil)

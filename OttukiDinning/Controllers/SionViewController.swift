@@ -243,7 +243,16 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
-    
+    // UICollectionViewDelegate 메소드 구현
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController {
+
+            detailVC.detailRestaurantData = result2[indexPath.row]
+            detailVC.setRestaurantImageView(placeName: result2[indexPath.row].placeName)
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
     
     //MARK: - IBAction
     @IBAction func tappedSortingButton(_ sender: UIButton) {

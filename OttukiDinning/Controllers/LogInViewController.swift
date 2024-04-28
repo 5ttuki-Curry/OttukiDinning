@@ -19,8 +19,6 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var kakaoLogInButton: UIButton!
     
     let defaults = UserDefaults.standard
-    static var navigationController = UINavigationController()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
