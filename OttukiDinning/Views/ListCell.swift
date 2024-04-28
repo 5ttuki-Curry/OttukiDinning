@@ -15,27 +15,18 @@ class ListCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     
+    let networkManager = NetworkManager()
+    
     private var searchStore : RestaurantData? = nil {
         didSet {
             guard let searchStore = self.searchStore else {return}
             
             // 메인 페이지 상품 데이터 JSON Dummy API 활용해서 노출하기  (썸네일, 상품명, 설명, 가격)
             DispatchQueue.main.async {
-                //이미지                self.cellImage.image = nil
                 self.nameLabel.text = searchStore.placeName
                 self.addressLabel.text = searchStore.addressName
-                
-                
             }
-            
         }
-        
-        // 이미지
-        //            DispatchQueue.global().async { [weak self] in
-        //                if let data = try? Data(contentsOf: RestaurantData.image), let image = UIImage(data: data) {
-        //                    DispatchQueue.main.async { self?.cellImage.image = image}
-        //                }
-        //            }
     }
     
     override func awakeFromNib() {
@@ -57,16 +48,24 @@ class ListCell: UICollectionViewCell {
     
     func setCell(_ data: RestaurantData){
         
-        // 이미지       if let image = data.image {
-        //            cellImage.image = image
-        //        }
-        
         nameLabel.text = data.placeName
         nameLabel.layer.masksToBounds = true
         addressLabel.text = data.addressName
         addressLabel.layer.masksToBounds = true
         // 별점      ratingLabel.text = String(data.rate)
         
+        networkManager.downloadImage(placeName: data.placeName) { image in
+            // UI 작업은 메인 스레드에서 실행
+            DispatchQueue.main.async {
+                if let downloadedImage = image {
+                    // UIImageView에 이미지 설정
+                    self.cellImage.image = downloadedImage
+                } else {
+                    // 이미지 로딩 실패 처리
+                    print("Image download failed")
+                }
+            }
+        }
         
         // cell 테두리
         contentView.layer.cornerRadius = 16
@@ -125,3 +124,5 @@ class ListCell: UICollectionViewCell {
     
     
 }
+
+

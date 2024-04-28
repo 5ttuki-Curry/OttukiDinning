@@ -12,18 +12,10 @@ import Alamofire
 class SionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     let networkManager = NetworkManager()
-    //    var result : [SearchStoreData] = SearchStoreData.data
+
     var result2: [RestaurantData] = []
     let collectionView = UITableView()
-    
-//    
-//        var isFiltering: Bool {
-//                let searchController = self.navigationItem.searchController
-//                let isActive = searchController?.isActive ?? false
-//                let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
-//                return isActive && isSearchBarHasText
-//                 }   // 검색하지 않을 때에도 searchController의 속성 활성화
-//    
+    var starArray: [Double] = []
     
     @IBOutlet weak var sortingStyleButton: UIButton!
     @IBOutlet weak var listStyleButton: UIButton!
@@ -38,18 +30,7 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-
-        //초기 화면을 별점순으로 설정
-        //            SearchStoreData.data.sort {
-        //                if $0.rate == $1.rate {
-        //                    return $0.name < $1.name
-        //                } else {
-        //                    return $0.rate > $1.rate
-        //                }
-        //            }
+        self.setStarArray()
         
         //아직 별점이 없기에 초기 화면 가나다순으로 설정하는 것으로 변경
         result2.sort { $0.placeName < $1.placeName }
@@ -64,8 +45,6 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         setCollectionView()
         
         setBottomUIStackView()
-        
-        
     }
     
     //MARK: - SearchBar
@@ -110,9 +89,7 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
             case .success(let a):
                 self.result2 = a
-                print(a)
                 self.collectionView.reloadData()    // 보라색 에러 나면 dispatchqueue main
-                print("1111111111111111111111111111111111111111111111111111111111111111111")
                 
             case .failure(_):
                 break
@@ -128,27 +105,13 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // 검색 버튼이 눌렸을 때의 동작
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        print("검색 실행")
-        
-        guard let text = searchBar.text?.lowercased() else { return }
-        
-        networkManager.searchRestaurantList(keyword: text) { result in
-            switch result {
-                
-            case .success(let a):
-                self.result2 = a
-                print(a)
-                self.collectionView.reloadData()    // 보라색 에러 나면 dispatchqueue main
-                print("22222222222222222222222222222222222222222222222222222222222222222222")
-                
-            case .failure(_):
-                break
-            }
-            
+        // 사용자가 검색 버튼을 클릭했을 때 원하는 작업을 여기에 구현합니다.
+        if let searchText = searchBar.text {
+            // 검색어를 사용한 검색 로직 실행
+            print("검색어: \(searchText)")
         }
         
-        // 키보드 숨김
+        // 키보드를 숨깁니다.
         searchBar.resignFirstResponder()
     }
     
@@ -165,8 +128,25 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     
     
+    func setStarArray() {
+        for _ in 0...15 {
+            let randomRating = Double.random(in: 3.5...5.0)
+            starArray.append(randomRating)
+        }
+    }
     
-    
+    func setRateSorted() {
+        
+        let combined = zip(self.starArray, self.result2)
+
+        // 튜플 배열을 숫자에 따라 내림차순으로 정렬합니다.
+        let sortedCombined = combined.sorted(by: { $0.0 > $1.0 })
+
+        // 정렬된 배열에서 데이터 배열과 숫자 배열을 다시 추출합니다.
+        self.starArray = sortedCombined.map { $0.0 }
+        self.result2 = sortedCombined.map { $0.1 }
+
+    }
 
     //MARK: - CollectionView
     
@@ -200,6 +180,8 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
                 return UICollectionViewCell()
             }
             cell.setCell(result2[indexPath.row])
+            cell.ratingLabel.text = String(format: "%.1f", starArray[indexPath.row])
+            
             return cell
         }
     }
@@ -244,14 +226,8 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
             // 가나다순으로 정렬
             if action.title == "가나다 순" {
                 self.result2.sort { $0.placeName < $1.placeName }
-                //            } else if action.title == "별점 높은 순" {            // 현재는 아직 별점이 없음
-                //                SearchStoreData.data.sort {
-                //                    if $0.rate == $1.rate {
-                //                        return $0.name < $1.name
-                //                    } else {
-                //                        return $0.rate > $1.rate
-                //                    }
-                //                }
+            } else {
+                self.setRateSorted()
             }
             
             

@@ -15,6 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellLabel: UILabel!
     
+    let networkManager = NetworkManager()
     
     private var searchStore : RestaurantData? = nil {
         didSet {
@@ -22,17 +23,10 @@ class CollectionViewCell: UICollectionViewCell {
             
             // 메인 페이지 상품 데이터 JSON Dummy API 활용해서 노출하기  (썸네일, 상품명, 설명, 가격)
             DispatchQueue.main.async {
-//이미지                self.cellImage.image = nil
                 self.cellLabel.text = searchStore.placeName
 
             }
             
-            // 이미지
-//            DispatchQueue.global().async { [weak self] in
-//                if let data = try? Data(contentsOf: RestaurantData.image), let image = UIImage(data: data) {
-//                    DispatchQueue.main.async { self?.cellImage.image = image}
-//                }
-//            }
         }
     }
     
@@ -49,26 +43,24 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setStarArray() {
-        var starArray: [Double] = []
-        
-        for _ in 0...15 {
-            let randomRating = Double.random(in: 3.5...5.0)
-            starArray.append(randomRating)
-        }
-        self.cellLabel.text = String(Int(starArray[0])) // 예시로 첫 번째 원소의 정수 부분을 보여줍니다.
-    }
-    
     
     func setCell(_ data: RestaurantData){
-        
-// 이미지      if let image = data.image {
-//            cellImage.image = image
-//        }
         
         cellLabel.text = data.placeName
         cellLabel.layer.masksToBounds = true
         
+        networkManager.downloadImage(placeName: data.placeName) { image in
+            // UI 작업은 메인 스레드에서 실행
+            DispatchQueue.main.async {
+                if let downloadedImage = image {
+                    // UIImageView에 이미지 설정
+                    self.cellImage.image = downloadedImage
+                } else {
+                    // 이미지 로딩 실패 처리
+                    print("Image download failed")
+                }
+            }
+        }
         
         // cell 테두리
         contentView.layer.cornerRadius = 16

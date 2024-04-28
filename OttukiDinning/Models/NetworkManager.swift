@@ -28,25 +28,27 @@ class NetworkManager {
         }
     }
     
-    func cachingImage(placeName: String) -> UIImageView {
-        let urlString = "https://raw.githubusercontent.com/5ttuki-Curry/ImageStorage/main/\(placeName).png"
-        let imageView = UIImageView()
-        if let url = URL(string: urlString) {
-            imageView.kf.setImage(
-                with: url,
-                placeholder: nil,
-                completionHandler: { result in
-                    switch result {
-                    case .success(let value):
-                        print("이미지 로드 성공: \(value.source.url?.absoluteString ?? "")")
-                    case .failure(let error):
-                        print("이미지 로드 실패: \(error.localizedDescription)")
-                    }
-                }
-            )
+    func downloadImage(placeName: String, completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: "https://raw.githubusercontent.com/5ttuki-Curry/ImageStorage/main/\(placeName).png") else {
+            print("Invalid URL")
+            completion(nil)
+            return
         }
         
-        return imageView
+        KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil) { result in
+            switch result {
+            case .success(let value):
+                // 이미지 다운로드 성공, UIImage 반환
+                DispatchQueue.main.async {
+                    completion(value.image)
+                }
+            case .failure(let error):
+                // 이미지 다운로드 실패
+                print("Error downloading image: \(error)")
+                DispatchQueue.main.async {
+                    completion(UIImage(named: "NoImage"))
+                }
+            }
+        }
     }
-    
 }
