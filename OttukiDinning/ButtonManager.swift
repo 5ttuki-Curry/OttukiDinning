@@ -9,16 +9,19 @@ import UIKit
 
 class ButtonManager {
     
+    static var navigationController = UINavigationController()
+    
     @objc static func homeButtonTapped(viewController: UIViewController) {
         print("홈화면 이동")
         let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
+        
         guard let homeVC = storyboard.instantiateViewController(identifier: "HomeView") as? HomeViewController else {
             return
         }
         
-        LogInViewController.navigationController = UINavigationController(rootViewController: homeVC)
-        LogInViewController.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        viewController.present(LogInViewController.navigationController, animated: true)
+        ButtonManager.navigationController = UINavigationController(rootViewController: homeVC)
+        ButtonManager.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        viewController.present(ButtonManager.navigationController, animated: true)
     }
     
     @objc static func searchButtonTapped(viewController: UIViewController) {
@@ -29,9 +32,9 @@ class ButtonManager {
             return
         }
         
-        let navigationController = UINavigationController(rootViewController: searchVC)
-        navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        viewController.present(navigationController, animated: true)
+        ButtonManager.navigationController = UINavigationController(rootViewController: searchVC)
+        ButtonManager.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        viewController.present(ButtonManager.navigationController, animated: true)
     }
     
     @objc static func myInfoButtonTapped(viewController: UIViewController) {

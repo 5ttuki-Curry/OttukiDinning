@@ -19,8 +19,6 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var kakaoLogInButton: UIButton!
     
     let defaults = UserDefaults.standard
-    static var navigationController = UINavigationController()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,9 +95,9 @@ class LogInViewController: UIViewController {
                 return
             }
             
-            LogInViewController.navigationController = UINavigationController(rootViewController: nextVC)
-            LogInViewController.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-            self.present(LogInViewController.navigationController, animated: true)
+            ButtonManager.navigationController = UINavigationController(rootViewController: nextVC)
+            ButtonManager.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(ButtonManager.navigationController, animated: true)
         } else {
             // 틀리면 alert창 띄워 경고
             let alert = UIAlertController(title: "가입하신 이메일 또는 비밀번호가 아닙니다.", message: "다시 입력해 주세요.", preferredStyle: .alert)

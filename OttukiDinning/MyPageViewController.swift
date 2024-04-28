@@ -125,9 +125,9 @@ class MyPageViewController: UIViewController {
         guard let nextVC = storyboard.instantiateViewController(identifier: "HomeView") as? HomeViewController else {
             return
         }
-        LogInViewController.navigationController = UINavigationController(rootViewController: nextVC)
-        LogInViewController.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(LogInViewController.navigationController, animated: true)
+        ButtonManager.navigationController = UINavigationController(rootViewController: nextVC)
+        ButtonManager.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.present(ButtonManager.navigationController, animated: true)
     }
     
     
@@ -136,9 +136,9 @@ class MyPageViewController: UIViewController {
         guard let nextVC = storyboard.instantiateViewController(identifier: "SionViewController") as? SionViewController else {
             return
         }
-        LogInViewController.navigationController = UINavigationController(rootViewController: nextVC)
-        LogInViewController.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(LogInViewController.navigationController, animated: true)
+        ButtonManager.navigationController = UINavigationController(rootViewController: nextVC)
+        ButtonManager.navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.present(ButtonManager.navigationController, animated: true)
     }
     
     
