@@ -32,9 +32,6 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setStarArray()
-        
-        //아직 별점이 없기에 초기 화면 가나다순으로 설정하는 것으로 변경
-        result2.sort { $0.placeName < $1.placeName }
         self.searchCollectionView.reloadData()
         
         setSearchController(searchBar)
@@ -228,6 +225,7 @@ class SionViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         
         self.sortingStyleButton.menu = UIMenu( children: [
+            UIAction(title: "오뚝 추천순", handler: seletedPriority),
             UIAction(title: "가나다 순", handler: seletedPriority),
             UIAction(title: "별점 높은 순", handler: seletedPriority)])
         self.sortingStyleButton.showsMenuAsPrimaryAction = true
