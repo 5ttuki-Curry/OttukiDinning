@@ -156,7 +156,6 @@
 				9CB740502BDA4B9A009C1525 /* MyPageView.storyboard */,
 				9CB7405B2BDA59D3009C1525 /* BookingStatusTableViewCell.xib */,
 				9CB740572BDA5970009C1525 /* BookingHistoryTableViewCell.xib */,
-				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				FFF8C4C52BE25D0A00FE2515 /* Main.storyboard */,
+				FF8F7CC32BD6349C001A046A /* LaunchScreen.storyboard */,
 			);
 			name = Base.lproj;
 			path = OttukiDinning/Base.lproj;
