@@ -58,11 +58,10 @@ class NetworkManager {
     
     func setRestaurantData() {
         for keyword in NetworkManager.seoulLivingArea {
-            self.searchRestaurantList(keyword: keyword) { [weak self] result in
+            self.searchRestaurantList(keyword: keyword) { result in
                 switch result {
                 case .success(let restaurantList):
                     NetworkManager.seoulRestaurantData[keyword] = restaurantList
-//                    self?.horizontalCollectionView.reloadData()
                     print(restaurantList.count)
                 case .failure(let error):
                     print(error)
